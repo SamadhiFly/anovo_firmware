@@ -1,0 +1,10 @@
+Package: kmod-crypto-hw-hifn-795x
+Version: 4.14.111-1
+Depends: kernel (=4.14.111-1-b3e629d5f8118f19f76939a9f8d0606f), kmod-random-core, kmod-crypto-manager, kmod-crypto-des
+Source: package/kernel/linux
+SourceName: kmod-crypto-hw-hifn-795x
+License: GPL-2.0
+Section: kernel
+Architecture: arm_cortex-a9_neon
+Installed-Size: 10895
+Description:  HIFN 795x crypto accelerator

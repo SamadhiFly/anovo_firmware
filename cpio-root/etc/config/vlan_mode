@@ -1,0 +1,2 @@
+config interface 'vlan_mode'
+	option vlan_mode '2'

@@ -1,0 +1,566 @@
+<html>
+<!- Copyright (c) Go Ahead Software Inc., 2000-2010. All Rights Reserved. ->
+
+	<head>
+		<title id="prosettitle"></title>
+		<meta http-equiv="X-UA-Compatible" content="edge" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="expires" content="0">
+		<meta name="viewport" content="width=1024px">
+		<link href="/css/bc.css" rel="stylesheet">
+		<link href="/css/proset.css" rel="stylesheet">
+	</head>
+	<script>
+		document.write("<script type='text/javascript' src='/script/jquery-1.8.3.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/script/qwrap.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/script/jquery.dialog.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/script/rcst-type.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/i18n/netproset-trans.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/script/language-config.js?time=" + Math.random() + " '></" + "script" + ">");
+	</script>
+
+	<body>
+		<div id="doc" style="min-width:1200px">
+			<div id="hd">
+				<div class="inner">
+					<div class="mod-head clearfix">
+						<span id="header"></span>
+						<script src="/script/header.js"></script>
+					</div>
+					<div class="mod-set-nav">
+						<ul class="clearfix">
+							<li id="network_lan_wan"><a href="/root/network/lan.htm"
+									+"?timestamp="+new Date().getTime() id=" lan_a"><i class="ico ico-2"></i><span
+										class="Network"></span></a></li>
+							<li id="proset"><a onclick="go()" id="proset_a"><i class="ico ico-3"></i><span
+										class="Advanced"></span></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<script src="/root/network/network-active.js"></script>
+			<div id="bd">
+				<div class="mod-set">
+					<div class="hd">
+						<h3 class="Advanced"></h3>
+					</div>
+					<div class="bd">
+						<table style="width:400px;font-size:18px">
+							<tr class="tcpNormal" id="tcpNormal" style="display:none">
+								<td style="width:200px;height:40px;color:#996666">
+									<span class="TCPStatus"></span>:
+								</td>
+								<td style="font-family:din,tahoma;">
+									<b id="tcp_status">--</b>
+								</td>
+							</tr>
+							<!-------------------------加速----------------------------->
+							<tr class="tcpP2p" id="tcpP2p" style="display:none">
+								<td style="width:200px;height:40px;color:#996666">
+									<span class="TCPStatus"></span>:
+								</td>
+								<td class="switch">
+									<span style="cursor:pointer" id="tcp_status_p2p"
+										class="btn-switch btn-switch-off"></span>
+								</td>
+							</tr>
+							<tr>
+								<td style="width:200px;height:40px;color:#996666">
+									<span class="TCPVersion"></span>:
+								</td>
+								<td style="font-family:din,tahoma;">
+									<span id="tcp_version">--</span>
+								</td>
+							</tr>
+							<tr style="height:20px;"> </tr>
+							<tr id="nat_switchP2p" style="display:none">
+								<td style="width:200px;height:40px;color:#996666">
+									<span class="NATStatus"></span>:
+								</td>
+								<td class="switch">
+									<span style="cursor:pointer" id="nat_status_p2p"
+										class="btn-switch btn-switch-off"></span>
+								</td>
+							</tr>
+							<tr id="nat_switch" style="display:none">
+								<td style="width:200px;height:40px;color:#996666">
+									<span class="NATStatus"></span>:
+								</td>
+								<td style="font-family:din,tahoma;">
+									<b id="nat_status">--</b>
+								</td>
+							</tr>
+							<tr id="firewall_switch" style="display:none">
+								<td style="width:200px;height:40px;color:#996666">
+									<span class="firewallStatus"></span>:
+								</td>
+								<td style="font-family:din,tahoma;">
+									<b id="firewall_status">--</b>
+								</td>
+							</tr>
+							<!--
+						<tr style="width:150px;height:50px" >	
+							<td  style="width:150px;color:#996666">
+								<span>Multicast Status:</span>	
+							</td>
+							<td class="add-contral" style="width:80px;font-family:din,tahoma;">
+								<b id="igmp">--</b>							
+							</td>			
+						</tr>
+-->
+						</table>
+					</div>
+				</div>
+				<div class="mod-set" id="redirectset" style="display:none">
+					<div class="hd">
+						<h3 class="PortForwarding"></h3>
+					</div>
+					<div class="bd">
+						<table style="width:400px;height:80px;color:#996666;font-size:18px">
+							<tr>
+								<td style="width:200px">
+									<span class="PortForwardingList"></span>
+								</td>
+								<td>
+									<a id="natport_view" href="#" class="btn btn-primary"
+										style="width:10px;height:50px"><span class="View"></span></a>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+
+				<div class="mod-set" id="Firewalldiv">
+					<div class="hd">
+						<h3 class="Firewall"></h3>
+					</div>
+					<div class="bd">
+						<table style="width:400px;height:80px;color:#996666;font-size:18px">
+							<tr>
+								<td style="width:200px">
+									<span class="FirewallList"></span>
+								</td>
+								<td>
+									<a id="firewall_btnTestSet" href="#" class="btn btn-primary"
+										style="width:10px;height:50px"><span class="View"></span></a>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+
+				<div class="mod-set">
+					<div class="hd">
+						<h3 class="Routes"></h3>
+					</div>
+					<div class="bd">
+						<table style="width:400px;height:80px;color:#996666;font-size:18px">
+							<tr>
+								<td style="width:200px">
+									<span class="RoutesList"></span>
+								</td>
+								<td>
+									<a id="route_view" href="#" class="btn btn-primary"
+										style="width:10px;height:50px"><span class="View"></span></a>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+
+				<div class="mod-set">
+					<div class="hd">
+						<h3>DNS</h3>
+					</div>
+					<div class="bd" id="dnsNormal" style="display:none">
+						<table style="width:400px;font-size:18px">
+							<tr>
+								<td style="width:200px;height:50px;color:#996666">
+									<span class="DNSSwitch"></span>
+								</td>
+								<td style="font-family:din,tahoma">
+									<b id="dns_switch">--</b>
+								</td>
+							</tr>
+							<tr id="dns_make_switch" style="display:none">
+								<td style="width:200px;height:50px;color:#996666">
+									<span class="DNSMake"></span>
+								</td>
+								<td style="font-family:din,tahoma">
+									<b id="dns_make">--</b>
+								</td>
+							</tr>
+							<tr class="dns_ip" style="display:none">
+								<td style="width:200px;height:50px;color:#996666">
+									<span class="DNSMain"></span>
+								</td>
+								<td>
+									<span id="dns_main">--</span>
+								</td>
+							</tr>
+							<tr class="dns_ip" style="display:none">
+								<td style="width:200px;height:50px;color:#996666">
+									<span class="DNSBack"></span>
+								</td>
+								<td>
+									<span id="dns_back">--</span>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<!-------------------------高级终端点到点----------------------------->
+					<div class="bd" id="dnsP2p" style="display:none">
+						<form name="dnsform" id="dnsform" action="#" class="form form-lanip">
+							<table style="width:800px;font-size:18px">
+								<tr style="width:400px;height:50px">
+									<td style="width:200px;height:50px;color:#996666">
+										<span class="DNSSwitch"></span>
+									</td>
+									<td class="switch">
+										<span style="cursor:pointer" id="dns_switch_p2p"
+											class="btn-switch btn-switch-off"></span>
+									</td>
+								</tr>
+								<tr style="width:400px;height:50px" id="dns_make_switch_p2p" style="display:block">
+									<td style="width:200px;height:50px;color:#996666">
+										<span class="DNSMake"></span>
+									</td>
+									<td class="switch">
+										<span style="cursor:pointer" id="dns_make_p2p"
+											class="btn-switch btn-switch-off"></span>
+									</td>
+								</tr>
+								<tr style="width:400px;height:50px" class="dns_ip_p2p" style="display:block">
+									<td style="width:200px;height:50px;color:#996666">
+										<span class="DNSMain"></span>
+									</td>
+									<td>
+										<div class="form-item">
+											<input type="text" title="dns_main_p2p" name="dns_main_p2p"
+												style="width:185px; height:23px;" />
+										</div>
+									</td>
+								</tr>
+								<tr style="width:400px;height:50px" class="dns_ip_p2p" style="display:none">
+									<td style="width:200px;height:50px;color:#996666">
+										<span class="DNSBack"></span>
+									</td>
+									<td>
+										<div class="form-item">
+											<input type="text" title="dns_back_p2p" name="dns_back_p2p"
+												style="width:185px; height:23px;" />
+										</div>
+									</td>
+								</tr>
+								<tr style="width:400px;height:50px" id="dns_submit_part" style="display:block">
+									<td style="width:135px;height:80px"></td>
+									<td>
+										<button class="btn_sub" type="submit" id="dnsSubmit"><span
+												class="Submit"></span></button>
+									</td>
+								</tr>
+							</table>
+						</form>
+					</div>
+				</div>
+				<span id="footer"></span>
+				<script src="/script/footer.js"></script>
+			</div>
+		</div>
+	</body>
+	<script type="tmpl/html" id="redirect_tpldevitem">
+          <tr >
+                <td ></td>
+	                 <td class="center">
+						 <select  name="redirect_proto"  id="redirect_proto"style="width:80px;height:28px" >
+						 <option value="tcp">tcp</option>
+						 <option value="udp">udp</option>
+						 <option value="tcpudp">tcpudp</option>
+						 </select>
+	                 </td>    
+					 <td class="form-item">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name="inside_ip" class="ipt-text ip" style="width:105px;height:30px;border:1px #d9d9d9 solid;" ><em class="t"></em></td>		
+					 <td class="form-item">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name="start_port" id="start_port" class="ipt-text ip" style="width:70px; height:30px;border:1px #d9d9d9 solid;"><em class="t"></em></td>
+					 <td class="form-item">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name="end_port" id="end_port" class="ipt-text ip" style="width:70px; height:30px;border:1px #d9d9d9 solid;"><em class="t"></em></td>
+					 <td class="form-item">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name="discribe" id="discribe" class="ipt-text ip" style="width:80px; height:30px;border:1px #d9d9d9 solid;"><em class="t"></em></td>
+					 <td class="center"><button type="submit" name="redirect_deloneitem" id="redirect_deloneitem"style="width:50px; height:30px;border:1px #d9d9d9 solid;" ><span>Cancel</span></button></td>
+				</tr>       
+</script>
+	<script type="tmpl/html" id="tmplWait">
+    <div class="dialog-listadd-form-wrap">
+		<table style="width:400px;font-size:16px;">
+			<tr>
+				<span class="form-item1" id="state1">--</span>
+			</tr>
+		</table>
+		<br/>
+		<table style="width:400px;font-size:16px;"></table>
+    </div>
+</script>
+	<script type="tmpl/html" id="natport_content">
+	<div class="dialog-listadd-form-wrap">
+		<form action="#" class="form-bandlist form-table" name="redirect_listAdd" id="redirect_listAdd" >
+			<table class="table" >
+				<thead>
+					<center>
+						<tr>
+							<th class="center" style="width:100px; height:20px"><span class="Num"></span></th>
+							<th class="center" style="width:140px; height:20px"><span class="Protocol"></span></th>
+							<th class="center" style="width:180px; height:20px"><span class="TargetIP"></span></th>
+							<th class="center" style="width:120px; height:20px"><span class="StartPort"></span></th>
+							<th class="center" style="width:120px; height:20px"><span class="EndPort"></span></th>
+							<th class="center" style="width:120px; height:20px"><span class="Description"></span></th>
+						</tr>
+					</center> 
+				</thead>
+				<tbody id="natport_dialoglist" style="width:1000px;height:20px">     
+				</tbody>
+			</table>
+		</form>
+	</div>
+</script>
+	<script type="tmpl/html" id="natport_p2p_content">
+    <div class="dialog-listadd-form-wrap">
+        <form action="#" class="form-bandlist form-table" name="redirect_listAdd" id="redirect_listAdd" >
+            <table class="table" >
+                <thead>
+                <center>
+                    <tr>
+							<th class="center" style="width:100px; height:20px"><span class="Num"></span></th>
+							<th class="center" style="width:140px; height:20px"><span class="Protocol"></span></th>
+							<th class="center" style="width:180px; height:20px"><span class="TargetIP"></span></th>
+							<th class="center" style="width:120px; height:20px"><span class="StartPort"></span></th>
+							<th class="center" style="width:120px; height:20px"><span class="EndPort"></span></th>
+							<th class="center" style="width:120px; height:20px"><span class="Description"></span></th>
+                       <th class="center" style="width:120px; height:20px"><span class="Option"></span></th>
+                    </tr>
+                    </center> 
+                </thead>
+				<tbody id="redirect_dialogtestlist" style="width:1000px;height:20px">
+                 <tr >
+                 <td ></td>
+	                 <td class="center">
+	                 <select  name="redirect_proto"  id="redirect_proto"style="width:80px;height:28px" >
+	                 <option value="tcp">tcp</option>
+	                 <option value="udp">udp</option>
+	                 <option value="tcpudp">tcpudp</option>
+	                 </select>
+	                 </td>    
+					  <td class="form-item">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name="inside_ip" class="ipt-text ip" style="width:105px;height:30px;border:1px #d9d9d9 solid;" ><em class="t"></em></td>		
+					 <td class="form-item">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name="start_port" id="start_port" class="ipt-text ip" style="width:70px; height:30px;border:1px #d9d9d9 solid;"><em class="t"></em></td>
+					 <td class="form-item">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name="end_port" id="end_port" class="ipt-text ip" style="width:70px; height:30px;border:1px #d9d9d9 solid;"><em class="t"></em></td>
+					 <td class="form-item">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name="discribe" id="discribe" class="ipt-text ip" style="width:80px; height:30px;border:1px #d9d9d9 solid;"><em class="t"></em></td>
+
+					 <td class="center"><button type="submit" name="redirect_deloneitem" id="redirect_deloneitem"style="width:50px; height:30px;border:1px #d9d9d9 solid;" ><span>Cancel</span></button></td>
+
+				</tr>              
+				</tbody>
+            </table>
+			
+
+			<tr>
+				<div class="addbtn"  style="display:block;">	
+					<p align="right"><br/><button id="redirect_addoneitem" class="ipt-text" type="submit"><span>Add</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+				</div>
+			
+				<div class="submitbtn"  style="display:none;">	
+					<center>
+						<p><br/><button id="redirect_submitbandlist" class="ipt-text" type="submit"><span>Save&&Apply</button></span></p>
+					</center>	
+				</div>
+				<br/>
+			</tr> 
+
+        </form>
+    </div>
+</script>
+	<script type="tmpl/html" id="natport_list">
+    <tr style="height:30px">
+        <td class="center" style="width:60px;height:20px">{$list}</td>
+        <td class="center" style="width:90px;height:20px">{$redirect_proto}</td>
+        <td class="center" style="width:120px;height:20px">{$inside_ip}</td>
+        <td class="center" style="width:100px;height:20px">{$start_port}</td>
+        <td class="center" style="width:100px;height:20px">{$end_port}</td>
+        <td class="center" style="width:100px;height:20px">{$discribe}</td>
+    </tr>
+</script>
+	<script type="tmpl/html" id="natport_p2p_list">
+    <tr style="height:30px">
+        <td class="center" style="width:60px;height:20px">{$list}</td>
+        <td class="center" style="width:90px;height:20px">{$redirect_proto}</td>
+        <td class="center" style="width:120px;height:20px">{$inside_ip}</td>
+        <td class="center" style="width:100px;height:20px">{$start_port}</td>
+        <td class="center" style="width:100px;height:20px">{$end_port}</td>
+        <td class="center" style="width:100px;height:20px">{$discribe}</td>
+        <td >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" name="redirect_submit_dellist" id="redirect_submit_dellist" redirect_target_del="{$discribe}" style="width:50px; height:20px;border:1px #d9d9d9 solid;"><span>Delete</span></button></td>
+    </tr>
+</script>
+	<script type="tmpl/html" id="tpldevitem">
+                 <tr >
+					<td style="width:50px; height:20px;"></td>
+					<td class="form-item center"><input type="text" title="target" name="target" id="target"  class="ipt-text center"   style="width:120px; height:30px;border:1px #d9d9d9 solid;"><em class="t"></em></td>
+					<td class="form-item center"><input type="text" title="netmask" name="netmask" id="netmask" class="ipt-text center"  style="width:120px; height:30px;border:1px #d9d9d9 solid;"><em class="t"></em></td>
+					<td class="form-item center"><input type="text" title="gateway" name="gateway" id="gateway" class="ipt-text center"  style="width:120px; height:30px;border:1px #d9d9d9 solid;"><em class="t"></em></td>
+					<td class="center">
+							<select name="interface" id="interface" style="width:70px; height:25px;">
+							<option value="lan">lan</option>
+							<option value="wan">wan</option>
+							</select>
+					</td>
+				    <td class="center"><button type="submit" name="deloneitem" id="deloneitem" ><span>Cancel</span></button>
+				</tr>     
+</script>
+	<script type="tmpl/html" id="route_p2p_content">
+    <div class="dialog-listadd-form-wrap">
+        <form action="#" class="form-bandlist form-table" name="listAdd" id="listAdd">
+            <table class="table" >
+                <thead>
+					<center>
+						<tr>
+							<th class="center" style="width:50px; height:20px" ><span class="Num"></span></th>
+							<th class="center" style="width:120px; height:20px"><span class="TargetIP"></span></th>
+							<th class="center" style="width:120px; height:20px"><span class="Netmask"></span></th>
+							<th class="center" style="width:120px; height:20px"><span class="Gateway"></span></th>
+							<th class="center" style="width:70px; height:20px"><span class="Interface"></span></th>
+							<th class="center" style="width:90px; height:20px"><span class="Option"></span></th>
+						</tr>
+					</center>
+                </thead>
+				<tbody id="route_p2p_dialoglist">
+					<tr>
+						<td style="width:50px; height:20px;"></td>
+						<td class="form-item center"><input type="text" title="target"  name="target" id="target" class="ipt-text center"  style="width:120px; height:20px;border:1px #d9d9d9 solid;"><em class="t"></em></td>
+						<td class="form-item center"><input type="text" title="netmask" name="netmask" id="netmask" class="ipt-text center" style="width:120px; height:20px;border:1px #d9d9d9 solid;"><em class="t"></em></td>
+						<td class="form-item center"><input type="text" title="gateway" name="gateway" id="gateway" class="ipt-text center" style="width:120px; height:20px;border:1px #d9d9d9 solid;"><em class="t"></em></td>
+						<td class="center">
+						    <select name="interface" id="interface" style="width:70px; height:25px;">
+							<option value="lan">lan</option>
+							<option value="wan">wan</option>
+							</select>
+						</td>
+						<td class="center"><button type="submit" name="deloneitem" id="deloneitem" ><span>Cancel</span></button>
+					</tr>  
+				</tbody>
+            </table>
+			<tr>
+				<div class="addbtn"  style="display:block;">	
+					<p align="right"><br/><button id="addoneitem" class="ipt-text" type="submit"><span>Add</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+				</div>
+				<div class="submitbtn"  style="display:none;">	
+					<center>
+						<p><br/><button id="submitbandlist" class="ipt-text" type="submit"><span>Save&&Apply</button></span></p>
+					</center>	
+				</div>
+				<br/>
+			</tr>
+        </form>
+    </div>
+</script>
+	<script type="tmpl/html" id="route_content">
+    <div class="dialog-listadd-form-wrap">
+        <form action="#" class="form-bandlist form-table" name="listAdd" id="listAdd">
+            <table class="table" >
+                <thead>
+					<center>
+						<tr>
+							<th class="center" style="width:50px; height:20px"><span class="Num"></span></th>
+							<th class="center" style="width:120px; height:20px"><span class="TargetIP"></span></th>
+							<th class="center" style="width:120px; height:20px"><span class="Netmask"></span></th>
+							<th class="center" style="width:120px; height:20px"><span class="Gateway"></span></th>
+							<th class="center" style="width:70px; height:20px"><span class="Interface"></span></th>
+						</tr>
+					</center>
+                </thead>               
+				<tbody id="route_dialoglist">
+				</tbody>				
+            </table>         
+        </form>
+    </div>
+</script>
+	<script type="tmpl/html" id="route_p2p_list">
+    <tr style="height:30px">
+        <td class="center">{$list}</td>
+        <td class="center">{$target}</td>
+        <td class="center">{$netmask}</td>
+        <td class="center">{$gateway}</td>
+        <td class="center">{$iface}</td>
+        <td class="center"><button type="submit" name="submit_del_list" id="submit_del_list" target_del="{$target}" gateway_del="{$gateway}" ><span>Delete</span></button></td>
+    </tr>
+</script>
+	<script type="tmpl/html" id="route_list">
+    <tr style="height:30px">
+        <td class="center">{$list}</td>
+        <td class="center">{$target}</td>
+        <td class="center">{$netmask}</td>
+        <td class="center">{$gateway}</td>
+        <td class="center">{$iface}</td>
+    </tr>
+</script>
+
+	<script type="tmpl/html" id="tmplTsetSet_firewall">
+    <div class="dialog-listadd-form-wrap">
+        <form action="#" class="form-bandlist form-table" name="firewall_list" id="firewall_list" >
+            <table class="table" >
+                <thead>
+                <center>
+                    <tr>
+						<th style="width:50px; height:20px">&nbsp;<span class="Num"></span></th>
+						<th style="width:80px; height:20px"><span class="Name"></span></th>
+						<th style="width:80px; height:20px"><span class="Protocoltype"></span></th>
+						<th style="width:120px; height:20px"><span class="SourceMAC"></span></th>
+						<th style="width:70px; height:20px"><span class="SourceZone"></span></th>
+						<th style="width:80px; height:20px"><span class="SourceIP"></span></th>
+						<th style="width:90px; height:20px"><span class="SourceStartPort"></span></th>
+						<th style="width:90px; height:20px"><span class="SourceEndPort"></span></th>
+						<th style="width:70px; height:20px"><span class="DestinationZone"></span></th>
+						<th style="width:90px; height:20px"><span class="DescriptionIP"></span></th>
+						<th style="width:90px; height:20px"><span class="DescriptionStratPort"></span></th>
+						<th  style="width:90px; height:20px"><span class="DescriptionEndPort"></span></th>
+						<th style="width:70px; height:20px"><span class="Pollcy"></span></th>
+                    </tr>
+                    </center> 
+                </thead>
+				<tbody id="firewall_listAdd" style="width:1000px;height:20px">
+					<tr style="height:30px">
+					</tr>            
+				</tbody>
+            </table>
+        </form>
+    </div>
+</script>
+	<script type="tmpl/html" id="firewall_tmplAddedTest">
+    <tr style="height:30px">
+        <td style="width:50px">&nbsp;{$list}</td>
+        <td style="width:80px">{$name}</td>
+        <td style="width:80px">{$protocol_type}</td>
+        <td style="width:100px">{$source_MAC}</td>
+        <td style="width:70px">{$source_zone}</td>
+		<td style="width:80px">{$sourceIP}</td>
+        <td style="width:90px">{$source_start_port}</td>
+        <td style="width:90px">{$source_end_port}</td>
+        <td style="width:90px">{$destination_zone}</td>
+        <td style="width:70px">{$destinationIP}</td>        
+        <td style="width:90px">{$destination_start_port}</td>
+        <td style="width:90px">{$destination_end_port}</td>
+        <td style="width:70px">{$pollcy}</td>
+    </tr>
+</script>
+	<script>
+		document.write("<script type='text/javascript' src='/validate/route-validate.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/root/network/proset.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/validate/proset-validate.js?time=" + Math.random() + " '></" + "script" + ">");
+	</script>
+	<script>
+		rcstTypeGet();
+		function go() {
+			if (zd_version == 4) {
+				window.location.href = "/root/network/prosetvrf.htm" + "?timestamp=" + new Date().getTime();
+			} else {
+				window.location.href = "/root/network/proset.htm" + "?timestamp=" + new Date().getTime();
+			}
+		}
+	</script>
+
+</html>

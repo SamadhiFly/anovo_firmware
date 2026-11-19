@@ -1,0 +1,4 @@
+config interface 'wlan0'
+	option ipaddr '192.168.0.1'
+	option ssid 'anovo'
+	option key '87654321'

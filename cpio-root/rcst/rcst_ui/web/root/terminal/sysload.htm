@@ -1,0 +1,82 @@
+<html>
+<!- Copyright (c) Go Ahead Software Inc., 2000-2010. All Rights Reserved. ->
+
+	<head>
+		<title id="sysloadtitle"></title>
+		<meta http-equiv="X-UA-Compatible" content="edge" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="expires" content="0">
+		<meta name="viewport" content="width=1024px">
+		<link href="/css/bc.css" rel="stylesheet">
+		<link href="/css/sysload.css" rel="stylesheet">
+	</head>
+	<script>
+		document.write("<script type='text/javascript' src='/script/jquery-1.8.3.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/script/jquery.dialog.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/script/rcst-type.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/i18n/terminal-trans.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/script/language-config.js?time=" + Math.random() + " '></" + "script" + ">");
+	</script>
+
+	<body>
+		<div id="doc" style="min-width:1200px">
+			<div id="hd">
+				<div class="inner">
+					<div class="mod-head clearfix">
+						<span id="header"></span>
+						<script src="/script/header.js"></script>
+					</div>
+					<div class="mod-set-nav">
+						<ul class="clearfix">
+							<li id="sysinfo"><a href="/root/terminal/sysload.htm"
+									+"?timestamp="+new Date().getTime() id=" sysinfo_a"><i class="ico ico-1"></i><span
+										id="systemstatus"></span></a></li>
+							<li id="starinfo"><a href="/root/terminal/starPoint.htm"
+									+"?timestamp="+new Date().getTime()  id=" starPoint_a"><i
+										class="ico ico-1"></i><span id="starPoint"></span></a></li>
+							<li id="rxinfo"><a href="/root/terminal/rxsnr.htm" +"?timestamp="+new Date().getTime() id="
+									rxinfo_a"><i class="ico ico-2"></i><span id="receivestatus"></span></a></li>
+							<li id="txinfo"><a href="/root/terminal/txsnr.htm" +"?timestamp="+new Date().getTime() id="
+									txinfo_a"><i class="ico ico-3"></i><span id="transmitstatus"></span></a></li>
+							<li id="chipinfo"><a href="/root/terminal/chippower.htm"
+									+"?timestamp="+new Date().getTime() id=" chipinfo_a"><i class="ico ico-4"></i><span
+										id="hardwarestatus"></span></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div id="bd">
+				<div class="nav-set">
+					<table>
+						<tr>
+							<td id="sysload"><a href="/root/terminal/sysload.htm" id="sysload_a"><span
+										id="systemload"></span></a></td>
+							<td id="syslan"><a href="/root/terminal/syslan.htm" id="syslan_a"><span
+										id="lantraffic"></span></a></td>
+							<td id="syswan"><a href="/root/terminal/syswan.htm" id="syswan_a"><span
+										id="wantraffic"></span></a></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<script src="/root/terminal/sysinfo-active.js"></script>
+			<div id="bd">
+				<div class="mod-set">
+					<div class="mod-rtcore-data">
+						<div id="container" style="width: 100%; height: 450px; margin: 0 auto"></div>
+					</div>
+				</div>
+				<span id="footer"></span>
+				<script src="/script/footer.js"></script>
+			</div>
+		</div>
+	</body>
+	<script>
+		document.write("<script type='text/javascript' src='/script/highcharts.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/root/terminal/sysload.js?time=" + Math.random() + " '></" + "script" + ">");
+	</script>
+
+</html>

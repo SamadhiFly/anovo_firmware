@@ -1,0 +1,243 @@
+<html>
+<!- Copyright (c) Go Ahead Software Inc., 2000-2010. All Rights Reserved. ->
+<head>
+<title id="installsettitle"></title>
+<meta http-equiv="X-UA-Compatible" content="edge" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta name="viewport" content="width=1024px">
+<link href="/css/bc.css" rel="stylesheet">
+<link href="/css/install-set.css" rel="stylesheet">
+</head>
+<script >
+document.write("<script type='text/javascript' src='/script/qwrap.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/script/jquery-1.8.3.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/script/jquery.dialog.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/script/rcst-type.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/i18n/install-trans.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/script/language-config.js?time="+Math.random()+" '></"+"script"+">");
+</script>
+<body>
+<div id="doc" style="min-width:1100px">
+	<div id="hd">
+		<div class="inner">
+			<div class="mod-head">
+			   	<h1 id="logo"><a href="/root/home.htm"><span id="logoo"></span></a></h1>
+				<div id="userbar">
+					<a href="/root/home.htm" id="administrator"></a>
+						<span class="line">|</span>
+					<!-- <a style="cursor:pointer" onclick="langset()" id="lang" value="en"></a> -->
+					<select  name="language_three"  id="language_three"style="cursor:pointer" onChange="langset()">
+						<option value="en">English</option>
+						<option value="zh">简体中文</option>
+						<option value="zh_HK">繁體中文</option>
+				   </select>
+				</div>		   	
+			</div>
+		</div>
+	</div>
+	<div id="bd">
+		<div class="mod-rtstatus" id="netstatus">
+			<div class="inner">
+				<div class="terminal">
+					<img src="/icons/1.png" />
+				</div>
+				<table class="rcst">
+					<tr>
+						<td  style="width:360px">
+							<span class="EnterInstallationParameters"></span>
+						</td>
+						<td style="width:280px">
+							&nbsp;&emsp;<span class="StarPointing"></span>
+						</td>
+						<td style="width:350px">
+							&nbsp;&nbsp;&emsp;&emsp;<span class="Netting"></span>
+						</td>
+					</tr>
+				</table>			
+			</div>  
+		</div>
+	</div>
+	<div class="mod-rtcore-data-sat">
+		<div class="mod-set">
+			<div class="hd">
+				<h3 class="satellite" ></h3>
+			</div>
+</br>
+</br>
+			<div id="bds">
+					<table style="width:1100px;color:#996666;font-size:18px">
+						<div class="dialog-listadd-form-wrap" type="tmpl/html" id="tmplTsetSet_redirect">
+							<form action="#" class="form-bandlist form-table" name="redirect_listAdd" id="redirect_listAdd" >
+								<table class="table" style="width:1100px">
+								<thead>
+								<center>
+									<tr>
+										<th class="form-item" style="width:50px; height:20px" ><span id="Num"> </span></th>
+										<th class="form-item" style="width:200px; height:20px" ><span id="Discribe"> </span></th>
+										<th class="form-item" style="width:165px; height:20px" ><span id="Longitude"> </span></th>
+										<th class="form-item" style="width:100px; height:20px" ><span id="Polarization"> </span></th>
+										<th class="form-item" style="width:120px; height:20px" ><span id="Beacon"> </span></th>
+										<th class="form-item" style="width:150px; height:20px" ><span id="RXFrequency"> </span></th>
+										<th class="form-item" style="width:150px; height:20px" ><span id="RXSymbolRate" ></span></th>
+											<!-- <th class="form-item" style="width:80px; height:20px"><span class="rolloff" ></th>
+											<th class="form-item" style="width:100px; height:20px"><span id="System" ></th> -->
+										<th class="form-item" style="width:165px; height:20px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span id="Option" ></span></th>
+									</tr>
+									</center> 
+								</thead>
+								<tbody id="redirect_dialogtestlist" style="height:20px">
+								</tbody>
+							</table>
+							<tr>
+								<div class="addbtn"  style="display:block;">	
+										<p align="right"><br/><button id="redirect_addoneitem" class="ipt-text" type="submit"><span class="Add"></button></span></p>
+									</div>
+									<div class="submitbtn"  style="display:none;">	
+										<center>
+											<p><br/><button id="redirect_submitbandlist" class="ipt-text" type="submit"><span class="Save"></span></button></span></p>
+										</center>	
+								</div>
+								<br/>
+							</tr> 
+						</form>
+					</div>
+				</table>
+			</div>
+			<table style="width:900px">
+				<tr><td style="height:50px"></td></tr>
+				<tr>
+					<td style="width:500px">
+					</td>
+<!--
+					<td style="width:265px">
+						<div class="form-item">
+							<button  onclick="back()" class="btn_sub1" ><span class="Back"></span></button>
+						</div>
+					</td>
+-->
+					<td>
+						<div class="form-item">
+							<button  onclick="next()" class="btn_sub" ><span class="Next"></span></button>
+						</div>
+					</td>
+				</tr>
+			</table>		
+			<span id="footer"></span>
+			<script src="/script/footer.js"></script>	
+		</div>
+</div>
+</body>
+
+<script type="tmpl/html" id="redirect_tpldevitem">   
+	<tr >              
+	   <td class="form-item" style="width:50px;"></td>    
+		<td class="form-item"  style="width:200px"><input name="discribe" id="discribe" title="discribe"  style="width:170px; height:20px;border:1px #d9d9d9 solid;"><em class="t"></em></td>
+		 <td class="form-item" style="width:165px">
+		   <select  name="satellite_longitude_EW"  id="satellite_longitude_EW"style="width:60px;height:28px" >
+				<option value="E" class="East"></option>
+				<option value="W"class="West"></option>
+		   </select>	 
+		   <input name="satellite_longitude"  id="satellite_longitude" title="satellite_longitude" style="width:60px;height:20px;border:1px #d9d9d9 solid;" ><em class="t"></em></td>		
+		<td class="form-item" style="width:100px">
+		   <select  name="satellite_polarization_mode_rx"  id="satellite_polarization_mode_rx"style="width:90px;height:28px" >
+				<option value="R" class="Right"></option>
+				<option value="L" class="Left"></option>
+				<option value="V" class="Vertical"></option>
+				<option value="H" class="Horizontal"></option>
+			</select>
+		</td>
+		<td class="form-item" style="width:150px"><input name="beacon" id="beacon" title="beacon" style="width:100px; height:20px;border:1px #d9d9d9 solid;"><em class="t"></em></td>
+		<td class="form-item" style="width:150px" ><input name="rf_rx_freq_divide" id="rf_rx_freq_divide" title="rf_rx_freq_divide"  style="width:110px; height:20px;border:1px #d9d9d9 solid;"><em class="t"></em></td>
+		<td class="form-item" style="width:150px" ><input name="rf_rx_symbol_divide" id="rf_rx_symbol_divide" title="rf_rx_symbol_divide" style="width:110px; height:20px;border:1px #d9d9d9 solid;"><em class="t"></em></td>
+		 <!-- <td class="form-item" style="width:100px;height:20px">
+				<select  name="rolloff"  id="rolloff"style="width:70px;height:28px" >
+					<option value="105" >0.05</option>
+					<option value="110" >0.1</option>	
+					<option value="115" >0.15</option>
+					<option value="120" >0.2</option>	
+					<option value="125" >0.25</option>
+					<option value="135" >0.35</option>	
+					<option value="100" class="None"></option>	
+			</select>
+		 </td>
+		 <td class="form-item" style="width:80px;height:20px">
+				<select  name="system_23"  id="system_23"style="width:90px;height:28px" >
+					<option value="4" class="Anovo4.0">Anovo4.0</option>
+					<option value="3" class="Anovo3.0">Anovo3.0</option>
+					 <option value="2" class="Anovo2.0">Anovo2.0</option>
+			 </select> -->
+		 </td>
+		<td class="form-item">&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" name="redirect_deloneitem" id="redirect_deloneitem"style="width:60px; height:20px;border:1px #d9d9d9 solid;" ><span class="Cancel"></span></span></button></td>
+   </tr>   
+</script>	
+
+
+
+<script type="tmpl/html" id="edit_item">   	            
+<td class="center" style="width:50px;height:20px"></td>    
+<td class="form-item" style="width:200px;height:20px"><input name="discribe" id="discribe" title="discribe" style="width:170px; height:20px;border:1px #d9d9d9 solid;"><em class="t"></em></td>
+ <td class="form-item" style="width:165px;height:20px">
+	<select  name="satellite_longitude_EW"  id="satellite_longitude_EW"style="width:60px;height:28px" >
+		<option value="E" class="East"></option>
+		<option value="W" class="West"></option>
+   </select>	 
+   <input name="satellite_longitude"  id="satellite_longitude" title="satellite_longitude"   style="width:60px;height:20px;border:1px #d9d9d9 solid;" ><em class="t"></em></td>		
+<td class="form-item" style="width:100px;height:20px">
+   <select  name="satellite_polarization_mode_rx"  id="satellite_polarization_mode_rx"style="width:90px;height:28px" >
+		<option value="R" class="Right"></option>
+		<option value="L" class="Left"></option>
+		<option value="V" class="Vertical"></option>
+		<option value="H" class="Horizontal"></option>
+	</select>
+</td>
+<td class="form-item" style="width:150px;height:20px"><input name="beacon" id="beacon" title="beacon" style="width:100px; height:20px;border:1px #d9d9d9 solid;"><em class="t"></em></td>
+<td class="form-item" style="width:150px;height:20px"><input name="rf_rx_freq_divide" id="rf_rx_freq_divide" title="rf_rx_freq_divide"   style="width:110px; height:20px;border:1px #d9d9d9 solid;"><em class="t"></em></td>
+<td class="form-item" style="width:150px;height:20px"><input name="rf_rx_symbol_divide" id="rf_rx_symbol_divide" title="rf_rx_symbol_divide"   style="width:110px; height:20px;border:1px #d9d9d9 solid;"><em class="t"></em></td>
+ <!-- <td class="form-item" style="width:80px;height:20px">
+		<select  name="rolloff"  id="rolloff"style="width:70px;height:28px" >
+			<option value="105" >0.05</option>
+			<option value="110" >0.1</option>	
+			<option value="115" >0.15</option>
+			<option value="120" >0.2</option>	
+			<option value="125" >0.25</option>
+			<option value="135" >0.35</option>	
+			<option value="100" class="No"></option>	
+	</select>
+ </td>
+<td class="form-item" style="width:80px;height:20px">
+	<select  name="system_23"  id="system_23"style="width:90px;height:28px" >
+		 <option value="4" >Anovo4.0</option>
+		 <option value="3">Anovo3.0</option>
+		 <option value="2">Anovo2.0</option>
+ </select>
+</td> -->
+<td class="form-item" style="width:165px;height:20px">&nbsp;&nbsp;&nbsp;&nbsp;<button id="redirect_submitbandlist1" type="submit" style="width:60px; height:20px;border:1px #d9d9d9 solid;" ><span class="Save"></span></span></button>
+&nbsp;&nbsp;&nbsp;&nbsp;<button id="cancel_edit" type="submit" style="width:60px; height:20px;border:1px #d9d9d9 solid;" ><span class="Cancel"></span></button></td>
+</script>
+
+<script type="tmpl/html" id="redirect_tmplAddedTest"> 
+<tr style="height:30px" id={$discribe}>
+   <td class="form-item" style="width:50px;height:20px">&nbsp;&nbsp;{$num}</td>
+   <td class="form-item" style="width:150px;height:20px;word-break:break-all;word-wrap:break-word;">&nbsp;{$discribe}</td>
+   <td  class="form-item" style="width:165px;height:20px">&nbsp;{$satellite_longitude_EW_all}</td>
+   <td  class="form-item" style="width:100px;height:20px">&nbsp;{$satellite_polarization_mode_rx}</td>
+   <td  class="form-item" style="width:120px;height:20px">&nbsp;{$beacon}</td>
+   <td  class="form-item" style="width:150px;height:20px">&nbsp;{$rf_rx_freq_divide}</td>
+   <td  class="form-item" style="width:150px;height:20px">&nbsp;{$rf_rx_symbol_divide}</td>
+   <!-- <td  class="form-item" style="width:80px;height:20px">&nbsp;{$rolloff}</td>
+   <td  class="form-item" style="width:100px;height:20px">&nbsp;{$system_23}</td> -->
+   <td class="form-item">&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" name="redirect_submit_dellist" id="redirect_submit_dellist" redirect_target_del="{$discribe}" style="width:60px; height:20px;border:1px #d9d9d9 solid;"><span class="Delete"></span></span></button>
+   &nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" name="editItem" id="editItem" editItem_discribe="{$discribe}" 
+	   editItem_satellite_polarization_mode_rx="{$satellite_polarization_mode_rx}"  editItem_satellite_longitude_EW_all="{$satellite_longitude_EW_all}"  editItem_beacon="{$beacon}"  
+	   editItem_rf_rx_symbol_divide="{$rf_rx_symbol_divide}" editItem_rf_rx_freq_divide="{$rf_rx_freq_divide}" style="width:60px; height:20px;border:1px #d9d9d9 solid;"><span class="Edit"></span></button></td>	
+   </tr>
+</script>
+<script>
+document.write("<script type='text/javascript' src='/root/guide/install-set1.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/root/odu/satellite-get.js?time="+Math.random()+" '></"+"script"+">");
+</script>
+</html>

@@ -1,0 +1,11 @@
+Package: mtd
+Version: 24
+Depends: libc, libubox20170601
+Source: package/system/mtd
+SourceName: mtd
+License: GPL-2.0+
+Section: utils
+Architecture: arm_cortex-a9_neon
+Installed-Size: 11947
+Description:  This package contains an utility useful to upgrade from other firmware or 
+ older OpenWrt releases.

@@ -1,0 +1,2 @@
+/etc/strongswan.d/charon/pkcs7.conf
+/usr/lib/ipsec/plugins/libstrongswan-pkcs7.so

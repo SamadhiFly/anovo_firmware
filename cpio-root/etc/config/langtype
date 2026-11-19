@@ -1,0 +1,4 @@
+
+config interface 'langtype'
+	option langtype 'en'
+

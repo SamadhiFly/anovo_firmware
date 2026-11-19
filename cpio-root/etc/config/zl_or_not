@@ -1,0 +1,4 @@
+config interface 'zl_or_not'
+	option zl_or_not '0'
+
+

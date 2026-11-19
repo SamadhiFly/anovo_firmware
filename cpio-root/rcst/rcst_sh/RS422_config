@@ -1,0 +1,11 @@
+config modem_config 'modem_config'
+	option 'location_flag' '0'
+
+config ant_config 'ant_config'
+	option 'heater_status' '0'
+	option 'heater_threshold' '0'
+	option 'lock_status' '0'
+	option 'rx_snr' '0'
+	option 'com_status' '0'
+	option 'pit_status' '0'
+	option 'aiz_status' '0'

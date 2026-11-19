@@ -1,0 +1,5 @@
+/etc/modules.d/ipt-extra
+/lib/modules/4.14.111/xt_owner.ko
+/lib/modules/4.14.111/xt_addrtype.ko
+/lib/modules/4.14.111/xt_pkttype.ko
+/lib/modules/4.14.111/xt_quota.ko

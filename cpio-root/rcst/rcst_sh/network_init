@@ -1,0 +1,32 @@
+
+config interface 'loopback'
+	option ifname 'lo'
+	option proto 'static'
+	option ipaddr '127.0.0.1'
+	option netmask '255.0.0.0'
+
+config interface 'lan'
+	option ifname 'eth0'
+	option proto 'static'
+	option ipaddr '192.168.251.1'
+	option netmask '255.255.255.0'
+	option ip6assign '60'
+	option mtu '1500'
+	option type 'bridge'
+
+config globals 'globals'
+	option ula_prefix 'fdf1:369e:3633::/48'
+
+config interface 'wan'
+	option netmask '255.255.255.0'
+	option ifname 'sn0'
+	option ipaddr '10.10.1.1'
+	option proto 'static'
+	option mtu '1500'
+
+config route '0000'
+	option interface 'wan'
+	option target '0.0.0.0'
+	option netmask '0.0.0.0'
+	option gateway '10.10.1.254'
+

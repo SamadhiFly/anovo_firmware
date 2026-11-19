@@ -1,0 +1,332 @@
+<html>
+<!- Copyright (c) Go Ahead Software Inc., 2000-2010. All Rights Reserved. ->
+
+	<head>
+		<title id="diagnosticstitle"></title>
+		<meta http-equiv="X-UA-Compatible" content="edge" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="expires" content="0">
+		<meta name="viewport" content="width=1024px">
+		<link href="/css/bc.css" rel="stylesheet">
+		<link href="/css/diagnostics.css" rel="stylesheet">
+	</head>
+	<script>
+		document.write("<script type='text/javascript' src='/script/jquery-1.8.3.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/script/jquery.dialog.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/script/rcst-type.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/i18n/acu-trans.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/script/language-config.js?time=" + Math.random() + " '></" + "script" + ">");
+	</script>
+
+	<body>
+		<div id="doc" style="min-width:1200px">
+			<div id="hd">
+				<div class="inner">
+					<div class="mod-head clearfix">
+						<span id="header"></span>
+						<script src="/script/header.js"></script>
+					</div>
+					<div class="mod-set-nav">
+						<ul class="clearfix">
+							<li id="status"><a href="/root/diagnostics/status.htm"
+									+"?timestamp="+new Date().getTime()  id=" status_a"><i class="ico ico-1"></i><span
+										class="RCSTStatus"></span></a></li>
+							<li id="acu"><a href="/root/diagnostics/acu.htm" +"?timestamp="+new Date().getTime()  id="
+									acu_a"><i class="ico ico-1"></i><span class="ACUStatus"></span></a></li>
+							<li id="net"><a href="/root/diagnostics/net.htm" +"?timestamp="+new Date().getTime()  id="
+									net_a"><i class="ico ico-2"></i><span class="Network"></span></a></li>
+							<li id="rf"><a href="/root/diagnostics/rf.htm" +"?timestamp="+new Date().getTime()  id="
+									rf_a"><i class="ico ico-3"></i><span class="RF"></span></a></li>
+							<li id="log"><a href="/root/diagnostics/syslog.htm"
+									+"?timestamp="+new Date().getTime()  id=" log_a"><i class="ico ico-4"></i><span
+										class="ViewLog"></span></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<script src="/root/diagnostics/diagnostics-active.js"></script>
+
+			<div class="mod-rtcore-data">
+				<div id="bdacu">
+					<div class="mod-set">
+						<div class="hd">
+							<h3>ACU</h3>
+						</div>
+						<div class="bd">
+							<table style="width:800px;color:#000000;font-size:14px;line-height:200%">
+								<tr>
+									<td style="width:170px" class="WorkMode"></td>
+									<td width="10px"></td>
+									<td width="25px"></td>
+									<td class="work_mode">--</td>
+									<td style="width:150px"></td>
+									<td style="width:170px" class="RunStatus"></td>
+									<td width="10px"></td>
+									<td width="25px"></td>
+									<td class="run_status">--</td>
+								</tr>
+								<tr>
+									<td style="width:170px" class="DeviceStatus"></td>
+									<td width="10px"></td>
+									<td width="25px"></td>
+									<td class="device_status">--</td>
+									<td style="width:150px"></td>
+									<td style="width:170px" class="FaultStatus"></td>
+									<td width="10px"></td>
+									<td width="25px"></td>
+									<td class="fault_status">--</td>
+								</tr>
+								<tr>
+									<td style="width:170px" class="TCPstatus"></td>
+									<td width="10px"></td>
+									<td width="25px"></td>
+									<td class="tcp_status">--</td>
+								</tr>
+
+								<tr>
+									<td style="width:170px" class="GPSPeriod"></td>
+									<td width="10px"></td>
+									<td width="25px"></td>
+									<td class="gps_period">--</td>
+									<td style="width:150px"></td>
+									<td style="width:170px" class="SatelliteLongitude"></td>
+									<td width="10px"></td>
+									<td width="25px"></td>
+									<td class="satellite_longitude">--</td>
+								</tr>
+								<tr>
+									<td style="width:170px" class="BeaconFrequency"></td>
+									<td width="10px"></td>
+									<td width="25px"></td>
+									<td class="beacon_freq">--</td>
+									<td style="width:150px"></td>
+									<td style="width:170px" class="PolarType"></td>
+									<td width="10px"></td>
+									<td width="25px"></td>
+									<td class="polar_type">--</td>
+								</tr>
+								<tr>
+									<td style="width:170px" class="Sitelongitude"></td>
+									<td width="10px"></td>
+									<td width="25px"></td>
+									<td class="site_longitude">--</td>
+									<td style="width:150px"></td>
+									<td style="width:170px" class="SiteLatitude"></td>
+									<td width="10px"></td>
+									<td width="25px"></td>
+									<td class="site_latitude">--</td>
+								</tr>
+								<tr>
+									<td style="width:170px" class="AntennaTemperature"></td>
+									<td width="10px"></td>
+									<td width="25px"></td>
+									<td class="antenna_temp">--</td>
+									<td style="width:150px"></td>
+									<td style="width:170px" class="ReceiverStatus"></td>
+									<td width="10px"></td>
+									<td width="25px"></td>
+									<td class="rx_status">--</td>
+								</tr>
+								<tr>
+									<td style="width:170px" class="TheoryAzimuthAngle"></td>
+									<td width="10px"></td>
+									<td width="25px"></td>
+									<td class="theory_azimuth_angle">--</td>
+									<td style="width:150px"></td>
+									<td style="width:170px" class="TheoryPitchAngle"></td>
+									<td width="10px"></td>
+									<td width="25px"></td>
+									<td class="theory_pitch_angle">--</td>
+								</tr>
+								<tr>
+									<td style="width:170px" class="TheoryPolagizingAngle"></td>
+									<td width="10px"></td>
+									<td width="25px"></td>
+									<td class="theory_polagizing_angle">--</td>
+									<td style="width:150px"></td>
+									<td style="width:170px" class="TargetAzimuthAngle"></td>
+									<td width="10px"></td>
+									<td width="25px"></td>
+									<td class="target_azimuth_angle">--</td>
+								</tr>
+								<tr>
+									<td style="width:170px" class="TargetPitchAngle"></td>
+									<td width="10px"></td>
+									<td width="25px"></td>
+									<td class="target_pitch_angle">--</td>
+									<td style="width:150px"></td>
+									<td style="width:170px" class="TargetPolagizingAngle"></td>
+									<td width="10px"></td>
+									<td width="25px"></td>
+									<td class="target_polagizing_angle">--</td>
+								</tr>
+								<tr>
+									<td style="width:170px" class="LoopLockingAGC"></td>
+									<td width="10px"></td>
+									<td width="25px"></td>
+									<td class="loop_locking_AGC">--</td>
+									<td style="width:150px"></td>
+									<td style="width:170px" class="QuickLockingAGC"></td>
+									<td width="10px"></td>
+									<td width="25px"></td>
+									<td class="quick_locking_AGC">--</td>
+								</tr>
+								<tr>
+									<td style="width:170px" class="SatelliteLockingPattern"></td>
+									<td width="10px"></td>
+									<td width="25px"></td>
+									<td class="satellite_locking_pattern">--</td>
+									<td style="width:150px"></td>
+									<td style="width:170px" class="AzimuthEncoderAngle"></td>
+									<td width="10px"></td>
+									<td width="25px"></td>
+									<td class="azimuth_encoder_angle">--</td>
+								</tr>
+								<tr>
+									<td style="width:170px" class="PitchEncoderAngle"></td>
+									<td width="10px"></td>
+									<td width="25px"></td>
+									<td class="pitch_encoder_angle">--</td>
+									<td style="width:150px"></td>
+									<td style="width:170px" class="PolarizeEncoderAngle"></td>
+									<td width="10px"></td>
+									<td width="25px"></td>
+									<td class="polarize_encoder_angle">--</td>
+								</tr>
+								<tr>
+									<td style="width:170px" class="RollEncoderAngle"></td>
+									<td width="10px"></td>
+									<td width="25px"></td>
+									<td class="roll_encoder_angle">--</td>
+									<td style="width:150px"></td>
+									<td style="width:170px" class="INSAzimuthAngle"></td>
+									<td width="10px"></td>
+									<td width="25px"></td>
+									<td class="ins_azimuth_angle">--</td>
+								</tr>
+								<tr>
+									<td style="width:170px" class="INSPitchAngle"></td>
+									<td width="10px"></td>
+									<td width="25px"></td>
+									<td class="ins_pitch_angle">--</td>
+									<td style="width:150px"></td>
+									<td style="width:170px" class="INSRollAngle"></td>
+									<td width="10px"></td>
+									<td width="25px"></td>
+									<td class="ins_roll_angle">--</td>
+								</tr>
+								<tr>
+									<td style="width:170px" class="LNBLOQuery"></td>
+									<td width="10px"></td>
+									<td width="25px"></td>
+									<td class="lnb_lo_query">--</td>
+									<td style="width:150px"></td>
+									<td style="width:170px" class="CarrierAzimuthAngle"></td>
+									<td width="10px"></td>
+									<td width="25px"></td>
+									<td class="carrier_azimuth_angle">--</td>
+								</tr>
+								<tr>
+									<td style="width:170px" class="CarrierPitchAngle"></td>
+									<td width="10px"></td>
+									<td width="25px"></td>
+									<td class="carrier_pitch_angle">--</td>
+									<td style="width:150px"></td>
+									<td style="width:170px" class="CarrierRollAngle"></td>
+									<td width="10px"></td>
+									<td width="25px"></td>
+									<td class="carrier_roll_angle">--</td>
+								</tr>
+							</table>
+						</div>
+						<div class="hd">
+							<h3>BUC</h3>
+						</div>
+						<div class="bd">
+							<table style="width:800px;color:#000000;font-size:14px;line-height:200%">
+								<tr>
+									<td style="width:170px" class="BUCManufacturer"></td>
+									<td width="10px"></td>
+									<td width="25px"></td>
+									<td class="buc_manufacturer">--</td>
+									<td style="width:150px"></td>
+									<td style="width:170px" class="BUCVersion"></td>
+									<td width="10px"></td>
+									<td width="25px"></td>
+									<td class="buc_version">--</td>
+								</tr>
+								<tr>
+									<td style="width:170px" class="BUCStatus"></td>
+									<td width="10px"></td>
+									<td width="25px"></td>
+									<td class="buc_status">--</td>
+									<td style="width:150px"></td>
+									<td style="width:170px" class="HardwareVersion"></td>
+									<td width="10px"></td>
+									<td width="25px"></td>
+									<td class="hardware_version">--</td>
+								</tr>
+								<tr>
+									<td style="width:170px" class="Temperature"></td>
+									<td width="10px"></td>
+									<td width="25px"></td>
+									<td class="buc_temperature">--</td>
+									<td style="width:150px"></td>
+									<td style="width:170px" class="FanSpeed"></td>
+									<td width="10px"></td>
+									<td width="25px"></td>
+									<td class="fan_speed">--</td>
+								</tr>
+								<tr>
+									<td style="width:170px" class="Voltage"></td>
+									<td width="10px"></td>
+									<td width="25px"></td>
+									<td class="buc_voltage">--</td>
+									<td style="width:150px"></td>
+									<td style="width:170px" class="Current"></td>
+									<td width="10px"></td>
+									<td width="25px"></td>
+									<td class="buc_current">--</td>
+								</tr>
+								<tr>
+									<td style="width:170px" class="Overload"></td>
+									<td width="10px"></td>
+									<td width="25px"></td>
+									<td class="buc_overload">--</td>
+									<td style="width:150px"></td>
+									<td style="width:170px" class="Gate"></td>
+									<td width="10px"></td>
+									<td width="25px"></td>
+									<td class="buc_gate">--</td>
+								</tr>
+								<tr>
+									<td style="width:170px" class="HPA"></td>
+									<td width="10px"></td>
+									<td width="25px"></td>
+									<td class="buc_hpa">--</td>
+									<td style="width:150px"></td>
+									<td style="width:170px" class="ForwardSNR"></td>
+									<td width="10px"></td>
+									<td width="25px"></td>
+									<td class="forward_snr">--</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+				<span id="footer"></span>
+				<script src="/script/footer.js"></script>
+			</div>
+
+
+		</div>
+	</body>
+	<script>
+		document.write("<script type='text/javascript' src='/root/diagnostics/acu.js?time=" + Math.random() + " '></" + "script" + ">");
+	</script>
+
+</html>

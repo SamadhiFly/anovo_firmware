@@ -1,0 +1,240 @@
+<html>
+<!- Copyright (c) Go Ahead Software Inc., 2000-2010. All Rights Reserved. ->
+
+	<head>
+		<title id="hometitle"></title>
+		<meta http-equiv="X-UA-Compatible" content="edge" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="expires" content="0">
+		<meta name="viewport" content="width=1024px">
+		<link href="/css/bc.css" rel="stylesheet">
+		<link href="/css/home.css" rel="stylesheet">
+	</head>
+	<script>
+		document.write("<script type='text/javascript' src='/script/jquery-1.8.3.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/script/rcst-type.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/script/language-config.js?time=" + Math.random() + " '></" + "script" + ">");
+	</script>
+
+	<body>
+		<div id="doc" style="min-width:1400px">
+			<div id="hd">
+				<div class="inner">
+					<div class="mod-head clearfix">
+						<span id="header"></span>
+						<script src="/script/header.js"></script>
+					</div>
+				</div>
+			</div>
+			<div id="bd">
+				<div class="mod-rtstatus" id="netstatus">
+					<div class="inner">
+						<div class="devices" id="devices">
+							<img src="/icons/devices.png" />
+							<p id="landevice"></p>
+							<div class="count">
+								<span class="num" id="devicesCount"></span><span class="unit"></span>
+							</div>
+						</div>
+						<div class="router" id="btnRouterStatus">
+							<img id="btnr1c" src="" />
+							<p id="rcstdevice"></p>
+						</div>
+						<div class="internet get-history-speed">
+							<img id="btninternet" src="" />
+							<p id="hubdevice"></p>
+						</div>
+						<div class="lanst">
+							<div class="item" id="stwifi24">
+								<div class="speed">
+									<span id="tx_rate_lan"></span><span class="num" id="tx_lan_avg">--</span><span
+										class="unit" id="tx_lan_unit">Ksps</span>
+								</div>
+								<div><img src="/icons/Arrow_left.png" /></div>
+							</div>
+							<div class="item" id="stwifi50">
+								<i class="circle wifiset"></i>
+							</div>
+							<div class="item" id="stlan">
+								<div><img src="/icons/Arrow_right.png" /></div>
+								<div class="speed">
+									<span id="rx_rate_lan"></span><span class="num" id="rx_lan_avg">--</span><span
+										class="unit" id="rx_lan_unit">Ksps</span>
+								</div>
+							</div>
+						</div>
+						<div class="up">
+							<div class="wanst get-history-speed">
+								<div class="speed">
+									<span id="rx_rate_wan"></span><span class="num" id="rx_bw_avg">--</span><span
+										class="unit" id="rx_unit">Ksps</span>
+								</div>
+								<div><img src="/icons/Arrow_left.png" /></div>
+								<br />
+							</div>
+						</div>
+						<div class="down">
+							<div class="wanst get-history-speed">
+								<br />
+								<div><img src="/icons/Arrow_right.png" /></div>
+								<div class="speed">
+									<span id="tx_rate_wan"></span><span class="num" id="tx_bw_avg">--</span><span
+										class="unit" id="tx_unit">Ksps</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<ul class="con_ul">
+				<li>
+					<div class="title">
+						<span id="termianl_status"></span>
+					</div>
+					<div class="con">
+						<table class="status">
+							<tr>
+								<td class="now" id="lockedstatus">
+								</td>
+								<td style="width:300px">
+									<span id="locked">--</span>
+								</td>
+								<td class="now" id="currentstatus">
+								</td>
+								<td style="width:300px">
+									<span id="curstate">--</span>
+								</td>
+							</tr>
+							<br />
+						</table>
+						<div class="solid"></div>
+						<table class="status">
+							<tr>
+								<td class="now" id="rx_snr">
+								</td>
+								<td style="width:60px">
+									<span id="rf_rx_snr_signal">--</span>
+								</td>
+								<td style="width:240px; font-size:18px; color:#996666;font-family:din,tahoma;">
+									(<span id="rf_rx_snr">--</span>dB)
+								</td>
+								<td class="now" id="tx_snr">
+								</td>
+								<td style="width:60px">
+									<span id="rf_tx_snr_signal">--</span>
+								</td>
+								<td style="width:240px; font-size:18px; color:#996666;font-family:din,tahoma;">
+									(<span id="rf_tx_snr">--</span>dB)
+								</td>
+							</tr>
+							<br />
+						</table>
+					</div>
+				</li>
+				<li class="vrfpart" style="display:none">
+					<div class="title">
+						<span id="data_usage"></span>
+					</div>
+					<div class="con_traffic">
+						<table class="status">
+							<tr>
+								<td style="width:200px; font-size:18px; color:#996666;font-family:din,tahoma;">
+									<span id="update_interval"></span>
+								</td>
+								<td style="width:300px">
+									<span id="update_interval_val">--</span>
+								</td>
+								<td style="width:200px;">
+
+								</td>
+								<td style="width:300px">
+
+								</td>
+							</tr>
+							<br />
+						</table>
+						<table class="status">
+							<tr>
+								<td style="width:200px; font-size:18px; color:#996666;font-family:din,tahoma;">
+									<span id="volume_usage"></span>
+								</td>
+								<td style="width:300px">
+									<span id="volume_usage_val">--</span>MB(<span id="volume_usage_pe"></span>%)
+								</td>
+								<td style="width:200px; font-size:18px; color:#996666;font-family:din,tahoma;">
+									<span id="unused_data_action"></span>
+								</td>
+								<td style="width:300px">
+									<span id="unused_data_action_val">--</span>
+								</td>
+							</tr>
+							<br />
+						</table>
+						<table class="status">
+							<tr>
+								<td style="width:200px; font-size:18px; color:#996666;font-family:din,tahoma;">
+									<span id="total_used"></span>
+								</td>
+								<td style="width:300px">
+									<span id="total_used_val">--</span>MB(<span id="total_used_pe"></span>%)
+								</td>
+								<td style="width:200px; font-size:18px; color:#996666;font-family:din,tahoma;">
+									<span id="total_remaining"></span>
+								</td>
+								<td style="width:300px">
+									<span id="total_remaining_val">--</span>MB(<span id="total_remaining_pe"></span>%)
+								</td>
+							</tr>
+							<br />
+						</table>
+						<table class="status">
+							<tr>
+								<td style="width:200px; font-size:18px; color:#996666;font-family:din,tahoma;">
+									<span id="access_mode"></span>
+								</td>
+								<td style="width:300px">
+									<span id="access_mode_val">--</span>
+								</td>
+								<td style="width:200px; font-size:18px; color:#996666;font-family:din,tahoma;">
+									<span id="trigger_action"></span>
+								</td>
+								<td style="width:300px">
+									<span id="trigger_action_val">--</span>
+								</td>
+							</tr>
+							<br />
+						</table>
+						<table class="status" id="mir_limited" style="display:none">
+							<tr>
+								<td style="width:200px; font-size:18px; color:#996666;font-family:din,tahoma;">
+									<span id="overage_ob_mir"></span>
+								</td>
+								<td style="width:300px">
+									<span id="overage_ob_mir_val">--</span>kbps
+								</td>
+								<td style="width:200px; font-size:18px; color:#996666;font-family:din,tahoma;">
+									<span id="overage_ib_mir"></span>
+								</td>
+								<td style="width:300px">
+									<span id="overage_ib_mir_val">--</span>kbps
+								</td>
+							</tr>
+							<br />
+						</table>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<span id="footer"></span>
+		<script src="/script/footer.js"></script>
+		</div>
+		<script>
+			document.write("<script type='text/javascript' src='/i18n/home-trans.js?time=" + Math.random() + " '></" + "script" + ">");
+			document.write("<script type='text/javascript' src='/admin/home.js?time=" + Math.random() + " '></" + "script" + ">");
+		</script>
+	</body>
+
+</html>

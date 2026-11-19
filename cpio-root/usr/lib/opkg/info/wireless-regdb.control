@@ -1,0 +1,10 @@
+Package: wireless-regdb
+Version: 2017-10-20-4343d359
+Depends: libc
+Source: package/firmware/wireless-regdb
+SourceName: wireless-regdb
+Section: firmware
+Maintainer: Felix Fietkau <nbd@nbd.name>
+Architecture: arm_cortex-a9_neon
+Installed-Size: 1824
+Description:  Wireless Regulatory Database

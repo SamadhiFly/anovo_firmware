@@ -1,0 +1,226 @@
+<html>
+<!- Copyright (c) Go Ahead Software Inc., 2000-2010. All Rights Reserved. ->
+
+	<head>
+		<title id="logintitle"></title>
+		<meta http-equiv="X-UA-Compatible" content="edge" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="expires" content="0">
+		<meta name="viewport" content="width=1024px">
+		<link href="/css/bc.css" rel="stylesheet">
+		<link href="/css/login.css" rel="stylesheet">
+	</head>
+	<script src="/script/jquery-1.8.3.js"></script>
+	<script src="/script/language-config.js"></script>
+	<script src="/script/rcst-type.js"></script>
+	<script src="/i18n/login-trans.js"></script>
+	<script src="/script/jquery.dialog.js"></script>
+
+	<body>
+		<div id="doc">
+			<div id="bd">
+				<div class="mod-login">
+					<div id="pic" class="pic"></div>
+					<h1 class="title">
+						<span id="welcome"></span>
+					</h1>
+					<br />
+					<form id="myForm" method="post" action="/action/login">
+						<div class="form-item">
+							<input id="username" class="ipt-text" type="text" name="username" autocomplete="off"
+								placeholder="Please enter user name" value="" />
+						</div>
+						<div class="form-item">
+							<input class="ipt-text" type="password" name="password" autocomplete="off"
+								placeholder="Please enter administrator password" />
+						</div>
+						<div class>
+							<div class="error" style="color:#ff6347" id="error"></div>
+							<br />
+						</div>
+						<div class="form-item">
+							<button type="submit" class="btn btn-primary" style="width:333"><span
+									id="login"></span></button>
+						</div>
+					</form>
+					<div class="form-item">
+						<button class="btn btn-primary" style="width:333" onclick="resetPasswd()"><span
+								class="resetPasswd"></span></button>
+					</div>
+
+					<div class="note1">
+						<span class="test1"></span>
+					</div>
+
+					<div class="note2">
+						<span class="aaa"></span><span class="test2"></span>
+					</div>
+					<div class="note2">
+						<span class="aaa"></span><span class="test3"></span>
+					</div>
+				</div>
+			</div>
+			<span id="footer"
+				style="margin-top:60px;padding:0 0 30px 0;font-size:12px;line-height:2;color:#999;text-align:center"></span>
+			<script src="/script/footer.js"></script>
+		</div>
+		</div>
+	</body>
+	<script>
+		document.write("<script type='text/javascript' src='/validate/debug-validate.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/script/sm4.js?time=" + Math.random() + " '></" + "script" + ">");
+		// dialog alert
+		(function ($) {
+			$.alert = function (content, ok) {
+				ok = ok || function () { };
+				return $.dialog({
+					width: 390,
+					padding: '25px 30px',
+					title: alert_title,
+					content: content,
+					ok: ok,
+					cancel: false
+				});
+			}
+		})(jQuery);
+
+		// dialog confirm
+		(function ($) {
+			$.confirm = function (content, ok) {
+				ok = ok || function () { };
+				return $.dialog({
+					width: 390,
+					padding: '25px 30px',
+					title: alert_title,
+					okValue: OK,
+					cancelValue: Cancel,
+					content: content,
+					ok: ok,
+					cancel: function () { }
+				});
+			}
+		})(jQuery);
+
+		var pic = document.getElementById("pic");
+		var username = document.getElementById("username");
+		$.ajax({
+			url: '/action/RcstTypeGet',
+			type: "POST",
+			dataType: "json",
+			async: false,
+			success: function (rsp) {
+				if ('1' == space0_or_weitong1) {
+					pic.className = '';
+					pic.classList.add('pic_weitong');
+					username.value = 'chinasatcom';
+				}
+				else if ('2' == space0_or_weitong1) {
+					pic.className = '';
+					pic.classList.add('pic_jh');
+					username.value = 'UAV';
+				}
+				else if ('3' == space0_or_weitong1) {
+					pic.className = '';
+					pic.classList.add('pic_andy');
+					username.value = 'spacebroad';
+				} else {
+					pic.className = '';
+					pic.classList.add('pic');
+					username.value = 'anovo';
+				}
+			},
+			error: function () {
+				console.log("error");
+			}
+		});
+
+		// $.ajax({
+		// 	url: '/action/rcstmacGet',
+		// 	type: "POST",
+		// 	dataType: "json",
+		// 	async: false,
+		// 	success: function (rsp) {
+		// 		if (1) {
+		// 			$("#rcstMac").html(rsp.rcstMac);
+		// 		}
+		// 		else {
+		// 			console.log("rcstmacGet");
+		// 		}
+		// 	},
+		// 	error: function () {
+		// 		console.log("error");
+		// 	}
+		// });
+
+		langget();
+		rcstTypeGet();
+
+		var input = document.getElementsByName('password')[0];
+		if (input)
+			input.focus();
+
+
+		document.getElementById('myForm').addEventListener('submit', function (e) {
+			e.preventDefault();
+
+			$('input[name=password]').trigger('blur');
+			if (1 != passlogin_status) {
+				if (2 == passlogin_status) {
+					$.alert(validate_blank);
+					return;
+				} else {
+					$.alert(validate_pass);
+					return;
+				}
+			}
+
+			const form = document.getElementById('myForm');
+			const formData = new FormData(form);
+
+			let pass = form.elements['password'].value;
+			pass = sm4Encrypt(pass);
+			formData.set('password', pass);
+
+			for (let [key, value] of formData.entries()) {
+				if (form.elements[key]) {
+					form.elements[key].value = value;
+				}
+			}
+
+			setTimeout(() => {
+				form.submit();
+			}, 0);
+		});
+
+
+		function resetPasswd() {
+			var ok = function () {
+				$.ajax({
+					url: '/action/resetPasswd',
+					type: "GET",
+					dataType: "json",
+					async: false,
+					success: function (rsp) {
+						if (rsp.code == 0) {
+							$.alert(pass_succ, function () {
+								window.location.href = "/admin/login.htm" + "?timestamp=" + new Date().getTime();
+							}).lock();
+						} else {
+							$.alert(setup_failed);
+						}
+					},
+					error: function () {
+						console.log("fixPasswd error");
+					}
+				});
+			},
+				cancel = function () { };
+			$.confirm(resetPasswd_confirm, ok);
+		}
+
+	</script>
+
+</html>

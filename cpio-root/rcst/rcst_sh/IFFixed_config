@@ -1,0 +1,3 @@
+config IFFixed_config 'IFFixed_config'
+	option 'IFFixedselect' '0'
+	option 'IFFixednum' '0'

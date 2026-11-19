@@ -1,0 +1,11 @@
+Package: strongswan-mod-xauth-generic
+Version: 5.7.2-1
+Depends: libc, strongswan
+Source: feeds/packages/net/strongswan
+SourceName: strongswan-mod-xauth-generic
+License: GPL-2.0+
+Section: net
+Maintainer: Stijn Tintel <stijn@linux-ipv6.be>
+Architecture: arm_cortex-a9_neon
+Installed-Size: 2697
+Description:  StrongSwan generic XAuth backend plugin

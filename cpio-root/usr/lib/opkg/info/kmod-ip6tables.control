@@ -1,0 +1,10 @@
+Package: kmod-ip6tables
+Version: 4.14.111-1
+Depends: kernel (=4.14.111-1-b3e629d5f8118f19f76939a9f8d0606f), kmod-nf-reject6, kmod-nf-ipt6, kmod-ipt-core
+Source: package/kernel/linux
+SourceName: kmod-ip6tables
+License: GPL-2.0
+Section: kernel
+Architecture: arm_cortex-a9_neon
+Installed-Size: 7555
+Description:  Netfilter IPv6 firewalling support

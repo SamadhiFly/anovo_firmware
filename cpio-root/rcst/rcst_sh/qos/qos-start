@@ -1,0 +1,4 @@
+#!/bin/sh
+qos-stop 
+/rcst/rcst_sh/qos/generate.sh all | sh
+

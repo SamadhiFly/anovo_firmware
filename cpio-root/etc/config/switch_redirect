@@ -1,0 +1,8 @@
+config 'switch_redirect' 'redirect_set'
+	option 'switch' '0'
+	option 'firewall_switch' '0'
+	option '5g4g_switch' '1'
+	option 'pimd_switch' '0'
+	option '5g4g_switch' '0'
+
+

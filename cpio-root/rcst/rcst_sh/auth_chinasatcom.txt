@@ -1,0 +1,10 @@
+#
+#   auth.txt - Authorization data
+#
+
+role name=manager abilities=manage,
+
+user name=anovo password=b5e05ae1a2a5c9aa063b416a1cbfb055 roles=manager
+
+user name=chinasatcom password=263b1895a8d305e67de969e0818c9709 roles=manager
+

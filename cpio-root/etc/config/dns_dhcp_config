@@ -1,0 +1,11 @@
+
+config dns_config 'dns_config'
+	option dns_switch '1'
+	option dns_make '0'
+	option dns_main '16.101.1.1'
+	option dns_back '1.1.8.8'
+
+config dhcp_config 'dhcp_config'
+	option dhcp_start '192.168.1.2'
+	option dhcp_end '192.168.1.250'
+

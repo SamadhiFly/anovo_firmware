@@ -1,0 +1,8 @@
+*/1 * * * * sh /rcst/rcst_sh/remote_update_monitor_4.sh & > /dev/null
+*/5 * * * * sh /rcst/rcst_sh/network_monitor.sh & > /dev/null
+*/5 * * * * sh /rcst/rcst_sh/auth_status_monitor.sh & > /dev/null
+*/10 * * * * sh /rcst/rcst_sh/multicastpimd_monitor.sh & > /dev/null
+#*/2 * * * * sh /rcst/http_sh/tcpa_update_config.sh & > /dev/null
+*/30 * * * * sync
+*/60 * * * * sh /rcst/rcst_sh/copy_message0.sh & > /dev/null
+59 23 * * * sh /rcst/rcst_sh/mem_reclaim.sh & > /dev/null

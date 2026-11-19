@@ -1,0 +1,4 @@
+/lib/modules/4.14.111/af_alg.ko
+/lib/modules/4.14.111/algif_hash.ko
+/etc/modules.d/09-crypto-user
+/lib/modules/4.14.111/algif_skcipher.ko

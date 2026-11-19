@@ -1,0 +1,1209 @@
+<html>
+<!- Copyright (c) Go Ahead Software Inc., 2000-2010. All Rights Reserved. ->
+
+	<head>
+		<title id="upgradetitle"></title>
+		<meta http-equiv="X-UA-Compatible" content="edge" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="expires" content="0">
+		<meta name="viewport" content="width=1024px">
+		<link href="/css/bc.css" rel="stylesheet">
+		<link href="/css/safe.css" rel="stylesheet">
+	</head>
+	<script>
+		document.write("<script type='text/javascript' src='/script/qwrap.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/script/jquery-1.8.3.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/script/rcst-type.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/script/language-config.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/script/jquery.dialog.js?time=" + Math.random() + " '></" + "script" + ">");
+	</script>
+
+	<body>
+		<div id="doc" style="min-width:1200px">
+			<div id="hd">
+				<div class="inner">
+					<div class="mod-head clearfix">
+						<span id="header"></span>
+						<script src="/script/header.js"></script>
+					</div>
+				</div>
+			</div>
+			<div id="bd">
+				<div class="mod-set">
+					<div class="hd">
+						<h3 class="Version"></h3>
+					</div>
+					<div class="bd">
+						<div type="tmpl/html" id="tmplTgetVersion">
+							<table class="table" style="width:500px; height:110px">
+								<thead>
+									<center>
+										<tr>
+											<th class="center" style="width:100px; height:10px"><span
+													class="VersionType"></span></th>
+											<th class="center" style="width:400px; height:10px"><span
+													class="CurrentVersion"></span></th>
+										</tr>
+									</center>
+								</thead>
+								<tbody id="UpdateVersionList">
+									<tr>
+										<td class="center" style="width:100px" name="type" id="type"></td>
+										<td class="center" style="width:400px" name="now_version" id="now_version"></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="hd">
+						<h3 class="Upgrade1"></h3>
+					</div>
+					<div class="bd">
+						<!--
+				<table style="width:600px">
+					<tr>
+						<td style="width:150px">
+							<span class="UpgradeWay"></span>
+						</td>
+
+						<td style="width:150px " for="upgrade_type_remote">
+							<input id="upgrade_type_remote" type="radio" value="1" class="upgrade_type"><span class="RemoteUpgrade"></span></input>	
+						</td>						
+						<td style="width:150px" for="upgrade_type_local">
+							<input id="upgrade_type_local" type="radio" value="2" class="upgrade_type"><span class="LocalUpgrade"></span></input>
+						</td>					
+						<td style="width:300px;height:80px"></td>
+					</tr>
+				</table>
+				
+				<div id="upgrade_remote" style="display:none">	
+					<table style="width:600px">
+						<tr>	
+							<td style="width:150px">
+								<span class="UpgradeType"></span>
+							</td>
+							<td style="width:150px" for="remote_upgradetype_firmware">
+								<input id="remote_upgradetype_firmware" type="radio" value="1" class="remote_upgradetype"><span class="Firmware"></span>	
+							</td>
+							<td style="width:150px" for="remote_upgradetype_dsp">
+								<div class="mesh_dsp" style="display:none">
+									<input id="remote_upgradetype_dsp" type="radio" value="2" class="remote_upgradetype"><span>DSP</span>
+								</div>	
+							</td>
+							<td style="width:150px;height:60px"></td>							
+						</tr>
+					</table>
+				</div>
+
+				<div id="upgrade_local" style="display:none">	
+					<table style="width:600px">
+						<tr>
+							<td style="width:150px">
+								<span class="UpgradeType"></span>
+							</td>
+							<td style="width:150px" for="local_upgradetype_firmware">
+								<input id="local_upgradetype_firmware" type="radio" value="1" class="local_upgradetype"><span class="Firmware"></span>	
+							</td>
+							<td style="width:150px" for="local_upgradetype_dsp">
+								<div class="mesh_dsp" style="display:none">
+									<input id="local_upgradetype_dsp" type="radio" value="2" class="local_upgradetype"><span>DSP</span>
+								</div>		
+							</td>
+							<td style="width:150px;height:60px"></td>	
+						</tr>
+					</table>
+				</div>
+-->
+						<br />
+						<div id="remote_zImgae" style="display:none">
+							<table style="width:600px">
+								<tr>
+									<td style="width:180px;height:60px"></td>
+									<td class="form-contral">
+										<button type="submit" id="submit_zImage_upgrade" class="btn_sub"><span
+												class="Upgrade"></span></button>
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div id="remote_dsp" style="display:none">
+							<table style="width:600px">
+								<tr>
+									<td style="width:180px;height:60px"></td>
+									<td class="form-contral">
+										<button type="submit" id="submit_dsp_upgrade" class="btn_sub"><span
+												class="Upgrade"></span></button>
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div id="local_zImgae" style="display:none">
+							<tr>
+								<form class="form" name="uploadForm1" id="uploadForm1" method="post"
+									enctype="multipart/form-data">
+									<table style="width:600px;">
+										<tr>
+											<td style="width:180px"></td>
+											<td>
+												<div class="item">
+													<span class="v">
+														<input type="file" name="image1" id="image1" />
+													</span>
+													<em class="t"></em>
+												</div>
+											</td>
+										</tr>
+									</table>
+									<div style="height:20px"></div>
+									<table style="width:600px;">
+										<tr>
+											<td style="width:180px">
+											</td>
+											<td>
+												<button type="button" class="btn_sub" id="uploadFormBtn1"><span
+														class="UploadUpgrade"></span></button>
+											</td>
+											<td>
+											</td>
+										</tr>
+									</table>
+								</form>
+							</tr>
+						</div>
+						<div id="local_dsp" style="display:none">
+							<tr>
+								<form class="form" name="uploadForm4" id="uploadForm4" method="post"
+									enctype="multipart/form-data">
+									<table style="width:600px;font-size:16px;">
+										<tr>
+											<td style="width:180px">
+												<span style="font-size:15px" class="UpgradeFile"></span>
+											</td>
+											<td style="font-size:14px;">
+												<div class="item">
+													<span class="v">
+														<input type="file" name="image4" id="image4" />
+													</span>
+													<em class="t"></em>
+												</div>
+											</td>
+										</tr>
+									</table>
+									<div style="height:20px"></div>
+									<table style="width:600px;">
+										<tr>
+											<td style="width:180px">
+											</td>
+											<td>
+												<button type="button" class="btn_sub" id="uploadFormBtn4"><span
+														class="UploadUpgrade"></span></button>
+											</td>
+											<td>
+											</td>
+										</tr>
+									</table>
+								</form>
+							</tr>
+						</div>
+					</div>
+
+					<div class="hd">
+						<h3 class="SystemMode"></h3>
+					</div>
+					<div class="bd">
+						<table style="width:600px">
+							<tr>
+								<td style="width:180px;height:70px"></td>
+								<td>
+									<div class="form-item">
+										<select name="system_23" id="system_23"
+											style="width:190px; height:29px; font-size:14px; color:#000000">
+										</select>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td style="width:150px"></td>
+								<td class="form-contral">
+									<button type="submit" onclick="systemModeSet()" class="btn_sub"><span
+											class="Submit"></span></button>
+								</td>
+							</tr>
+						</table>
+					</div>
+
+					<div class="hd">
+						<h3 class="terminalmode"></h3>
+					</div>
+					<div class="bd">
+						<table style="width:600px">
+							<tr>
+								<td style="width:180px;height:70px"></td>
+								<td>
+									<div class="form-item">
+										<select name="termodeSel" id="termodeSel"
+											style="width:190px; height:29px; font-size:14px; color:#000000">
+											<option value="0" class="TDMA">TDMA</option>
+											<option value="1" class="FDMA">FDMA</option>
+										</select>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td style="width:150px"></td>
+								<td class="form-contral">
+									<button type="submit" onclick="terModeSet()" class="btn_sub"><span
+											class="Submit"></span></button>
+								</td>
+							</tr>
+						</table>
+					</div>
+
+					<div class="hd">
+						<h3 class="MIRImport"></h3>
+					</div>
+					<div class="bd">
+						<tr>
+							<form class="form" name="uploadForm10" id="uploadForm10" method="post"
+								enctype="multipart/form-data">
+								<table style="width:600px;font-size:16px;">
+									<tr>
+										<td style="width:180px">
+											<span style="font-size:15px" class="UpgradeFile"></span>
+										</td>
+										<td style="font-size:14px;">
+											<div class="item">
+												<span class="v">
+													<input type="file" name="image10" id="image10" />
+												</span>
+												<em class="t"></em>
+											</div>
+										</td>
+									</tr>
+								</table>
+								<div style="height:20px"></div>
+								<table style="width:600px;">
+									<tr>
+										<td style="width:180px">
+										</td>
+										<td>
+											<button type="button" class="btn_sub" id="uploadFormBtn10"><span
+													class="FileImport"></span></button>
+										</td>
+										<td>
+										</td>
+									</tr>
+								</table>
+							</form>
+						</tr>
+					</div>
+
+					<div class="hd">
+						<h3 class="System"></h3>
+					</div>
+					<div class="bd">
+						<table style="width:600px">
+							<tr>
+								<td style="width:180px;height:70px"></td>
+								<td class="form-contral">
+									<button class="btn_sub" type="submit" onclick="sysReboot()"><span
+											class="Restart"></span></button>
+								</td>
+							</tr>
+							<tr>
+								<td style="width:180px;height:70px"></td>
+								<td class="form-contral">
+									<button class="btn_sub" type="submit" id="resetButton" onclick="sysReset()"><span
+											class="Reset"></span></button>
+								</td>
+							</tr>
+						</table>
+					</div>
+
+
+					<div class="hd">
+						<h3 class="passwdChange"></h3>
+					</div>
+					<div class="bd">
+						<table style="width:900px" class="form-single">
+							<tr>
+								<td style="width:180px;height:50px">
+									<div class="form-item">
+										<span class="passwdOld"></span>
+									</div>
+								</td>
+								<td>
+									<div class="form-item">
+										<input class="ipt-text" type="password" id="old_pass" maxlength="18"
+											autocomplete="off" />
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td style="width:180px;height:50px">
+									<div class="form-item">
+										<span class="passwdNew"></span>
+									</div>
+								</td>
+								<td>
+									<div class="form-item">
+										<input class="ipt-text" type="password" id="new_pass1" maxlength="18"
+											autocomplete="off" />
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td style="width:180px;height:50px">
+									<div class="form-item">
+										<span class="passwdAgain"></span>
+									</div>
+								</td>
+								<td>
+									<div class="form-item">
+										<input class="ipt-text" type="password" id="new_pass2" maxlength="18"
+											autocomplete="off" />
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td style="width:200px;height:80px"></td>
+								<td>
+									<button class="btn_sub" type="submit" onclick="fixPasswd()"><span id="fixPasswdBtn"
+											class="submit"></span></button>
+								</td>
+							</tr>
+						</table>
+					</div>
+
+					<div class="hd">
+						<h3 class="uploaddownload"></h3>
+					</div>
+					<div class="bd">
+						<tr>
+							<form class="form" name="uploadFormCfg" id="uploadFormCfg" method="post"
+								enctype="multipart/form-data">
+								<table style="width:600px;">
+									<tr>
+										<td style="width:180px"></td>
+										<td>
+											<div class="item">
+												<span class="v">
+													<input type="file" name="imageCfg" id="imageCfg" />
+												</span>
+												<em class="t"></em>
+											</div>
+										</td>
+									</tr>
+								</table>
+								<div style="height:20px"></div>
+								<table style="width:600px;">
+									<tr>
+										<td style="width:180px">
+										</td>
+										<td>
+											<button type="button" class="btn_sub" id="uploadFormBtnCfg"><span
+													class="FileImport"></span></button>
+										</td>
+										<td>
+										</td>
+									</tr>
+								</table>
+							</form>
+						</tr>
+						<table style="width:600px">
+							<tr>
+								<td style="width:180px;height:100px"></td>
+								<td class="form-contral">
+									<button class="btn_sub" type="submit" onclick="exportCfgTitle()"><span
+											class="ExportCfg"></span></button>
+								</td>
+							</tr>
+						</table>
+					</div>
+
+
+					<div class="hd">
+						<h3 class="ExportLog"></h3>
+					</div>
+					<div class="bd">
+						<table style="width:600px">
+							<tr>
+								<td style="width:180px;height:70px"></td>
+								<td class="form-contral">
+									<button class="btn_sub" type="submit" onclick="exportLog()"><span
+											class="ExportLog"></span></button>
+								</td>
+							</tr>
+						</table>
+					</div>
+
+					<div class="hd">
+						<h3 class="TimeZone"></h3>
+					</div>
+					<div class="bd">
+						<form name="time_zone" id="time_zone" action="#" class="form form-lanip">
+							<table style="width:600px;">
+								</br>
+								<tr>
+									<td style="width:180px">
+										<div class="form-item"><span id="LocalTime"></span></div>
+									</td>
+									<td>
+										<div class="form-item">
+											<span id="_systime-clock-status"></span>
+											<em class="t"></em>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td style="width:180px">
+										<div class="form-item"><span class="TimeZone"></span></div>
+									</td>
+									<td>
+										<div class="form-item">
+											<select name="Zone_name_slect" id="zone_name_slect"
+												style="width:193px; height:28px; color:#000000">
+												<option value="UTC" name="GMT0">UTC</option>
+												<option value="Africa/Abidjan" name="GMT0">Africa/Abidjan</option>
+												<option value="Africa/Accra" name="GMT0">Africa/Accra</option>
+												<option value="Africa/Addis Ababa" name="EAT-3">Africa/Addis Ababa
+												</option>
+												<option value="Africa/Algiers" name="CET-1">Africa/Algiers</option>
+												<option value="Africa/Asmara" name="EAT-3">Africa/Asmara</option>
+												<option value="Africa/Bamako" name="GMT0">Africa/Bamako</option>
+												<option value="Africa/Bangui" name="WAT-1">Africa/Bangui</option>
+												<option value="Africa/Banjul" name="GMT0">Africa/Banjul</option>
+												<option value="Africa/Bissau" name="GMT0">Africa/Bissau</option>
+												<option value="Africa/Blantyre" name="CAT-2">Africa/Blantyre</option>
+												<option value="Africa/Brazzaville" name="WAT-1">Africa/Brazzaville
+												</option>
+												<option value="Africa/Bujumbura" name="CAT-2">Africa/Bujumbura</option>
+												<option value="Africa/Cairo" name="EET-2EEST,M4.5.5/0,M9.5.4/24">
+													Africa/Cairo</option>
+												<option value="Africa/Casablanca" name="WET0WEST,M3.5.0,M10.5.0/3">
+													Africa/Casablanca</option>
+												<option value="Africa/Ceuta" name="CET-1CEST,M3.5.0,M10.5.0/3">
+													Africa/Ceuta</option>
+												<option value="Africa/Conakry" name="GMT0">Africa/Conakry</option>
+												<option value="Africa/Dakar" name="GMT0">Africa/Dakar</option>
+												<option value="Africa/Dar es Salaam" name="EAT-3">Africa/Dar es Salaam
+												</option>
+												<option value="Africa/Djibouti" name="EAT-3">Africa/Djibouti</option>
+												<option value="Africa/Douala" name="WAT-1">Africa/Douala</option>
+												<option value="Africa/El Aaiun" name="WET0WEST,M3.5.0,M10.5.0/3">
+													Africa/El Aaiun</option>
+												<option value="Africa/Freetown" name="GMT0">Africa/Freetown</option>
+												<option value="Africa/Gaborone" name="CAT-2">Africa/Gaborone</option>
+												<option value="Africa/Harare" name="CAT-2">Africa/Harare</option>
+												<option value="Africa/Johannesburg" name="SAST-2">Africa/Johannesburg
+												</option>
+												<option value="Africa/Juba" name="EAT-3">Africa/Juba</option>
+												<option value="Africa/Kampala" name="EAT-3">Africa/Kampala</option>
+												<option value="Africa/Khartoum" name="EAT-3">Africa/Khartoum</option>
+												<option value="Africa/Kigali" name="CAT-2">Africa/Kigali</option>
+												<option value="Africa/Kinshasa" name="WAT-1">Africa/Kinshasa</option>
+												<option value="Africa/Lagos" name="WAT-1">Africa/Lagos</option>
+												<option value="Africa/Libreville" name="WAT-1">Africa/Libreville
+												</option>
+												<option value="Africa/Lome" name="GMT0">Africa/Lome</option>
+												<option value="Africa/Luanda" name="WAT-1">Africa/Luanda</option>
+												<option value="Africa/Lubumbashi" name="CAT-2">Africa/Lubumbashi
+												</option>
+												<option value="Africa/Lusaka" name="CAT-2">Africa/Lusaka</option>
+												<option value="Africa/Malabo" name="WAT-1">Africa/Malabo</option>
+												<option value="Africa/Maputo" name="CAT-2">Africa/Maputo</option>
+												<option value="Africa/Maseru" name="SAST-2">Africa/Maseru</option>
+												<option value="Africa/Mbabane" name="SAST-2">Africa/Mbabane</option>
+												<option value="Africa/Mogadishu" name="EAT-3">Africa/Mogadishu</option>
+												<option value="Africa/Monrovia" name="GMT0">Africa/Monrovia</option>
+												<option value="Africa/Nairobi" name="EAT-3">Africa/Nairobi</option>
+												<option value="Africa/Ndjamena" name="WAT-1">Africa/Ndjamena</option>
+												<option value="Africa/Niamey" name="WAT-1">Africa/Niamey</option>
+												<option value="Africa/Nouakchott" name="GMT0">Africa/Nouakchott</option>
+												<option value="Africa/Ouagadougou" name="GMT0">Africa/Ouagadougou
+												</option>
+												<option value="Africa/Porto-Novo" name="WAT-1">Africa/Porto-Novo
+												</option>
+												<option value="Africa/Sao Tome" name="GMT0">Africa/Sao Tome</option>
+												<option value="Africa/Tripoli" name="EET-2">Africa/Tripoli</option>
+												<option value="Africa/Tunis" name="CET-1">Africa/Tunis</option>
+												<option value="Africa/Windhoek" name="WAT-1WAST,M9.1.0,M4.1.0">
+													Africa/Windhoek</option>
+												<option value="America/Adak" name="HAST10HADT,M3.2.0,M11.1.0">
+													America/Adak</option>
+												<option value="America/Anchorage" name="AKST9AKDT,M3.2.0,M11.1.0">
+													America/Anchorage</option>
+												<option value="America/Anguilla" name="AST4">America/Anguilla</option>
+												<option value="America/Antigua" name="AST4">America/Antigua</option>
+												<option value="America/Araguaina" name="BRT3">America/Araguaina</option>
+												<option value="America/Argentina/Buenos Aires" name="ART3">
+													America/Argentina/Buenos Aires</option>
+												<option value="America/Argentina/Catamarca" name="ART3">
+													America/Argentina/Catamarca</option>
+												<option value="America/Argentina/Cordoba" name="ART3">
+													America/Argentina/Cordoba</option>
+												<option value="America/Argentina/Jujuy" name="ART3">
+													America/Argentina/Jujuy</option>
+												<option value="America/Argentina/La Rioja" name="ART3">
+													America/Argentina/La Rioja</option>
+												<option value="America/Argentina/Mendoza" name="ART3">
+													America/Argentina/Mendoza</option>
+												<option value="America/Argentina/Rio Gallegos" name="ART3">
+													America/Argentina/Rio Gallegos</option>
+												<option value="America/Argentina/Salta" name="ART3">
+													America/Argentina/Salta</option>
+												<option value="America/Argentina/San Juan" name="ART3">
+													America/Argentina/San Juan</option>
+												<option value="America/Argentina/San Luis" name="ART3">
+													America/Argentina/San Luis</option>
+												<option value="America/Argentina/Tucuman" name="ART3">
+													America/Argentina/Tucuman</option>
+												<option value="America/Argentina/Ushuaia" name="ART3">
+													America/Argentina/Ushuaia</option>
+												<option value="America/Aruba" name="AST4">America/Aruba</option>
+												<option value="America/Asuncion" name="PYT4PYST,M10.1.0/0,M3.4.0/0">
+													America/Asuncion</option>
+												<option value="America/Atikokan" name="EST5">America/Atikokan</option>
+												<option value="America/Bahia" name="BRT3">America/Bahia</option>
+												<option value="America/Bahia Banderas" name="CST6CDT,M4.1.0,M10.5.0">
+													America/Bahia Banderas</option>
+												<option value="America/Barbados" name="AST4">America/Barbados</option>
+												<option value="America/Belem" name="BRT3">America/Belem</option>
+												<option value="America/Belize" name="CST6">America/Belize</option>
+												<option value="America/Blanc-Sablon" name="AST4">America/Blanc-Sablon
+												</option>
+												<option value="America/Boa Vista" name="AMT4">America/Boa Vista</option>
+												<option value="America/Bogota" name="COT5">America/Bogota</option>
+												<option value="America/Boise" name="MST7MDT,M3.2.0,M11.1.0">
+													America/Boise</option>
+												<option value="America/Cambridge Bay" name="MST7MDT,M3.2.0,M11.1.0">
+													America/Cambridge Bay</option>
+												<option value="America/Campo Grande" name="AMT4AMST,M10.3.0/0,M2.3.0/0">
+													America/Campo Grande</option>
+												<option value="America/Cancun" name="CST6CDT,M4.1.0,M10.5.0">
+													America/Cancun</option>
+												<option value="America/Caracas" name="VET4:30">America/Caracas</option>
+												<option value="America/Cayenne" name="GFT3">America/Cayenne</option>
+												<option value="America/Cayman" name="EST5">America/Cayman</option>
+												<option value="America/Chicago" name="CST6CDT,M3.2.0,M11.1.0">
+													America/Chicago</option>
+												<option value="America/Chihuahua" name="MST7MDT,M4.1.0,M10.5.0">
+													America/Chihuahua</option>
+												<option value="America/Costa Rica" name="CST6">America/Costa Rica
+												</option>
+												<option value="America/Creston" name="MST7">America/Creston</option>
+												<option value="America/Cuiaba" name="AMT4AMST,M10.3.0/0,M2.3.0/0">
+													America/Cuiaba</option>
+												<option value="America/Curacao" name="AST4">America/Curacao</option>
+												<option value="America/Danmarkshavn" name="GMT0">America/Danmarkshavn
+												</option>
+												<option value="America/Dawson" name="PST8PDT,M3.2.0,M11.1.0">
+													America/Dawson</option>
+												<option value="America/Dawson Creek" name="MST7">America/Dawson Creek
+												</option>
+												<option value="America/Denver" name="MST7MDT,M3.2.0,M11.1.0">
+													America/Denver</option>
+												<option value="America/Detroit" name="EST5EDT,M3.2.0,M11.1.0">
+													America/Detroit</option>
+												<option value="America/Dominica" name="AST4">America/Dominica</option>
+												<option value="America/Edmonton" name="MST7MDT,M3.2.0,M11.1.0">
+													America/Edmonton</option>
+												<option value="America/Eirunepe" name="ACT5">America/Eirunepe</option>
+												<option value="America/El Salvador" name="CST6">America/El Salvador
+												</option>
+												<option value="America/Fortaleza" name="BRT3">America/Fortaleza</option>
+												<option value="America/Glace Bay" name="AST4ADT,M3.2.0,M11.1.0">
+													America/Glace Bay</option>
+												<option value="America/Godthab" name="WGT3WGST,M3.5.0/-2,M10.5.0/-1">
+													America/Godthab</option>
+												<option value="America/Goose Bay" name="AST4ADT,M3.2.0,M11.1.0">
+													America/Goose Bay</option>
+												<option value="America/Grand Turk" name="AST4">America/Grand Turk
+												</option>
+												<option value="America/Grenada" name="AST4">America/Grenada</option>
+												<option value="America/Guadeloupe" name="AST4">America/Guadeloupe
+												</option>
+												<option value="America/Guatemala" name="CST6">America/Guatemala</option>
+												<option value="America/Guayaquil" name="ECT5">America/Guayaquil</option>
+												<option value="America/Guyana" name="GYT4">America/Guyana</option>
+												<option value="America/Halifax" name="AST4ADT,M3.2.0,M11.1.0">
+													America/Halifax</option>
+												<option value="America/Havana" name="CST5CDT,M3.2.0/0,M11.1.0/1">
+													America/Havana</option>
+												<option value="America/Hermosillo" name="MST7">America/Hermosillo
+												</option>
+												<option value="America/Indiana/Indianapolis"
+													name="EST5EDT,M3.2.0,M11.1.0">America/Indiana/Indianapolis</option>
+												<option value="America/Indiana/Knox" name="CST6CDT,M3.2.0,M11.1.0">
+													America/Indiana/Knox</option>
+												<option value="America/Indiana/Marengo" name="EST5EDT,M3.2.0,M11.1.0">
+													America/Indiana/Marengo</option>
+												<option value="America/Indiana/Petersburg"
+													name="EST5EDT,M3.2.0,M11.1.0">America/Indiana/Petersburg</option>
+												<option value="America/Indiana/Tell City" name="CST6CDT,M3.2.0,M11.1.0">
+													America/Indiana/Tell City</option>
+												<option value="America/Indiana/Vevay" name="EST5EDT,M3.2.0,M11.1.0">
+													America/Indiana/Vevay</option>
+												<option value="America/Indiana/Vincennes" name="EST5EDT,M3.2.0,M11.1.0">
+													America/Indiana/Vincennes</option>
+												<option value="America/Indiana/Winamac" name="EST5EDT,M3.2.0,M11.1.0">
+													America/Indiana/Winamac</option>
+												<option value="America/Inuvik" name="MST7MDT,M3.2.0,M11.1.0">
+													America/Inuvik</option>
+												<option value="America/Iqaluit" name="EST5EDT,M3.2.0,M11.1.0">
+													America/Iqaluit</option>
+												<option value="America/Jamaica" name="EST5">America/Jamaica</option>
+												<option value="America/Juneau" name="AKST9AKDT,M3.2.0,M11.1.0">
+													America/Juneau</option>
+												<option value="America/Kentucky/Louisville"
+													name="EST5EDT,M3.2.0,M11.1.0">America/Kentucky/Louisville</option>
+												<option value="America/Kentucky/Monticello"
+													name="EST5EDT,M3.2.0,M11.1.0">America/Kentucky/Monticello</option>
+												<option value="America/Kralendijk" name="AST4">America/Kralendijk
+												</option>
+												<option value="America/La Paz" name="BOT4">America/La Paz</option>
+												<option value="America/Lima" name="PET5">America/Lima</option>
+												<option value="America/Los Angeles" name="PST8PDT,M3.2.0,M11.1.0">
+													America/Los Angeles</option>
+												<option value="America/Lower Princes" name="AST4">America/Lower Princes
+												</option>
+												<option value="America/Maceio" name="BRT3">America/Maceio</option>
+												<option value="America/Managua" name="CST6">America/Managua</option>
+												<option value="America/Manaus" name="AMT4">America/Manaus</option>
+												<option value="America/Marigot" name="AST4">America/Marigot</option>
+												<option value="America/Martinique" name="AST4">America/Martinique
+												</option>
+												<option value="America/Matamoros" name="CST6CDT,M3.2.0,M11.1.0">
+													America/Matamoros</option>
+												<option value="America/Mazatlan" name="MST7MDT,M4.1.0,M10.5.0">
+													America/Mazatlan</option>
+												<option value="America/Menominee" name="CST6CDT,M3.2.0,M11.1.0">
+													America/Menominee</option>
+												<option value="America/Merida" name="CST6CDT,M4.1.0,M10.5.0">
+													America/Merida</option>
+												<option value="America/Metlakatla" name="PST8">America/Metlakatla
+												</option>
+												<option value="America/Mexico City" name="CST6CDT,M4.1.0,M10.5.0">
+													America/Mexico City</option>
+												<option value="America/Miquelon" name="PMST3PMDT,M3.2.0,M11.1.0">
+													America/Miquelon</option>
+												<option value="America/Moncton" name="AST4ADT,M3.2.0,M11.1.0">
+													America/Moncton</option>
+												<option value="America/Monterrey" name="CST6CDT,M4.1.0,M10.5.0">
+													America/Monterrey</option>
+												<option value="America/Montevideo" name="UYT3UYST,M10.1.0,M3.2.0">
+													America/Montevideo</option>
+												<option value="America/Montserrat" name="AST4">America/Montserrat
+												</option>
+												<option value="America/Nassau" name="EST5EDT,M3.2.0,M11.1.0">
+													America/Nassau</option>
+												<option value="America/New York" name="EST5EDT,M3.2.0,M11.1.0">
+													America/New York</option>
+												<option value="America/Nipigon" name="EST5EDT,M3.2.0,M11.1.0">
+													America/Nipigon</option>
+												<option value="America/Nome" name="AKST9AKDT,M3.2.0,M11.1.0">
+													America/Nome</option>
+												<option value="America/Noronha" name="FNT2">America/Noronha</option>
+												<option value="America/North Dakota/Beulah"
+													name="CST6CDT,M3.2.0,M11.1.0">America/North Dakota/Beulah</option>
+												<option value="America/North Dakota/Center"
+													name="CST6CDT,M3.2.0,M11.1.0">America/North Dakota/Center</option>
+												<option value="America/North Dakota/New Salem"
+													name="CST6CDT,M3.2.0,M11.1.0">America/North Dakota/New Salem
+												</option>
+												<option value="America/Ojinaga" name="MST7MDT,M3.2.0,M11.1.0">
+													America/Ojinaga</option>
+												<option value="America/Panama" name="EST5">America/Panama</option>
+												<option value="America/Pangnirtung" name="EST5EDT,M3.2.0,M11.1.0">
+													America/Pangnirtung</option>
+												<option value="America/Paramaribo" name="SRT3">America/Paramaribo
+												</option>
+												<option value="America/Phoenix" name="MST7">America/Phoenix</option>
+												<option value="America/Port of Spain" name="AST4">America/Port of Spain
+												</option>
+												<option value="America/Port-au-Prince" name="EST5EDT,M3.2.0,M11.1.0">
+													America/Port-au-Prince</option>
+												<option value="America/Porto Velho" name="AMT4">America/Porto Velho
+												</option>
+												<option value="America/Puerto Rico" name="AST4">America/Puerto Rico
+												</option>
+												<option value="America/Rainy River" name="CST6CDT,M3.2.0,M11.1.0">
+													America/Rainy River</option>
+												<option value="America/Rankin Inlet" name="CST6CDT,M3.2.0,M11.1.0">
+													America/Rankin Inlet</option>
+												<option value="America/Recife" name="BRT3">America/Recife</option>
+												<option value="America/Regina" name="CST6">America/Regina</option>
+												<option value="America/Resolute" name="CST6CDT,M3.2.0,M11.1.0">
+													America/Resolute</option>
+												<option value="America/Rio Branco" name="ACT5">America/Rio Branco
+												</option>
+												<option value="America/Santa Isabel" name="PST8PDT,M4.1.0,M10.5.0">
+													America/Santa Isabel</option>
+												<option value="America/Santarem" name="BRT3">America/Santarem</option>
+												<option value="America/Santiago" name="CLT4CLST,M9.1.6/24,M4.4.6/24">
+													America/Santiago</option>
+												<option value="America/Santo Domingo" name="AST4">America/Santo Domingo
+												</option>
+												<option value="America/Sao Paulo" name="BRT3BRST,M10.3.0/0,M2.3.0/0">
+													America/Sao Paulo</option>
+												<option value="America/Scoresbysund" name="EGT1EGST,M3.5.0/0,M10.5.0/1">
+													America/Scoresbysund</option>
+												<option value="America/Sitka" name="AKST9AKDT,M3.2.0,M11.1.0">
+													America/Sitka</option>
+												<option value="America/St Barthelemy" name="AST4">America/St Barthelemy
+												</option>
+												<option value="America/St Johns" name="NST3:30NDT,M3.2.0,M11.1.0">
+													America/St Johns</option>
+												<option value="America/St Kitts" name="AST4">America/St Kitts</option>
+												<option value="America/St Lucia" name="AST4">America/St Lucia</option>
+												<option value="America/St Thomas" name="AST4">America/St Thomas</option>
+												<option value="America/St Vincent" name="AST4">America/St Vincent
+												</option>
+												<option value="America/Swift Current" name="CST6">America/Swift Current
+												</option>
+												<option value="America/Tegucigalpa" name="CST6">America/Tegucigalpa
+												</option>
+												<option value="America/Thule" name="AST4ADT,M3.2.0,M11.1.0">
+													America/Thule</option>
+												<option value="America/Thunder Bay" name="EST5EDT,M3.2.0,M11.1.0">
+													America/Thunder Bay</option>
+												<option value="America/Tijuana" name="PST8PDT,M3.2.0,M11.1.0">
+													America/Tijuana</option>
+												<option value="America/Toronto" name="EST5EDT,M3.2.0,M11.1.0">
+													America/Toronto</option>
+												<option value="America/Tortola" name="AST4">America/Tortola</option>
+												<option value="America/Vancouver" name="PST8PDT,M3.2.0,M11.1.0">
+													America/Vancouver</option>
+												<option value="America/Whitehorse" name="PST8PDT,M3.2.0,M11.1.0">
+													America/Whitehorse</option>
+												<option value="America/Winnipeg" name="CST6CDT,M3.2.0,M11.1.0">
+													America/Winnipeg</option>
+												<option value="America/Yakutat" name="AKST9AKDT,M3.2.0,M11.1.0">
+													America/Yakutat</option>
+												<option value="America/Yellowknife" name="MST7MDT,M3.2.0,M11.1.0">
+													America/Yellowknife</option>
+												<option value="Antarctica/Casey" name="AWST-8">Antarctica/Casey</option>
+												<option value="Antarctica/Davis" name="DAVT-7">Antarctica/Davis</option>
+												<option value="Antarctica/DumontDUrville" name="DDUT-10">
+													Antarctica/DumontDUrville</option>
+												<option value="Antarctica/Macquarie" name="MIST-11">Antarctica/Macquarie
+												</option>
+												<option value="Antarctica/Mawson" name="MAWT-5">Antarctica/Mawson
+												</option>
+												<option value="Antarctica/McMurdo" name="NZST-12NZDT,M9.5.0,M4.1.0/3">
+													Antarctica/McMurdo</option>
+												<option value="Antarctica/Palmer" name="CLT4CLST,M9.1.6/24,M4.4.6/24">
+													Antarctica/Palmer</option>
+												<option value="Antarctica/Rothera" name="ROTT3">Antarctica/Rothera
+												</option>
+												<option value="Antarctica/Syowa" name="SYOT-3">Antarctica/Syowa</option>
+												<option value="Antarctica/Troll" name="UTC0CEST-2,M3.5.0/1,M10.5.0/3">
+													Antarctica/Troll</option>
+												<option value="Antarctica/Vostok" name="VOST-6">Antarctica/Vostok
+												</option>
+												<option value="Arctic/Longyearbyen" name="CET-1CEST,M3.5.0,M10.5.0/3">
+													Arctic/Longyearbyen</option>
+												<option value="Asia/Aden" name="AST-3">Asia/Aden</option>
+												<option value="Asia/Almaty" name="ALMT-6">Asia/Almaty</option>
+												<option value="Asia/Amman" name="EET-2EEST,M3.5.4/24,M10.5.5/1">
+													Asia/Amman</option>
+												<option value="Asia/Anadyr" name="ANAT-12">Asia/Anadyr</option>
+												<option value="Asia/Aqtau" name="AQTT-5">Asia/Aqtau</option>
+												<option value="Asia/Aqtobe" name="AQTT-5">Asia/Aqtobe</option>
+												<option value="Asia/Ashgabat" name="TMT-5">Asia/Ashgabat</option>
+												<option value="Asia/Baghdad" name="AST-3">Asia/Baghdad</option>
+												<option value="Asia/Bahrain" name="AST-3">Asia/Bahrain</option>
+												<option value="Asia/Baku" name="AZT-4AZST,M3.5.0/4,M10.5.0/5">Asia/Baku
+												</option>
+												<option value="Asia/Bangkok" name="ICT-7">Asia/Bangkok</option>
+												<option value="Asia/Beirut" name="EET-2EEST,M3.5.0/0,M10.5.0/0">
+													Asia/Beirut</option>
+												<option value="Asia/Bishkek" name="KGT-6">Asia/Bishkek</option>
+												<option value="Asia/Brunei" name="BNT-8">Asia/Brunei</option>
+												<option value="Asia/Chita" name="IRKT-8">Asia/Chita</option>
+												<option value="Asia/Choibalsan" name="CHOT-8">Asia/Choibalsan</option>
+												<option value="Asia/Colombo" name="IST-5:30">Asia/Colombo</option>
+												<option value="Asia/Damascus" name="EET-2EEST,M3.5.5/0,M10.5.5/0">
+													Asia/Damascus</option>
+												<option value="Asia/Dhaka" name="BDT-6">Asia/Dhaka</option>
+												<option value="Asia/Dili" name="TLT-9">Asia/Dili</option>
+												<option value="Asia/Dubai" name="GST-4">Asia/Dubai</option>
+												<option value="Asia/Dushanbe" name="TJT-5">Asia/Dushanbe</option>
+												<option value="Asia/Gaza" name="EET-2EEST,M3.5.4/24,M9.3.6/144">
+													Asia/Gaza</option>
+												<option value="Asia/Hebron" name="EET-2EEST,M3.5.4/24,M9.3.6/144">
+													Asia/Hebron</option>
+												<option value="Asia/Ho Chi Minh" name="ICT-7">Asia/Ho Chi Minh</option>
+												<option value="Asia/Hong Kong" name="HKT-8">Asia/Hong Kong</option>
+												<option value="Asia/Hovd" name="HOVT-7">Asia/Hovd</option>
+												<option value="Asia/Irkutsk" name="IRKT-8">Asia/Irkutsk</option>
+												<option value="Asia/Jakarta" name="WIB-7">Asia/Jakarta</option>
+												<option value="Asia/Jayapura" name="WIT-9">Asia/Jayapura</option>
+												<option value="Asia/Jerusalem" name="IST-2IDT,M3.4.4/26,M10.5.0">
+													Asia/Jerusalem</option>
+												<option value="Asia/Kabul" name="AFT-4:30">Asia/Kabul</option>
+												<option value="Asia/Kamchatka" name="PETT-12">Asia/Kamchatka</option>
+												<option value="Asia/Karachi" name="PKT-5">Asia/Karachi</option>
+												<option value="Asia/Kathmandu" name="NPT-5:45">Asia/Kathmandu</option>
+												<option value="Asia/Khandyga" name="YAKT-9">Asia/Khandyga</option>
+												<option value="Asia/Kolkata" name="IST-5:30">Asia/Kolkata</option>
+												<option value="Asia/Krasnoyarsk" name="KRAT-7">Asia/Krasnoyarsk</option>
+												<option value="Asia/Kuala Lumpur" name="MYT-8">Asia/Kuala Lumpur
+												</option>
+												<option value="Asia/Kuching" name="MYT-8">Asia/Kuching</option>
+												<option value="Asia/Kuwait" name="AST-3">Asia/Kuwait</option>
+												<option value="Asia/Macau" name="CST-8">Asia/Macau</option>
+												<option value="Asia/Magadan" name="MAGT-10">Asia/Magadan</option>
+												<option value="Asia/Makassar" name="WITA-8">Asia/Makassar</option>
+												<option value="Asia/Manila" name="PHT-8">Asia/Manila</option>
+												<option value="Asia/Muscat" name="GST-4">Asia/Muscat</option>
+												<option value="Asia/Nicosia" name="EET-2EEST,M3.5.0/3,M10.5.0/4">
+													Asia/Nicosia</option>
+												<option value="Asia/Novokuznetsk" name="KRAT-7">Asia/Novokuznetsk
+												</option>
+												<option value="Asia/Novosibirsk" name="NOVT-6">Asia/Novosibirsk</option>
+												<option value="Asia/Omsk" name="OMST-6">Asia/Omsk</option>
+												<option value="Asia/Oral" name="ORAT-5">Asia/Oral</option>
+												<option value="Asia/Phnom Penh" name="ICT-7">Asia/Phnom Penh</option>
+												<option value="Asia/Pontianak" name="WIB-7">Asia/Pontianak</option>
+												<option value="Asia/Pyongyang" name="KST-9">Asia/Pyongyang</option>
+												<option value="Asia/Qatar" name="AST-3">Asia/Qatar</option>
+												<option value="Asia/Qyzylorda" name="QYZT-6">Asia/Qyzylorda</option>
+												<option value="Asia/Rangoon" name="MMT-6:30">Asia/Rangoon</option>
+												<option value="Asia/Riyadh" name="AST-3">Asia/Riyadh</option>
+												<option value="Asia/Sakhalin" name="SAKT-10">Asia/Sakhalin</option>
+												<option value="Asia/Samarkand" name="UZT-5">Asia/Samarkand</option>
+												<option value="Asia/Seoul" name="KST-9">Asia/Seoul</option>
+												<option value="Asia/Shanghai" name="CST-8">Asia/Shanghai</option>
+												<option value="Asia/Singapore" name="SGT-8">Asia/Singapore</option>
+												<option value="Asia/Srednekolymsk" name="SRET-11">Asia/Srednekolymsk
+												</option>
+												<option value="Asia/Taipei" name="CST-8">Asia/Taipei</option>
+												<option value="Asia/Tashkent" name="UZT-5">Asia/Tashkent</option>
+												<option value="Asia/Tbilisi" name="GET-4">Asia/Tbilisi</option>
+												<option value="Asia/Thimphu" name="BTT-6">Asia/Thimphu</option>
+												<option value="Asia/Tokyo" name="JST-9">Asia/Tokyo</option>
+												<option value="Asia/Ulaanbaatar" name="ULAT-8">Asia/Ulaanbaatar</option>
+												<option value="Asia/Urumqi" name="XJT-6">Asia/Urumqi</option>
+												<option value="Asia/Ust-Nera" name="VLAT-10">Asia/Ust-Nera</option>
+												<option value="Asia/Vientiane" name="ICT-7">Asia/Vientiane</option>
+												<option value="Asia/Vladivostok" name="VLAT-10">Asia/Vladivostok
+												</option>
+												<option value="Asia/Yakutsk" name="YAKT-9">Asia/Yakutsk</option>
+												<option value="Asia/Yekaterinburg" name="YEKT-5">Asia/Yekaterinburg
+												</option>
+												<option value="Asia/Yerevan" name="AMT-4">Asia/Yerevan</option>
+												<option value="Atlantic/Azores" name="AZOT1AZOST,M3.5.0/0,M10.5.0/1">
+													Atlantic/Azores</option>
+												<option value="Atlantic/Bermuda" name="AST4ADT,M3.2.0,M11.1.0">
+													Atlantic/Bermuda</option>
+												<option value="Atlantic/Canary" name="WET0WEST,M3.5.0/1,M10.5.0">
+													Atlantic/Canary</option>
+												<option value="Atlantic/Cape Verde" name="CVT1">Atlantic/Cape Verde
+												</option>
+												<option value="Atlantic/Faroe" name="WET0WEST,M3.5.0/1,M10.5.0">
+													Atlantic/Faroe</option>
+												<option value="Atlantic/Madeira" name="WET0WEST,M3.5.0/1,M10.5.0">
+													Atlantic/Madeira</option>
+												<option value="Atlantic/Reykjavik" name="GMT0">Atlantic/Reykjavik
+												</option>
+												<option value="Atlantic/South Georgia" name="GST2">Atlantic/South
+													Georgia</option>
+												<option value="Atlantic/St Helena" name="GMT0">Atlantic/St Helena
+												</option>
+												<option value="Atlantic/Stanley" name="FKST3">Atlantic/Stanley</option>
+												<option value="Australia/Adelaide"
+													name="ACST-9:30ACDT,M10.1.0,M4.1.0/3">Australia/Adelaide</option>
+												<option value="Australia/Brisbane" name="AEST-10">Australia/Brisbane
+												</option>
+												<option value="Australia/Broken Hill"
+													name="ACST-9:30ACDT,M10.1.0,M4.1.0/3">Australia/Broken Hill</option>
+												<option value="Australia/Currie" name="AEST-10AEDT,M10.1.0,M4.1.0/3">
+													Australia/Currie</option>
+												<option value="Australia/Darwin" name="ACST-9:30">Australia/Darwin
+												</option>
+												<option value="Australia/Eucla" name="ACWST-8:45">Australia/Eucla
+												</option>
+												<option value="Australia/Hobart" name="AEST-10AEDT,M10.1.0,M4.1.0/3">
+													Australia/Hobart</option>
+												<option value="Australia/Lindeman" name="AEST-10">Australia/Lindeman
+												</option>
+												<option value="Australia/Lord Howe"
+													name="LHST-10:30LHDT-11,M10.1.0,M4.1.0">Australia/Lord Howe</option>
+												<option value="Australia/Melbourne" name="AEST-10AEDT,M10.1.0,M4.1.0/3">
+													Australia/Melbourne</option>
+												<option value="Australia/Perth" name="AWST-8">Australia/Perth</option>
+												<option value="Australia/Sydney" name="AEST-10AEDT,M10.1.0,M4.1.0/3">
+													Australia/Sydney</option>
+												<option value="Europe/Amsterdam" name="CET-1CEST,M3.5.0,M10.5.0/3">
+													Europe/Amsterdam</option>
+												<option value="Europe/Andorra" name="CET-1CEST,M3.5.0,M10.5.0/3">
+													Europe/Andorra</option>
+												<option value="Europe/Athens" name="EET-2EEST,M3.5.0/3,M10.5.0/4">
+													Europe/Athens</option>
+												<option value="Europe/Belgrade" name="CET-1CEST,M3.5.0,M10.5.0/3">
+													Europe/Belgrade</option>
+												<option value="Europe/Berlin" name="CET-1CEST,M3.5.0,M10.5.0/3">
+													Europe/Berlin</option>
+												<option value="Europe/Bratislava" name="CET-1CEST,M3.5.0,M10.5.0/3">
+													Europe/Bratislava</option>
+												<option value="Europe/Brussels" name="CET-1CEST,M3.5.0,M10.5.0/3">
+													Europe/Brussels</option>
+												<option value="Europe/Bucharest" name="EET-2EEST,M3.5.0/3,M10.5.0/4">
+													Europe/Bucharest</option>
+												<option value="Europe/Budapest" name="CET-1CEST,M3.5.0,M10.5.0/3">
+													Europe/Budapest</option>
+												<option value="Europe/Busingen" name="CET-1CEST,M3.5.0,M10.5.0/3">
+													Europe/Busingen</option>
+												<option value="Europe/Chisinau" name="EET-2EEST,M3.5.0/3,M10.5.0/4">
+													Europe/Chisinau</option>
+												<option value="Europe/Copenhagen" name="CET-1CEST,M3.5.0,M10.5.0/3">
+													Europe/Copenhagen</option>
+												<option value="Europe/Dublin" name="GMT0IST,M3.5.0/1,M10.5.0">
+													Europe/Dublin</option>
+												<option value="Europe/Gibraltar" name="CET-1CEST,M3.5.0,M10.5.0/3">
+													Europe/Gibraltar</option>
+												<option value="Europe/Guernsey" name="GMT0BST,M3.5.0/1,M10.5.0">
+													Europe/Guernsey</option>
+												<option value="Europe/Helsinki" name="EET-2EEST,M3.5.0/3,M10.5.0/4">
+													Europe/Helsinki</option>
+												<option value="Europe/Isle of Man" name="GMT0BST,M3.5.0/1,M10.5.0">
+													Europe/Isle of Man</option>
+												<option value="Europe/Istanbul" name="EET-2EEST,M3.5.0/3,M10.5.0/4">
+													Europe/Istanbul</option>
+												<option value="Europe/Jersey" name="GMT0BST,M3.5.0/1,M10.5.0">
+													Europe/Jersey</option>
+												<option value="Europe/Kaliningrad" name="EET-2">Europe/Kaliningrad
+												</option>
+												<option value="Europe/Kiev" name="EET-2EEST,M3.5.0/3,M10.5.0/4">
+													Europe/Kiev</option>
+												<option value="Europe/Lisbon" name="WET0WEST,M3.5.0/1,M10.5.0">
+													Europe/Lisbon</option>
+												<option value="Europe/Ljubljana" name="CET-1CEST,M3.5.0,M10.5.0/3">
+													Europe/Ljubljana</option>
+												<option value="Europe/London" name="GMT0BST,M3.5.0/1,M10.5.0">
+													Europe/London</option>
+												<option value="Europe/Luxembourg" name="CET-1CEST,M3.5.0,M10.5.0/3">
+													Europe/Luxembourg</option>
+												<option value="Europe/Madrid" name="CET-1CEST,M3.5.0,M10.5.0/3">
+													Europe/Madrid</option>
+												<option value="Europe/Malta" name="CET-1CEST,M3.5.0,M10.5.0/3">
+													Europe/Malta</option>
+												<option value="Europe/Mariehamn" name="EET-2EEST,M3.5.0/3,M10.5.0/4">
+													Europe/Mariehamn</option>
+												<option value="Europe/Minsk" name="MSK-3">Europe/Minsk</option>
+												<option value="Europe/Monaco" name="CET-1CEST,M3.5.0,M10.5.0/3">
+													Europe/Monaco</option>
+												<option value="Europe/Moscow" name="MSK-3">Europe/Moscow</option>
+												<option value="Europe/Oslo" name="CET-1CEST,M3.5.0,M10.5.0/3">
+													Europe/Oslo</option>
+												<option value="Europe/Paris" name="CET-1CEST,M3.5.0,M10.5.0/3">
+													Europe/Paris</option>
+												<option value="Europe/Podgorica" name="CET-1CEST,M3.5.0,M10.5.0/3">
+													Europe/Podgorica</option>
+												<option value="Europe/Prague" name="CET-1CEST,M3.5.0,M10.5.0/3">
+													Europe/Prague</option>
+												<option value="Europe/Riga" name="EET-2EEST,M3.5.0/3,M10.5.0/4">
+													Europe/Riga</option>
+												<option value="Europe/Rome" name="CET-1CEST,M3.5.0,M10.5.0/3">
+													Europe/Rome</option>
+												<option value="Europe/Samara" name="SAMT-4">Europe/Samara</option>
+												<option value="Europe/San Marino" name="CET-1CEST,M3.5.0,M10.5.0/3">
+													Europe/San Marino</option>
+												<option value="Europe/Sarajevo" name="CET-1CEST,M3.5.0,M10.5.0/3">
+													Europe/Sarajevo</option>
+												<option value="Europe/Simferopol" name="MSK-3">Europe/Simferopol
+												</option>
+												<option value="Europe/Skopje" name="CET-1CEST,M3.5.0,M10.5.0/3">
+													Europe/Skopje</option>
+												<option value="Europe/Sofia" name="EET-2EEST,M3.5.0/3,M10.5.0/4">
+													Europe/Sofia</option>
+												<option value="Europe/Stockholm" name="CET-1CEST,M3.5.0,M10.5.0/3">
+													Europe/Stockholm</option>
+												<option value="Europe/Tallinn" name="EET-2EEST,M3.5.0/3,M10.5.0/4">
+													Europe/Tallinn</option>
+												<option value="Europe/Tirane" name="CET-1CEST,M3.5.0,M10.5.0/3">
+													Europe/Tirane</option>
+												<option value="Europe/Uzhgorod" name="EET-2EEST,M3.5.0/3,M10.5.0/4">
+													Europe/Uzhgorod</option>
+												<option value="Europe/Vaduz" name="CET-1CEST,M3.5.0,M10.5.0/3">
+													Europe/Vaduz</option>
+												<option value="Europe/Vatican" name="CET-1CEST,M3.5.0,M10.5.0/3">
+													Europe/Vatican</option>
+												<option value="Europe/Vienna" name="CET-1CEST,M3.5.0,M10.5.0/3">
+													Europe/Vienna</option>
+												<option value="Europe/Vilnius" name="EET-2EEST,M3.5.0/3,M10.5.0/4">
+													Europe/Vilnius</option>
+												<option value="Europe/Volgograd" name="MSK-3">Europe/Volgograd</option>
+												<option value="Europe/Warsaw" name="CET-1CEST,M3.5.0,M10.5.0/3">
+													Europe/Warsaw</option>
+												<option value="Europe/Zagreb" name="CET-1CEST,M3.5.0,M10.5.0/3">
+													Europe/Zagreb</option>
+												<option value="Europe/Zaporozhye" name="EET-2EEST,M3.5.0/3,M10.5.0/4">
+													Europe/Zaporozhye</option>
+												<option value="Europe/Zurich" name="CET-1CEST,M3.5.0,M10.5.0/3">
+													Europe/Zurich</option>
+												<option value="Indian/Antananarivo" name="EAT-3">Indian/Antananarivo
+												</option>
+												<option value="Indian/Chagos" name="IOT-6">Indian/Chagos</option>
+												<option value="Indian/Christmas" name="CXT-7">Indian/Christmas</option>
+												<option value="Indian/Cocos" name="CCT-6:30">Indian/Cocos</option>
+												<option value="Indian/Comoro" name="EAT-3">Indian/Comoro</option>
+												<option value="Indian/Kerguelen" name="TFT-5">Indian/Kerguelen</option>
+												<option value="Indian/Mahe" name="SCT-4">Indian/Mahe</option>
+												<option value="Indian/Maldives" name="MVT-5">Indian/Maldives</option>
+												<option value="Indian/Mauritius" name="MUT-4">Indian/Mauritius</option>
+												<option value="Indian/Mayotte" name="EAT-3">Indian/Mayotte</option>
+												<option value="Indian/Reunion" name="RET-4">Indian/Reunion</option>
+												<option value="Pacific/Apia" name="WSST-13WSDT,M9.5.0/3,M4.1.0/4">
+													Pacific/Apia</option>
+												<option value="Pacific/Auckland" name="NZST-12NZDT,M9.5.0,M4.1.0/3">
+													Pacific/Auckland</option>
+												<option value="Pacific/Bougainville" name="BST-11">Pacific/Bougainville
+												</option>
+												<option value="Pacific/Chatham"
+													name="CHAST-12:45CHADT,M9.5.0/2:45,M4.1.0/3:45">Pacific/Chatham
+												</option>
+												<option value="Pacific/Chuuk" name="CHUT-10">Pacific/Chuuk</option>
+												<option value="Pacific/Easter" name="EAST6EASST,M9.1.6/22,M4.4.6/22">
+													Pacific/Easter</option>
+												<option value="Pacific/Efate" name="VUT-11">Pacific/Efate</option>
+												<option value="Pacific/Enderbury" name="PHOT-13">Pacific/Enderbury
+												</option>
+												<option value="Pacific/Fakaofo" name="TKT-13">Pacific/Fakaofo</option>
+												<option value="Pacific/Fiji" name="FJT-12FJST,M11.1.0,M1.3.4/75">
+													Pacific/Fiji</option>
+												<option value="Pacific/Funafuti" name="TVT-12">Pacific/Funafuti</option>
+												<option value="Pacific/Galapagos" name="GALT6">Pacific/Galapagos
+												</option>
+												<option value="Pacific/Gambier" name="GAMT9">Pacific/Gambier</option>
+												<option value="Pacific/Guadalcanal" name="SBT-11">Pacific/Guadalcanal
+												</option>
+												<option value="Pacific/Guam" name="ChST-10">Pacific/Guam</option>
+												<option value="Pacific/Honolulu" name="HST10">Pacific/Honolulu</option>
+												<option value="Pacific/Johnston" name="HST10">Pacific/Johnston</option>
+												<option value="Pacific/Kiritimati" name="LINT-14">Pacific/Kiritimati
+												</option>
+												<option value="Pacific/Kosrae" name="KOST-11">Pacific/Kosrae</option>
+												<option value="Pacific/Kwajalein" name="MHT-12">Pacific/Kwajalein
+												</option>
+												<option value="Pacific/Majuro" name="MHT-12">Pacific/Majuro</option>
+												<option value="Pacific/Marquesas" name="MART9:30">Pacific/Marquesas
+												</option>
+												<option value="Pacific/Midway" name="SST11">Pacific/Midway</option>
+												<option value="Pacific/Nauru" name="NRT-12">Pacific/Nauru</option>
+												<option value="Pacific/Niue" name="NUT11">Pacific/Niue</option>
+												<option value="Pacific/Norfolk" name="NFT-11:30">Pacific/Norfolk
+												</option>
+												<option value="Pacific/Noumea" name="NCT-11">Pacific/Noumea</option>
+												<option value="Pacific/Pago Pago" name="SST11">Pacific/Pago Pago
+												</option>
+												<option value="Pacific/Palau" name="PWT-9">Pacific/Palau</option>
+												<option value="Pacific/Pitcairn" name="PST8">Pacific/Pitcairn</option>
+												<option value="Pacific/Pohnpei" name="PONT-11">Pacific/Pohnpei</option>
+												<option value="Pacific/Port Moresby" name="PGT-10">Pacific/Port Moresby
+												</option>
+												<option value="Pacific/Rarotonga" name="CKT10">Pacific/Rarotonga
+												</option>
+												<option value="Pacific/Saipan" name="ChST-10">Pacific/Saipan</option>
+												<option value="Pacific/Tahiti" name="TAHT10">Pacific/Tahiti</option>
+												<option value="Pacific/Tarawa" name="GILT-12">Pacific/Tarawa</option>
+												<option value="Pacific/Tongatapu" name="TOT-13">Pacific/Tongatapu
+												</option>
+												<option value="Pacific/Wake" name="WAKT-12">Pacific/Wake</option>
+												<option value="Pacific/Wallis" name="WFT-12">Pacific/Wallis</option>
+												</option>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td style="width:180px;height:40px"></td>
+									<td>
+										<button class="btn_sub" type="submit"><span class="Submit"></span></button>
+									</td>
+								</tr>
+							</table>
+						</form>
+						<span id="footer"></span>
+						<script src="/script/footer.js"></script>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<script type="tmpl/html" id="exportAlert">
+<div>
+		<table style="width:200px;margin-left:40px">
+			 <tr>
+				<td >
+						<input id="exportAlertTitle" style="width:232px"></input>
+						<em id="exportAlertTitleError"></em>
+				</td>
+			</tr>
+			<tr>
+				<td class="center">
+					<button  class="btn_sub" type="submit" onclick="exportCfg()" style="margin-top:20px;width:230px"><span class="ExportCfg"></span></button>
+				</td>
+			</tr>
+		</table>
+	</div>
+</script>
+		<script type="tmpl/html" id="updategetversion">
+    <tr style="height:10px">
+		<td class="center">{$type}</td>
+        <td class="center">{$crt_version}</td>
+    </tr>
+</script>
+		<script type="tmpl/html" id="tmplTsetSet">
+    <div class="dialog-listadd-form-wrap">
+        <form action="#" class="form-bandlist form-table" name="listAdd" id="listAdd">
+			<table style="width:400px;font-size:16px;">
+				<tr>
+					<td style="width:200px">
+						<div class="form-item1" id="state1">--</div>
+					</td>
+					<td style="width:200px">
+						<div class="form-item1" id="state2">--</div>
+					</td>
+				</tr>
+				<tr>	
+					<td style="width:200px">
+						<div class="form-item1" id="state3">
+							<h3>--</h3>	
+						</div>
+					</td>
+					<td style="width:200px">
+						<div class="form-item1" id="state4">
+							<h3>--</h3>	
+						</div>
+					</td>
+				</tr>	
+			</table>
+			<table>
+					<tr>
+						<td style="width:400px;font-size:14px;height:20px"></td>
+					</tr>
+				<tr >	
+					<td style="width:400px;font-size:14px;">
+						<div class="form-item1"  id="state5">
+							<i><b class="notice"></b></i>	
+						</div>
+					</td>
+				</tr>	
+			</table>	
+        </form>
+    </div>
+</script>
+	</body>
+	<script>
+		document.write("<script type='text/javascript' src='/validate/debug-validate.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/i18n/upgrade-trans.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/root/upgrade/packages-get.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/root/upgrade/packages-set.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/script/sm4.js?time=" + Math.random() + " '></" + "script" + ">");
+	</script>
+
+</html>

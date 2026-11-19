@@ -1,0 +1,427 @@
+<html>
+<!- Copyright (c) Go Ahead Software Inc., 2000-2010. All Rights Reserved. ->
+<head>
+<title id="wantitle"></title>
+<meta http-equiv="X-UA-Compatible" content="edge" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta name="viewport" content="width=1024px">
+<link href="/css/bc.css" rel="stylesheet">
+<link href="/css/wan.css" rel="stylesheet">
+</head>
+<script>
+document.write("<script type='text/javascript' src='/script/qwrap.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/script/jquery-1.8.3.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/script/jquery.dialog.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/script/rcst-type.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/i18n/netwan-trans.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/script/language-config.js?time="+Math.random()+" '></"+"script"+">");
+</script>
+<body>
+<div id="doc"  style="min-width:1200px">
+	<div id="hd">
+		<div class="inner">
+			<div class="mod-head clearfix">
+				<h1 id="logo"><a href="/root/home.htm"><span id="logoo"></span></a></h1>
+					<div id="nav">
+						<ul>
+							<li id = "terminal"><a href="/root/terminal/sysload.htm"+"?timestamp="+new Date().getTime() id="terminal_a"><span  id="terminal_b"></span></a></li>
+							<li id = "odu"><a href="/root/odu/odu.htm"+"?timestamp="+new Date().getTime() id="odu_a"><span  id="odu_b"></span></a></li>
+							<li id = "network"><a href="/root/network/lan.htm"+"?timestamp="+new Date().getTime() id="network_a"><span  id="network_b"></span></a></li>
+							<li id = "diagnostics"><a href="/root/diagnostics/status.htm"+"?timestamp="+new Date().getTime() id="diagnostics_a"><span   id="diagnostics_b"></span></a></li>
+							<li><a href="/root/guide/install-set1.htm" id = "installation_b"></a></li>
+						</ul>
+					</div>
+					<div id="userbar">
+						<a href="/action/logout" id="quit"></a>
+						<span class="line">|</span>
+						<a href="/root/upgrade/packages.htm" id="upgrade"></a>
+
+						<span class="line">|</span>
+						<a href="/root/upload/upload_login.htm" id="upload"></a>
+			
+						<span class="line">|</span>
+						<!-- <a style="cursor:pointer" onclick="langset()" id="lang" value="en"></a> -->
+						<select  name="language_three"  id="language_three"style="cursor:pointer" onChange="langset()">
+							<option value="en">English</option>
+							<option value="zh">简体中文</option>
+							<option value="zh_HK">繁體中文</option>
+					   </select>
+					</div>
+			</div>
+					<div class="mod-set-nav">
+						<ul class="clearfix">
+							<li id="lan"><a href="/root/network/lan.htm" +"?timestamp="+new Date().getTime() id="
+									lan_a"><i class="ico ico-1"></i><span class="LAN"></span></a></li>
+							<li id="wan"><a href="/root/network/wan.htm" +"?timestamp="+new Date().getTime() id="
+									wan_a"><i class="ico ico-2"></i><span class="WAN"></span></a></li>
+							<li id="proset"><a onclick="go()" id="proset_a"><i class="ico ico-3"></i><span
+										class="Advanced"></span></a></li>
+				</ul>
+			</div>			
+		</div>
+	</div>
+	<script src="/root/network/network-active.js"></script>
+    <div id="bd">
+        <div class="mod-set mod-macfilter">
+			<div class="hd">
+				<h3 class = "WAN_h3"></h3>				
+			</div>
+            <div class="bd">  
+				<table id="wan_type" style="width:450px;display:none">
+					<tr>
+						<td style="width:150px">
+							<span class="ConnectingType"></span>
+						</td>
+						<td style="width:150px" for="wantype1">
+							<input id="wantype1" type="radio" value="1" class="wantype">&nbsp;<span class="Static"></span>
+						</td>
+						<td style="width:150px" for="wantype2">
+							<input id="wantype2" type="radio" value="2" class="wantype" id="endis_pppoe">&nbsp;<span class="PPPoE"></span>
+						</td>
+					</tr>
+				</table>				   
+				<div id="static_type" style="display:none;">
+					<br/>
+					<div  id="novrf_mode" style="display:none"   >
+						<table style="width:900px" class="form-wanip">
+							<tr>
+								<td style="width:150px">
+									<div class="form-item">
+										<span class="IP"></span>
+									</div>
+								</td>
+								<td>
+									<div class="form-item">
+										<input type="text" title="static_ip" name="static_ip" id="static_ip" style="width:188px; height:25px;" />
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td style="width:150px">
+									<div class="form-item">
+										<span class="Netmask"></span>
+									</div>
+								</td>
+								<td>
+									<div class="form-item">
+										<input type="text" title="static_mask" name="static_mask" id="static_mask" style="width:188px; height:25px;" />
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td style="width:150px">
+									<div class="form-item">
+										<span>MAC</span>
+									</div>
+								</td>
+								<td>
+									<div class="form-item">
+										<span  class="rcst_mac"></span>
+									</div>
+								</td>
+							</tr>
+							<tr id="static_submit" style="display:none">
+								<td style="width:100px;height:80px"></td>
+								<td class="form-contral">
+									<button type="submit"  onclick="wanStaticSet()" class="btn_sub" ><span class="Submit"></span></button>
+								</td>
+							</tr>
+						</table>						
+					</div>
+					<div  id="Access_mode" style="display:none"   >
+						<table style="width:900px;" class="form-wanip">
+							<tr>
+								<td style="width:150px">
+									<div class="form-item" >
+											<label class="NetwrokMode"></label>
+									</div>
+								</td>
+								<td>
+									<div class="form-item">Access</div>
+								</td>
+							</tr>
+							<tr>
+								<td style="width:150px">
+									<div class="form-item">VID</div>
+								</td>
+								<td>
+									<div class="form-item" id="vid"></div>		
+								</td>
+							</tr>								
+							<tr>
+								<td style="width:150px">
+									<div class="form-item" id="ManagementIP"></div>
+								</td>
+								<td>
+									<div class="form-item" id="manager_ipaddr"></div>		
+								</td>
+							</tr>	
+							<tr>
+								<td style="width:150px">
+									<div class="form-item"  id="ServiceIP"></div>
+								</td>
+								<td>
+									<div class="form-item" id="wanvrfip"></div>		
+								</td>
+							</tr>
+							<tr>
+								<td style="width:150px">
+									<div class="form-item"><span>MAC</span></div>
+								</td>
+								<td>
+									<div class="form-item">
+										<span  class="rcst_mac"></span>
+									</div>
+								</td>	
+							</tr>
+						</table>
+					</div>	
+					<div id="Trunk_mode" style="display:none" >
+						<table style="width:900px">
+							<tr style="height:30px">
+								<td style="width:150px">
+									<div class="form-item" >
+										<label class="NetwrokMode"></label>
+									</div>
+								</td>
+								<td>
+									<div class="form-item" >Trunk</div>
+								</td>
+							</tr>
+							<tr style="height:40px">
+								<td style="width:150px">
+									<div class="form-item" id="ManagementIP1"></div>
+								</td>
+								<td>
+									<div class="form-item" id="manager_ipaddr1"></div>		
+								</td>
+							</tr>	
+							<tr style="height:40px">
+								<td style="width:150px">
+									<div class="form-item">MAC</div>
+								</td>
+								<td>
+									<div class="form-item">
+										<span  class="rcst_mac"></span>
+									</div>
+								</td>
+							</tr>
+						</table>	
+<br/>	
+						<table class="table" style="width:600px" >
+								<thead>
+									<center>
+										<tr>
+											<th class="center" style="width:25px; height:20px" id="Num_title"></th>
+											<th class="center" style="width:50px; height:20px">VID</th>
+											<th class="center" style="width:50px; height:20px">IP</th>
+											<th class="center" style="width:50px; height:20px" id="Netmask_title"></th>
+										</tr>
+									</center>
+								</thead>
+								<tbody id="trunkList" style="width:1000px;height:20px">						
+								</tbody>
+							</table>	
+
+					</div>  
+				</div>	 
+				<div id="pppoe_type_set" style="display:none;">
+				<br/>
+					<table style="width:950px" class="form-wanip">
+						<tr>
+							<td style="width:150px">	
+								<div class="form-item">
+									<span class="UserName"></span>
+								</div>
+							</td>
+							<td>
+								<div class="form-item">
+									<input type="text" title="pppoe_user" name="pppoe_user" style="width:188px; height:25px;" />
+								</div>
+							</td>
+						</tr>	
+						<tr>
+							<td style="width:150px">	
+								<div class="form-item">
+									<span class="Password"></span>
+								</div>		
+							</td>
+							<td>
+								<div class="form-item" >
+									<input type="password" title="pppoe_pass" name="pppoe_pass" style="width:188px; height:25px;" />
+								</div>
+							</td>
+						</tr>  
+						<tr>
+							<td style="width:150px">	
+								<div class="form-item">
+									<span>MAC</span>
+								</div>
+							</td>
+							<td>
+								<div class="form-item">
+									<span  class="rcst_mac"></span>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td style="width:100px;height:80px"></td>
+							<td class="form-contral">
+								<button type="submit"  onclick="wanPPPOESet()" class="btn_sub" ><span class="Submit"></span></button>
+							</td>
+						</tr>		
+					</table>
+                </div>
+				<div id="pppoe_type_get" style="display:none">
+					<table style="width:950px" class="form-wanip">
+						<tr>
+							<td style="width:150px">	
+								<div class="form-item">
+									<span class="UserName"></span>
+								</div>
+							</td>
+							<td>
+								<div class="form-item" >
+								<span  id="pppoe_name">--</span>
+								</div>	
+							</td>
+						</tr>
+						</br>
+						<tr>
+							<td style="width:150px">	
+								<div class="form-item">
+									<span class="IP"></span>
+								</div>
+							</td>
+							<td>
+								<div class="form-item" >
+								<span  id="pppoe_ip">--</span>
+								</div>
+							</td>
+						</tr>
+						</br>
+						<tr>
+							<td style="width:150px">	
+								<div class="form-item">
+									<span class="Netmask"></span>
+								</div>
+							</td>
+							<td>
+								<div class="form-item" >
+								<span  id="pppoe_mask">--</span>
+								</div>
+							</td>
+						</tr>
+						</br>
+						<tr>
+							<td style="width:150px">	
+								<div class="form-item">
+									<span>MAC</span>
+								</div>
+							</td>
+							<td>
+								<div class="form-item">
+									<span  class="rcst_mac"></span>
+								</div>
+							</td>
+						</tr>	
+						<tr>
+							 <td style="width:200px;height:80px"></td> 
+							 <td class="form-contral">
+									<button type="button"  onclick="pppoeStop()" class="btn_sub" ><span class="StopPPPoE"></span></button>
+							</td>
+					   </tr>                
+					</table>
+				</div>
+				<div id="twolayer_div" style="display:none;">
+					<br/>
+						<table style="width:900px;" class="form-wanip">
+							<tr>
+								<td style="width:150px">
+									<div class="form-item" >
+											<label class="NetwrokMode"></label>
+									</div>
+								</td>
+								<td>
+									<div class="form-item" id="networkmode"></div>
+								</td>
+							</tr>
+							<tr>
+								<td style="width:150px">
+									<div class="form-item">
+											<label class="IP">IP</label>
+									</div>
+								</td>
+								<td>
+									<div class="form-item"  id="twolayip"></div>
+								</td>
+							</tr>
+							<tr>
+								<td style="width:150px">	
+									<div class="form-item">
+										<span>MAC</span>
+									</div>
+								</td>
+								<td>
+									<div class="form-item">
+										<span  class="rcst_mac"></span>
+									</div>
+								</td>
+							</tr>							
+						</table>
+				</div>			
+			</div>
+        </div>
+		<span id="footer"></span>
+		<script src="/script/footer.js"></script>
+    </div>
+</div>
+</body>
+<script type="tmpl/html" id="turnk_list">
+    <tr style="height:30px">  
+		<td class="center">{$list}</td>
+        <td class="center">{$vid}</td>
+        <td class="center">{$wanvrfip}</td>
+        <td class="center">{$wanvrfnetmask}</td>
+    </tr>
+</script>
+<script type="tmpl/html" id="tmplTsetSet">
+    <div class="dialog-listadd-form-wrap">
+        <form action="#" class="form-bandlist form-table" name="listAdd" id="listAdd">
+			<table style="width:400px;font-size:16px;">
+				<tr>
+					<div class="form-item1" id="state1">
+						<span class="IPGetting"></span>	
+					</div>
+				</tr>
+			</table>
+			<br/>
+			<table style="width:400px;font-size:16px;">
+				<tr>	
+					<div class="form-item1" id="state2" ><img src="/icons/loading.gif" />
+					</div>
+				</tr>
+			</table>	
+        </form>
+    </div>
+</script>
+<script>
+document.write("<script type='text/javascript' src='/validate/wan-validate.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/root/network/wan.js?time="+Math.random()+" '></"+"script"+">");
+</script>
+<script>
+rcstTypeGet();
+function go(){
+	if(zd_version==4){
+		window.location.href="/root/network/prosetvrf.htm"+"?timestamp="+new Date().getTime() ;
+	}else{
+		window.location.href="/root/network/proset.htm"+"?timestamp="+new Date().getTime() ;
+	}
+}
+</script>
+	
+</html>

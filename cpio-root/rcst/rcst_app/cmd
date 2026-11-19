@@ -1,0 +1,18 @@
+
+ethtool -s eth0 speed 100 duplex full autoneg on
+
+./LLA_STiD135 BBFN 1450000 53000
+
+./stm_fe_config -s -p 1 -o 1 -e 1 -c 8 -i 2048 enable
+
+./stm_fe_config -s -p 1 -o 1 -e 0 -c 8 -i 2048 disable
+
+
+./stm_fe_config -s -p 1 -o 1 -f 1550000 -r 53000000 -t 0
+
+./stm_fe_config -s -p 1 -o 0
+
+./stm_fe_config -g -p 1
+
+echo 1 > sys/module/stid135_lla/parameters/lla_wrapper_debug
+echo 0 > sys/module/stid135_lla/parameters/lla_wrapper_debug

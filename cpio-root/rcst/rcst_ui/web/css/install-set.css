@@ -1,0 +1,244 @@
+#hd{
+	background:#2673bf
+}
+
+#hd .inner{
+	width:1200px;margin:auto
+}
+
+.mod-head{
+	padding-top:20px;height:30px;margin-bottom:3px
+}
+
+#logo{
+	float:left;margin-right:50px
+}
+
+#userbar{
+	padding-top:10px;float:right;color:#fff;text-shadow:1px 1px 1px rgba(0,0,0,0.3)
+}
+
+#userbar .line{
+	margin:0 10px
+}
+
+#userbar a,#userbar a:hover{
+	color:#fff;text-decoration:none
+}
+
+.mod-set-nav{padding-top:50px;height:100px
+}
+
+#hd{
+	position:relative;z-index:2;background:0;
+}
+   
+#bd{
+	width:100%;padding-top:5px;
+}
+
+.mod-rtstatus{
+	position:relative;z-index:1;left:0;top:-60px;width:100%;height:249px;background:url('../img/head_bg.png') repeat-x top #2673bf;-moz-transition:background .5s ease-in;-webkit-transition:background .5s ease-in;-o-transition:background .5s ease-in;transition:background .5s ease-in
+}
+
+.mod-rtstatus .inner{
+	width:1200px;margin:auto;position:relative;top:16px
+}
+
+.mod-rtstatus .inner .terminal{
+	position:absolute;left:140px;top:100px;cursor:pointer
+}
+
+.mod-rtstatus .inner .rcst{
+	width:1100px;text-align:center;position:absolute;left:40px;top:200px;cursor:pointer;font-size: 16px;color: #ffffff;
+}
+
+.mod-rtcore-data{
+	width:830px;height:200px;position:relative;top:-20px;bottom:20px;left:15px;margin:auto;
+}
+
+.mod-rtcore-data .mod-set .hd{
+	border-bottom:1px dashed #996666;height:30px;line-height:30px;text-align:center;overflow:hidden;zoom:1
+}
+
+.mod-rtcore-data .mod-set .hd h3{
+	float:left;width:160px;color:#996666;font-size:18px;font-weight:normal
+}
+
+.mod-rtcore-data .mod-set .setting{
+	margin:100px 100px 20px 249px;color:#000000;font-size:18px;
+}
+
+.mod-rtcore-data .mod-set .form-item{
+	margin-top:20px;
+}
+
+.mod-rtcore-data .mod-set .setting .form-item .ipt-text{width:200px}
+
+
+.mod-rtcoree-data{
+	width:1100px;height:200px;position:relative;top:-20px;bottom:20px;left:15px;margin:auto;
+}
+
+.mod-rtcoree-datas{
+	width:1300px;height:200px;position:relative;top:-20px;bottom:20px;left:15px;margin-left:400px;
+}
+
+
+.mod-rtcoree-data .mod-set .hd{
+	border-bottom:1px dashed #996666;height:30px;line-height:30px;text-align:center;overflow:hidden;zoom:1
+}
+
+.mod-rtcoree-datas .mod-set .hd{
+	border-bottom:1px dashed #996666;height:30px;line-height:30px;text-align:center;overflow:hidden;zoom:1
+}
+
+.mod-rtcoree-datas .mod-set .hd h3{
+	float:left;width:360px;color:#996666;font-size:18px;font-weight:normal
+}
+
+.mod-rtcoree-data .mod-set .hd h3{
+	float:left;width:360px;color:#996666;font-size:18px;font-weight:normal
+}
+
+.mod-rtcoree-data .mod-set .setting{
+	margin:100px 100px 20px 249px;color:#000000;font-size:18px;
+}
+
+.mod-rtcoree-data .mod-set .form-item{
+	margin-top:20px;
+}
+
+.mod-rtcoree-data .mod-set .setting .form-item .ipt-text{width:200px}
+
+.mod-rtcore-data-sat{
+	width:1200px;height:200px;position:relative;top:-20px;bottom:20px;left:-30px;margin:auto;
+}
+
+.mod-rtcore-data-sat .mod-set .hd{
+	border-bottom:1px dashed #996666;height:30px;line-height:30px;text-align:center;overflow:hidden;zoom:1
+}
+
+.mod-rtcore-data-sat .mod-set .hd h3{
+	float:left;width:160px;color:#996666;font-size:18px;font-weight:normal
+}
+
+#ft{
+		margin-top:60px;padding:0 0 30px 0;font-size:12px;line-height:2;color:#999;text-align:center
+}
+
+#ft a,#ft a:hover{
+	color:#2673bf
+}
+
+#ft a:hover{
+	text-decoration:underline
+}
+
+#ft p span{
+	margin:0 15px
+}
+
+.mod-set-hd{
+	border-bottom:1px dashed #d7d7d7;height:20px
+}
+
+.mod-set .bd{
+	margin-left:120px;margin-top:40px;
+}
+
+.mod-set .bdd{
+	margin-top:40px;
+}
+.form-set1 .form-item .onEror{
+	margin-left:50px;color:#c00;background:#fff2f5
+}
+
+.form-set1 .form-item .onSuccess{
+	margin-left:50px;color:green;background:#fff2f5;
+}
+
+.form-ant .form-item{
+	margin-bottom:20px
+}
+
+.form-ant .form-item .onEror{
+	color:#c00;background:#fff2f5
+}
+
+.table .form-item .onEror{
+	color:#c00;background:#fff2f5
+}
+
+.form-rf .form-item .onEror{
+	margin-left:50px;color:#c00;background:#fff2f5
+}
+
+.mod-set .hds{
+	border-bottom:1px solid #d7d7d7;height:60px;line-height:60px;margin-bottom:25px;margin-left:-10px;padding-top:40px;overflow:hidden;zoom:1
+}
+
+.mod-set .hds .switch{
+	padding-top:10px;float:left
+}
+
+.mod-set .hds h3{
+	float:left;width:160px;color:#996666;font-size:18px;font-weight:normal
+}
+
+#bds{
+	width:1000px;
+}
+
+#bdss{
+	margin-left:110px; width:1200px;
+}
+
+.form-rf .form-item .onEror{
+	margin-left:50px;color:#c00;background:#fff2f5
+}
+
+.form-rf .form-item .onSuccess{
+	margin-left:50px;color:green;background:#fff2f5;
+}
+
+
+.form-ant .form-item-ant{
+position:absolute;
+clear:left;
+float:left;
+margin-bottom:25px
+}
+
+.form-ant .form-item-ant .onEror1{
+	color:#c00;background:#fff2f5
+}
+
+.form-ant .form-item-ant .onEror{
+	color:#c00;background:#fff2f5
+}
+
+.form-item .onEror{
+	color:#c00;background:#fff2f5
+}
+
+.table .form-item{
+	margin-bottom:20px
+}
+
+.table .form-item .onEror{
+	color:#c00;background:#fff2f5
+}
+
+.table .onSuccess{
+	margin-left:50px;color:green;background:#fff2f5;
+}
+
+.mod-set-hd{
+	border-bottom:1px dashed #d7d7d7;height:10px
+}
+.mod-set-hdd{
+	border-bottom:1px dashed #996666;height:20px;
+}
+
+

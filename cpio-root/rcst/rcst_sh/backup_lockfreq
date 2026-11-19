@@ -1,0 +1,15 @@
+config backuplockfreq 'backuplockfreq'
+	option satellite_name 'CHINASAT10_Vertical'
+	option satellite_polarization_mode_rx 'V'
+	option satellite_longitude '110.5'
+	option rf_rx_freq '12850000'
+	option rf_rx_symbol '3000'
+	option rf_rx_lock_freq '3000'
+	option rx_freq '10600'
+	option tx_freq '13050'
+	option tx_rf_rx_lock_freq '1550000'
+	option mainback_flag '1'
+	
+	
+	
+

@@ -1,0 +1,79 @@
+<html>
+<!- Copyright (c) Go Ahead Software Inc., 2000-2010. All Rights Reserved. ->
+
+	<head>
+		<title id="nettitle"></title>
+		<meta http-equiv="X-UA-Compatible" content="edge" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="expires" content="0">
+		<meta name="viewport" content="width=1024px">
+		<link href="/css/bc.css" rel="stylesheet">
+		<link href="/css/diag_rf.css" rel="stylesheet">
+	</head>
+	<script>
+		document.write("<script type='text/javascript' src='/script/jquery-1.8.3.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/script/jquery.dialog.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/script/rcst-type.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/i18n/diagnet-trans.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/script/language-config.js?time=" + Math.random() + " '></" + "script" + ">");
+	</script>
+
+	<body>
+		<div id="doc" style="min-width:1200px">
+			<div id="hd">
+				<div class="inner">
+					<div class="mod-head clearfix">
+						<span id="header"></span>
+						<script src="/script/header.js"></script>
+					</div>
+					<div class="mod-set-nav">
+						<ul class="clearfix">
+							<li id="status"><a href="/root/diagnostics/status.htm"
+									+"?timestamp="+new Date().getTime() id=" status_a"><i class="ico ico-1"></i><span
+										class="RCSTStatus"></span></a></li>
+							<li id="acu"><a href="/root/diagnostics/acu.htm" +"?timestamp="+new Date().getTime()  id="
+									acu_a"><i class="ico ico-1"></i><span class="ACUStatus"></span></a></li>
+							<li id="net"><a href="/root/diagnostics/net.htm" +"?timestamp="+new Date().getTime() id="
+									net_a"><i class="ico ico-2"></i><span class="Network"></span></a></li>
+							<li id="rf"><a href="/root/diagnostics/rf.htm" +"?timestamp="+new Date().getTime() id="
+									rf_a"><i class="ico ico-3"></i><span class="RF"></span></a></li>
+							<li id="log"><a href="/root/diagnostics/syslog.htm" +"?timestamp="+new Date().getTime() id="
+									log_a"><i class="ico ico-4"></i><span class="ViewLog"></span></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<script src="/root/diagnostics/diagnostics-active.js"></script>
+			<div id="bd">
+				<div class="mod-set">
+					<div id="SpeedTestpart" style="display:none">
+						<div class="hd">
+							<h3 class="SpeedTest"></h3>
+						</div>
+						<div class="bd">
+							<table style="width:900px" class="form-single">
+								<tr>
+									<td style="width:200px">
+									</td>
+									<td class="form-contral">
+										<button class="btn_sub" onclick="speedtest()"><span
+												class="speedtest"></span></button>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+				<span id="footer"></span>
+				<script src="/script/footer.js"></script>
+			</div>
+	</body>
+	<script>
+		document.write("<script type='text/javascript' src='/root/diagnostics/net.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/validate/lan-validate.js?time=" + Math.random() + " '></" + "script" + ">");
+	</script>
+
+</html>

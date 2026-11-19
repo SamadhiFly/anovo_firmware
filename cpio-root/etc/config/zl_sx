@@ -1,0 +1,4 @@
+
+config interface 'zl_sx'
+	option zl_sx '2'
+

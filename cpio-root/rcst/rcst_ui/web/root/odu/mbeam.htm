@@ -1,0 +1,192 @@
+<html>
+<!- Copyright (c) Go Ahead Software Inc., 2000-2010. All Rights Reserved. ->
+<head>
+<title id="odutitle"></title>
+<meta http-equiv="X-UA-Compatible" content="edge" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta name="viewport" content="width=1024px">
+<link href="/css/bc.css" rel="stylesheet">
+<link href="/css/odu.css" rel="stylesheet">
+</head>
+<script>
+document.write("<script type='text/javascript' src='/script/jquery-1.8.3.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/script/qwrap.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/script/jquery.dialog.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/script/rcst-type.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/i18n/odu-trans.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/script/language-config.js?time="+Math.random()+" '></"+"script"+">");
+</script>
+<body>
+<div id="doc"  style="min-width:1200px">
+	<div id="hd">
+				<div class="inner">
+					<div class="mod-head clearfix">
+						<span id="header"></span>
+						<script src="/script/header.js"></script>
+					</div>
+					<div class="mod-set-nav">
+						<ul class="clearfix">
+							<li id="rf"><a href="/root/odu/odu.htm" +"?timestamp="+new Date().getTime() id=" odu_a"><i
+										class="ico ico-1"></i><span class="RF"></span></a></li>
+							<li id="satellite"><a href="/root/odu/satellite.htm"
+									+"?timestamp="+new Date().getTime() id=" satellite_a"><i class="ico ico-2"></i><span
+										class="Satellite"></span></a></li>
+							<li id="antenna"><a href="/root/odu/antenna.htm" +"?timestamp="+new Date().getTime() id="
+									antenna_a"><i class="ico ico-2"></i><span class="Antenna"></span></a></li>
+							<li id="beam"><a onclick="jump()" id="beam_a"><i class="ico ico-2"></i><span
+										class="Beam">Beam</span></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<script src="/root/odu/odu-active.js"></script>
+			<div id="bd">
+	<div class="mod-set mod-macfilter">
+<!--	------------------	Switch  --------------------------->
+		<div class="hd">
+			<h3 class="BeamSwitch"></h3>
+		</div>	
+		<div class="bd" >
+			<table style="width:500px;height:60px">
+					<tr>	
+						<td  style="width:250px">
+							<span class="BeamSwitch"></span>		
+						</td>
+<!--
+						<td class="switch" >
+							<span style="cursor:pointer" id="auto_config_lockinfo" class="btn-switch btn-switch-off" ></span>			
+						</td>
+-->
+							<td  style="width:250px">
+								<span class="BeamSwitchStatus"></span>		
+							</td>
+					</tr>		
+				</table>	
+		</div>
+<!--
+		<div id="beam_resource" style="display:none">			
+			<div class="hd">
+				<h3><span class="SystemID"></span></h3>
+			</div>		
+			<div class="bd">			
+				<div class="dialog-listadd-form-wrap">
+					<table class="table"  class="form-bandlist form-table" style="width:600px">
+						<thead>
+							<tr>
+							<th  style="width:250px; height:20px"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="SystemID">&nbsp;&nbsp;&nbsp;&nbsp;</th>
+							<th  style="width:120px; height:20px"><span>&nbsp;&nbsp;</span><span id="Switch"></span></th>
+							<th  style="width:120px; height:20px"><span>&nbsp;&nbsp;</span><span class="Prioritytitle"></span></th>
+							<th  style="width:100px; height:20px"><span>&nbsp;&nbsp;</span><span class="Option"></span></th>
+							</tr>
+						</thead>
+						<tbody id="redirect_dialogtestlist"  style="width:600px" class="form-bandlist form-table">
+						</tbody>
+					</table>
+				</div>
+			</div>			
+						
+			<div  id="resource_div" style="display:none">
+				<div class="hd">	
+					<h3><span id="BeamResource"></span></h3>
+				</div>
+				<div class="bd"> 
+					<table style="width:600px">
+						<div id="resource_list"></div>
+				  </table> 
+			   	</div>
+			</div> 		
+			</div>
+		-->
+		</div>         
+		
+			<span id="footer"></span>
+			<script src="/script/footer.js"></script>
+		</div>
+	</div>
+
+</body>
+
+<script type="tmpl/html" id="tmplWait">
+    <div class="dialog-listadd-form-wrap">
+        <form action="#" class="form-bandlist form-table" name="beamList" id="beamList">
+			<table style="width:400px;font-size:16px;">
+				<tr>
+						<div class="form-item1" id="state1">
+							<%:--%>	
+						</div>
+				</tr>
+				</table>
+				<br/>
+				<table style="width:400px;font-size:16px;">
+			</table>	
+        </form>
+    </div>
+</script>
+
+<script type="tmpl/html" id="tmplTsetSet_beam">
+    <div class="dialog-listadd-form-wrap">
+        <form action="#" class="form-bandlist form-table" name="beam_list" id="beam_list" >
+            <table class="table" >
+                <thead>
+                <center>
+                    <tr>
+							<th class="center" style="width:50px; height:20px"><span id="Num"></th>
+							<th class="center" style="width:60px; height:20px">NS ID</th>
+							<th class="center" style="width:60px; height:20px">Beam ID</th>
+							<th class="center" style="width:60px; height:20px"><span id="Polarization"></th>
+							<th class="center" style="width:60px; height:20px"><span id="LBLinkType"></th>
+							<th class="center" style="width:80px; height:20px"><span id="Frequency"></th>
+							<th class="center" style="width:80px; height:20px"><span id="Symbol"></th>
+							<th class="center" style="width:80px; height:20px"><span id="SatelliteLongitude"></th>
+							<th class="center" style="width:100px; height:20px"><span id="Switch"></th>
+                    </tr>
+                    </center> 
+                </thead>
+					<tbody id="redirect_dialogtestlist" style="height:20px">
+					</tbody>
+            </table>
+			<table style="width:900px;">
+				<tr style="height:20px;"></tr>
+				<tr>
+					<td style="width:650px"></td>
+					<td style="width:70px">
+						 <span class="NO"></span>&nbsp;<span id="now_page"></span>/<span id="total_page"></span>&nbsp;<span class="Page"></span>
+					</td>								
+					<td style="width:90px">
+						<button   type="submit" style="width:80px; height:30px;" id="go_back"><span class="BackPage"></span></button>	
+					</td>
+					<td style="width:90px">								
+						<button   type="submit" style="width:80px; height:30px;" id="go_next"><span class="NextPage"></span></button>	
+					</td>
+				</tr>
+				<tr style="height:20px;"></tr>
+			</table>										
+		</table>            
+       </form>
+    </div>
+</script>
+
+<script type="tmpl/html" id="redirect_tmplAddedTest"> 
+<tr style="height:20px">
+		<td style="height:20px" class="center">{$num}</td>
+		<td class="center">{$nsid}</td>
+		<td class="center">{$beamid}</td>
+		<td class="center">{$downlinkPolarization}</td>
+		<td class="center">{$lbLinkType}</td>
+		<td class="center">{$frequency}</td>
+		<td class="center">{$symbol}</td>
+		<td class="center">{$sate_longitude}</td>
+		<td class="switch center"  id="editItem"  nsid="{$nsid}">		
+		<a href="#" id="{$nsid}" class="btn-switch btn-switch-off"><span class="Submit"></span></a>	
+		</td>
+ </tr>
+</script>
+
+<script>
+document.write("<script type='text/javascript' src='/root/odu/mbeam-get.js?time="+Math.random()+" '></"+"script"+">");
+</script>
+</html>

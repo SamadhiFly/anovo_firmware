@@ -1,0 +1,89 @@
+#hd{
+	background:#2673bf
+}
+
+#hd .inner{
+	width:1200px;margin:auto
+}
+
+.mod-head{
+	padding-top:20px;height:30px;margin-bottom:3px
+}
+
+#logo{
+	float:left;margin-right:50px
+}
+
+#hd{
+	position:relative;z-index:2;background:0;margin:auto;
+}
+
+#bd{
+	width:100%;padding-top:0px;
+}
+
+.mod-rtstatus{
+	position:relative;z-index:1;left:0;top:-60px;width:100%;height:300px;background:url('../img/head_bg.png') repeat-x top #2673bf;-moz-transition:background .5s ease-in;-webkit-transition:background .5s ease-in;-o-transition:background .5s ease-in;transition:background .5s ease-in
+}
+
+.mod-rtstatus .inner{
+	width:1200px;margin:auto;position:relative;top:16px
+}
+
+.mod-rtstatus .inner .terminal{
+	position:absolute;left:400px;top:50px;cursor:pointer
+}
+
+.mod-rtstatus .inner .terminal .rcst{
+	margin-top:30px;cursor:pointer;font-size:18px;color: #ffffff;text-align:center
+}
+
+.mod-rtcore-data{
+	width:1000px;height:300px;margin:auto;position:relative;top:-20px;bottom:20px;left:15px
+}
+
+.mod-rtcore-data .mod-set .hd{
+	border-bottom:1px dashed #996666;height:30px;line-height:30px;text-align:center;overflow:hidden;zoom:1
+}
+
+.mod-rtcore-data .mod-set .hd h3{
+	margin-left:-50px;width:360px;color:#996666;font-size:18px;font-weight:normal
+}
+
+.mod-set .bd{
+	margin-left:120px;
+}
+
+.mod-rtcore-data .mod-set .form-item{
+	margin-top:20px;
+}
+
+.mod-rtcore-data .mod-set .setting .form-item .ipt-text{width:200px}
+
+#ft{
+	margin-top:60px;padding:0 0 30px 0;font-size:12px;line-height:2;color:#999;text-align:center
+}
+
+#ft a,#ft a:hover{
+	color:#2673bf
+}
+
+#ft a:hover{
+	text-decoration:underline
+}
+
+#ft p span{
+	margin:0 15px
+}
+
+#userbar{
+	padding-top:10px;float:right;color:#fff;text-shadow:1px 1px 1px rgba(0,0,0,0.3)
+}
+
+#userbar .line{
+	margin:0 10px
+}
+
+#userbar a,#userbar a:hover{
+	color:#fff;text-decoration:none}.mod-set-nav{padding-top:50px;height:100px
+}

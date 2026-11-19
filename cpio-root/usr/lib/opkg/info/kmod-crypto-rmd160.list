@@ -1,0 +1,2 @@
+/lib/modules/4.14.111/rmd160.ko
+/etc/modules.d/09-crypto-rmd160

@@ -1,0 +1,10 @@
+Package: kmod-crypto-misc
+Version: 4.14.111-1
+Depends: kernel (=4.14.111-1-b3e629d5f8118f19f76939a9f8d0606f), kmod-crypto-xts
+Source: package/kernel/linux
+SourceName: kmod-crypto-misc
+License: GPL-2.0
+Section: kernel
+Architecture: arm_cortex-a9_neon
+Installed-Size: 111563
+Description:  Other CryptoAPI modules

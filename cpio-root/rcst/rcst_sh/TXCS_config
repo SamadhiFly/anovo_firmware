@@ -1,0 +1,4 @@
+config TXCS_config 'TXCS_config'
+	option nosync_reset_switch '0'
+	option nosync_mainback_switch '0'
+

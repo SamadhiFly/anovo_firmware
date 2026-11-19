@@ -1,0 +1,11 @@
+
+config 'sensorinfo' 'powerinfo'
+		option   'power' '12.5'
+config 'sensorinfo' 'volinfo'
+	        option 'vola' '24'
+		  option 'volb' '3.3'
+		  option 'volc' '1.8'
+		  option 'vold' '0.8'
+config 'sensorinfo' 'tempinfo'
+		 option 'tempa' '45'
+		option 'tempb' '88'

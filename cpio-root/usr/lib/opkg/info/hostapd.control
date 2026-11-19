@@ -1,0 +1,12 @@
+Package: hostapd
+Version: 2018-12-02-c2c6c01b-6
+Depends: libc, libnl-tiny, hostapd-common, libubus20170705
+Source: package/network/services/hostapd
+SourceName: hostapd
+License: BSD-3-Clause
+Section: net
+Maintainer: Felix Fietkau <nbd@nbd.name>
+Architecture: arm_cortex-a9_neon
+Installed-Size: 395246
+Description:  This package contains a full featured IEEE 802.1x/WPA/EAP/RADIUS
+ Authenticator.

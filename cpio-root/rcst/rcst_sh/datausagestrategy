@@ -1,0 +1,11 @@
+config datausagestrategy 'datausagestrategy'
+	option UpdateInterval '0'
+	option AllowVolumeUsage '0'
+	option TotalUsed '0'
+	option TotalRemaining '0'
+	option TriggerAction '0'
+	option UnusedDateAction '0'
+	option AccessMode '0'
+	option OverageObMir '0'
+	option OverageibMir '0'
+

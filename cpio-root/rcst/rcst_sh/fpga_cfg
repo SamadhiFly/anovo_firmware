@@ -1,0 +1,11 @@
+# Copyright (C) 2006 OpenWrt.org
+
+config interface fpga_addr
+	option ADDR_THRESH_CRITICAL	15
+	option ADDR_THRESH_ABNORMAL	35
+	option ADDR_THRESH_TRACKED	8
+	option ADDR_THRESH_UNTRACK	15
+	option ADDR_THRESH_RECOVER 	10
+	option ADDR_THRESH_UNSYNC      50
+	option ADDR_THRESH_FREEZE      25
+	option ADDR_RELOAD_MODE        1

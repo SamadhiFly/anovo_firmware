@@ -1,0 +1,10 @@
+config antenna_type 'fix'
+	option antenna1 'Space Star'
+	
+config antenna_type 'static'
+	option antenna1 'Space Star'
+	option antenna2 'Common'
+
+config antenna_type 'move'
+	option antenna1 'Space Star'
+	option antenna2 'Common'

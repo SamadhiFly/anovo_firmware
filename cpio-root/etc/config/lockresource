@@ -1,0 +1,19 @@
+
+config lock_config '1'
+	option beamid '1'
+	option nsid '1'
+	option downlinkPolarization '1'
+	option frequency '127190000'
+	option symbol '53000'
+	option sate_longitude '8940'
+	option ul_polarization '0'
+
+config lock_config '3'
+	option beamid '2'
+	option nsid '3'
+	option downlinkPolarization '1'
+	option frequency '131990000'
+	option symbol '53000'
+	option sate_longitude '8940'
+	option ul_polarization '0'
+

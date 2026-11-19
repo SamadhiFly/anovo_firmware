@@ -1,0 +1,2 @@
+config interface 'mode'
+	option tag '1'

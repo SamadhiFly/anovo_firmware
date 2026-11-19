@@ -1,0 +1,10 @@
+Package: uclibcxx
+Version: 0.2.4-3
+Depends: libc
+Source: package/libs/uclibc++
+SourceName: uclibcxx
+License: LGPL-2.1+
+Section: libs
+Architecture: arm_cortex-a9_neon
+Installed-Size: 63236
+Description:  C++ library for embedded systems

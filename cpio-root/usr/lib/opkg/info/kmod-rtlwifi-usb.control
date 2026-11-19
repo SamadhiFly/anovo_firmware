@@ -1,0 +1,10 @@
+Package: kmod-rtlwifi-usb
+Version: 4.14.111+4.19.32-1-1
+Depends: kernel (=4.14.111-1-b3e629d5f8118f19f76939a9f8d0606f), kmod-usb-core, kmod-rtlwifi
+Source: package/kernel/mac80211
+SourceName: kmod-rtlwifi-usb
+Section: kernel
+Maintainer: Felix Fietkau <nbd@nbd.name>
+Architecture: arm_cortex-a9_neon
+Installed-Size: 7449
+Description:  Realtek common driver part (USB support)

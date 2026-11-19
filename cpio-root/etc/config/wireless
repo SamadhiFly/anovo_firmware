@@ -1,0 +1,23 @@
+
+config wifi-device 'radio0'
+	option type 'mac80211'
+	option hwmode '11g'
+	option path 'ocp.3/47400000.usb/47401c00.usb/musb-hdrc.1.auto/usb2/2-1/2-1:1.0'
+	option country 'CN'
+	option htmode 'HT40'
+	option channel '11'
+	option distance '100'
+	option txpower '18'
+
+config wifi-iface 'wlan0'
+	option device 'radio0'
+	option mode 'ap'
+	option key '123456789'
+	option network 'wlan0'
+	option ssid 'Anovo'
+	option wps_pushbutton '1'
+	option encryption 'psk2'
+	option wpa_group_rekey '0'
+	option wpa_pair_rekey '0'
+	option wpa_master_rekey '0'
+

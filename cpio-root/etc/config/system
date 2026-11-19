@@ -1,0 +1,12 @@
+
+config system 'system'
+	option hostname 'FOU'
+	option zonename 'UTC'
+	option timezone 'UTC'
+
+config timeserver 'ntp'
+	option enabled '1'
+	option enable_server '0'
+	list server '10.10.1.11'
+	list server '10.10.1.12'
+

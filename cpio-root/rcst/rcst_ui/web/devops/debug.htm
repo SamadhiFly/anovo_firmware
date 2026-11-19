@@ -1,0 +1,491 @@
+<html>
+<!- Copyright (c) Go Ahead Software Inc., 2000-2010. All Rights Reserved. ->
+
+	<head>
+		<title id="rftitle">Debug</title>
+		<meta http-equiv="X-UA-Compatible" content="edge" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="expires" content="0">
+		<meta name="viewport" content="width=1024px">
+		<link href="/css/bc.css" rel="stylesheet">
+		<link href="/css/diag_debug.css" rel="stylesheet">
+	</head>
+	<script>
+		document.write("<script type='text/javascript' src='/script/jquery-1.8.3.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/script/jquery.dialog.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/script/rcst-type.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/i18n/diagdebug-trans.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/script/language-config.js?time=" + Math.random() + " '></" + "script" + ">");
+	</script>
+
+	<body>
+		<div id="doc" style="min-width:1200px" onunload="siRfInit()">
+			<div id="hd">
+				<div class="inner">
+					<div class="mod-head clearfix">
+						<h1 id="logo"><img src="/icons/logo.png" /></h1>
+						<div id="nav">
+							<ul>
+								<!--
+							<li id = "terminal"><a href="/root/devops/terminal/sysload.htm"+"?timestamp="+new Date().getTime() id="terminal_a"><span  id="terminal_b"></span></a></li>
+							<li id = "odu"><a href="/root/devops/odu/odu.htm"+"?timestamp="+new Date().getTime() id="odu_a"><span  id="odu_b"></span></a></li>
+							<li id = "network"><a href="/root/devops/network/lan.htm"+"?timestamp="+new Date().getTime() id="network_a"><span  id="network_b"></span></a></li>
+-->
+								<li id="diagnostics"><a href="/root/devops/diagnostics/debug.htm"
+										+"?timestamp="+new Date().getTime() id=" diagnostics_a"><span
+											id="diagnostics_b"></span></a></li>
+								<!--
+							<li><a href="/root/guide/install-set1.htm" id = "installation_b"></a></li>
+-->
+							</ul>
+						</div>
+						<div id="userbar">
+							<a href="/root/home.htm" id="quit"></a>
+							<span class="line">|</span>
+							<!--
+						<a href="/root/devops/upgrade/packages.htm" id="upgrade"></a>
+						<span class="line">|</span>
+						<a href="/root/devops/upload/upload_login.htm" id="upload"></a>
+						<span class="line">|</span>
+-->
+							<a style="cursor:pointer" onclick="langset()" id="lang" value="en"></a>
+
+						</div>
+					</div>
+					<div class="mod-set-nav">
+
+					</div>
+				</div>
+			</div>
+			<script src="/root/devops/diagnostics/diagnostics-active.js"></script>
+			<div id="bd">
+				<div class="mod-set" id="sig-set">
+					<div class="hd">
+						<h3 class="starMode"></h3>
+					</div>
+					<div class="bd">
+						<table style="width:600px" class="form-single">
+							<tr>
+								<td style="width:200px">
+									<div class="form-item">
+										<span class="starSwitch"></span>
+									</div>
+								</td>
+								<td>
+									<div class="form-item">
+										<span style="cursor:pointer" id="starswitch"
+											class="btn-switch btn-switch-off"></span>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+
+					<div class="hd">
+						<h3 class="seekstarMode"></h3>
+					</div>
+					<div class="bd">
+						<table style="width:600px" class="form-single">
+							<tr>
+								<td style="width:200px">
+									<div class="form-item">
+										<span class="seekstarMode"></span>
+									</div>
+								</td>
+								<td>
+									<select name="seekstarMode" id="seekstarMode"
+										style="width:185px; height:29px; font-size:14px; color:#000000"
+										onChange="change_seek_mode()">
+										<option value=2 selected class="Beacon"></option>
+										<option value=1 selected class="Carrier"></option>
+									</select>
+								</td>
+							</tr>
+						</table>
+					</div>
+
+					<div class="hd">
+						<h3 class="AnyBeam"></h3>
+					</div>
+					<div class="bd">
+						<table style="width:600px" class="form-single">
+							<tr>
+								<td style="width:200px">
+									<div class="form-item">
+										<span class="beamsearchSwitch"></span>
+									</div>
+								</td>
+								<td>
+									<div class="form-item">
+										<span style="cursor:pointer" id="beamsearchSwitch"
+											class="btn-switch btn-switch-off"></span>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td style="width:200px">
+									<div class="form-item">
+										<span class="snrThreshold"></span>(0~10000)<span></span>
+									</div>
+								</td>
+								<td>
+									<div class="form-item">
+										<input type="text" title="snrThreshold" name="snrThreshold" id="snrThreshold"
+											style="width:185px; height:23px;" />&nbsp;&nbsp;&nbsp;
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td style="width:200px">
+									<div class="form-item">
+										<span class="beamsearchNum"></span>(0~10000)<span></span>
+									</div>
+								</td>
+								<td>
+									<div class="form-item">
+										<input type="text" title="beamsearchNum" name="beamsearchNum" id="beamsearchNum"
+											style="width:185px; height:23px;" />&nbsp;&nbsp;&nbsp;
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td style="width:200px;height:80px"></td>
+								<td>
+									<button class="btn_sub" type="submit" onclick="seekstarModeSet()"><span
+											class="submit">Submit</span></button>
+								</td>
+							</tr>
+						</table>
+					</div>
+
+					<div class="hd">
+						<h3 class="upperComputer"></h3>
+					</div>
+					<div class="bd">
+						<table style="width:600px" class="form-single">
+							<tr>
+								<td style="width:200px">
+									<div class="form-item">
+										<span class="upperComputer"></span>
+									</div>
+								</td>
+								<td>
+									<div class="form-item">
+										<span style="cursor:pointer" id="upperComputerSwitch"
+											class="btn-switch btn-switch-off"></span>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+
+
+
+					<div class="hd">
+						<h3 class="time_control"></h3>
+					</div>
+					<div class="bd">
+						<table style="width:600px" class="form-single">
+							<tr>
+								<td style="width:200px">
+									<div class="form-item">
+										<span class="locktime_short"></span>(0~1000)<span></span>
+									</div>
+								</td>
+								<td>
+									<div class="form-item">
+										<input type="text" title="locktime_short" name="locktime_short"
+											id="locktime_short" style="width:185px; height:23px;" />&nbsp;s
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td style="width:200px">
+									<div class="form-item">
+										<span class="locktime"></span>(0~10000)<span></span>
+									</div>
+								</td>
+								<td>
+									<div class="form-item">
+										<input type="text" title="locktime" name="locktime" id="locktime"
+											style="width:185px; height:23px;" />&nbsp;s
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td style="width:200px">
+									<div class="form-item">
+										<span class="synctime"></span>(0~10000)<span></span>
+									</div>
+								</td>
+								<td>
+									<div class="form-item">
+										<input type="text" title="synctime" name="synctime" id="synctime"
+											style="width:185px; height:23px;" />&nbsp;s
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td style="width:200px">
+									<div class="form-item">
+										<span class="mainbacktime"></span>(0~10000)<span></span>
+									</div>
+								</td>
+								<td>
+									<div class="form-item">
+										<input type="text" title="mainbacktime" name="mainbacktime" id="mainbacktime"
+											style="width:185px; height:23px;" />&nbsp;s
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td style="width:200px;height:80px"></td>
+								<td>
+									<button class="btn_sub" type="submit" onclick="timeControlSet()"><span
+											class="submit">Submit</span></button>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<div class="hd">
+						<h3 class="Antenna_Test"></h3>
+					</div>
+					<div class="bd">
+						<table style="width:600px" class="form-single">
+							<tr>
+								<td style="width:200px">
+									<div class="form-item">
+										<span class="ResetSwitch"></span>
+									</div>
+								</td>
+								<td>
+									<div class="form-item">
+										<span style="cursor:pointer" id="resetswitch"
+											class="btn-switch btn-switch-off"></span>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+
+					<div class="bd">
+						<table style="width:600px" class="form-single">
+							<tr>
+								<td style="width:200px">
+									<div class="form-item">
+										<span class="MainbackSwitch"></span>
+									</div>
+								</td>
+								<td>
+									<div class="form-item">
+										<span style="cursor:pointer" id="mainbackswitch"
+											class="btn-switch btn-switch-off"></span>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+
+					<div class="hd">
+						<h3 class="Auth_Test"></h3>
+					</div>
+					<div class="bd">
+						<table style="width:600px" class="form-single">
+							<tr>
+								<td style="width:200px">
+									<div class="form-item">
+										<span class="Auth_Switch"></span>
+									</div>
+								</td>
+								<td>
+									<div class="form-item">
+										<span style="cursor:pointer" id="authswitch"
+											class="btn-switch btn-switch-off"></span>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+
+					<div class="hd">
+						<h3 class="BeamDecision"></h3>
+					</div>
+					<div class="bd">
+						<table style="width:600px" class="form-single">
+							<tr>
+								<td style="width:200px;height:50px">
+									<div class="form-item">
+										<span class="BeamDecisionSwitch"></span>
+									</div>
+								</td>
+								<td style="width:80px;height:50px">
+									<div class="form-item">
+										<span style="cursor:pointer" id="queryBeamcenterSwitch"
+											class="btn-switch btn-switch-off"></span>
+									</div>
+								</td>
+								<td>
+									<div class="form-item">
+										<span class="queryBeamcenterSwitchHelp">&nbsp;&nbsp;<img
+												src="/icons/ico_help.png" /><span>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+
+					<div class="hd">
+						<h3 class="ACUIPPacketFilter"></h3>
+					</div>
+					<div class="bd">
+						<table style="width:600px" class="form-single">
+							<tr>
+								<td style="width:200px;height:50px">
+									<div class="form-item">
+										<span class="ACUIPPacketFilterSwitch"></span>
+									</div>
+								</td>
+								<td style="width:80px;height:50px">
+									<div class="form-item">
+										<span style="cursor:pointer" id="ACUPacketFilterSwitch"
+											class="btn-switch btn-switch-off"></span>
+									</div>
+								</td>
+								<td>
+									<div class="form-item">
+										<span class="ACUPacketFilterSwitchSwitchHelp">&nbsp;&nbsp;<img
+												src="/icons/ico_help.png" /><span>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+
+					<div class="hd">
+						<h3 class="IFFixed"></h3>
+					</div>
+					<div class="bd">
+						<table style="width:600px" class="form-single">
+							<tr>
+								<td style="width:200px">
+									<div class="form-item">
+										<span class="IFFixedselect"></span>
+									</div>
+								</td>
+								<td>
+									<select name="IFFixedselect" id="IFFixedselect"
+										style="width:185px; height:30px;" />&nbsp;&nbsp;&nbsp;
+									<option value=0 selected class="NOIFFixed"></option>
+									<option value=1 selected class="IFFixed"></option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<td style="width:200px">
+									<div class="form-item">
+										<span class="IFFixednum"></span>(0.95Ghz~2.4Ghz)<span></span>
+									</div>
+								</td>
+								<td>
+									<div class="form-item">
+										<input type="text" title="IFFixednum" name="IFFixednum" id="IFFixednum"
+											style="width:185px; height:23px;" />&nbsp;&nbsp;&nbsp;hz
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td style="width:200px;height:80px"></td>
+								<td>
+									<button class="btn_sub" type="submit" onclick="IFFixnumSet()"><span
+											class="submit">Submit</span></button>
+								</td>
+							</tr>
+						</table>
+					</div>
+
+					<div class="hd">
+						<h3 class="NetwokModeinterfaceconfig"></h3>
+					</div>
+					<div class="bd">
+						<table style="width:600px" class="form-single">
+							<tr>
+								<td style="width:200px">
+									<div class="form-item">
+										<span class="networkinterfaceacu"></span>
+									</div>
+								</td>
+								<td>
+									<select name="networkinterfaceacu" id="networkinterfaceacu"
+										style="width:185px; height:30px;" />&nbsp;&nbsp;&nbsp;
+									<option value=0 selected class="eth0"></option>
+									<option value=1 selected class="eth1"></option>
+									</select>
+								</td>
+							</tr>
+
+							<tr>
+								<td style="width:200px">
+									<div class="form-item">
+										<span class="networkinterfaceveh"></span>
+									</div>
+								</td>
+								<td>
+									<select name="networkinterfaceveh" id="networkinterfaceveh"
+										style="width:185px; height:30px;" />&nbsp;&nbsp;&nbsp;
+									<option value=0 selected class="eth0"></option>
+									<option value=1 selected class="eth1"></option>
+									</select>
+								</td>
+							</tr>
+
+							<tr>
+								<td style="width:200px">
+									<div class="form-item">
+										<span class="networkinterfaceeth1enable"></span>
+									</div>
+								</td>
+								<td>
+									<select name="networkinterfaceeth1enable" id="networkinterfaceeth1enable"
+										style="width:185px; height:30px;" />&nbsp;&nbsp;&nbsp;
+									<option value=0 selected class="yes"></option>
+									<option value=1 selected class="no"></option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<td style="width:200px;height:80px"></td>
+								<td>
+									<button class="btn_sub" type="submit" onclick="networkinterfaceconfig()"><span
+											class="submit">Submit</span></button>
+								</td>
+							</tr>
+						</table>
+					</div>
+
+				</div>
+				<span id="footer"></span>
+				<script src="/script/footer.js"></script>
+			</div>
+		</div>
+	</body>
+	<script type="tmpl/html" id="tmplWait">
+    <div class="dialog-listadd-form-wrap">
+		<table style="width:400px;font-size:16px;">
+			<tr>
+				<span class="form-item1" id="state1">--</span>
+			</tr>
+		</table>
+		<br/>
+		<table style="width:400px;font-size:16px;"></table>
+    </div>
+</script>
+	<script>
+		document.write("<script type='text/javascript' src='/devops/debug-get.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/validate/debug-validate.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/devops/debug-set.js?time=" + Math.random() + " '></" + "script" + ">");
+	</script>
+
+</html>

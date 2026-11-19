@@ -1,0 +1,10 @@
+Package: kmod-crypto-hw-padlock
+Version: 4.14.111-1
+Depends: kernel (=4.14.111-1-b3e629d5f8118f19f76939a9f8d0606f), kmod-crypto-manager
+Source: package/kernel/linux
+SourceName: kmod-crypto-hw-padlock
+License: GPL-2.0
+Section: kernel
+Architecture: arm_cortex-a9_neon
+Installed-Size: 105
+Description:  VIA PadLock ACE with AES/SHA hw crypto module

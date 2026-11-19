@@ -1,0 +1,2 @@
+/lib/modules/4.14.111/kpp.ko
+/etc/modules.d/09-crypto-kpp

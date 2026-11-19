@@ -1,0 +1,196 @@
+<html>
+<!- Copyright (c) Go Ahead Software Inc., 2000-2010. All Rights Reserved. ->
+<head>
+<title id="installsettitle"></title>
+<meta http-equiv="X-UA-Compatible" content="edge" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta name="viewport" content="width=1024px">
+<link href="/css/bc.css" rel="stylesheet">
+<link href="/css/install-net1.css" rel="stylesheet">
+</head>
+<script>
+document.write("<script type='text/javascript' src='/script/jquery-1.8.3.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/script/jquery.dialog.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/script/highcharts.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/script/rcst-type.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/i18n/install-trans.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/script/language-config.js?time="+Math.random()+" '></"+"script"+">");
+</script>
+<body>
+<div id="doc" style="min-width:1200px">
+	<div id="hd">
+		<div class="inner">
+			<div class="mod-head">
+			   	<h1 id="logo"><span id="logoo"></span></h1>
+				<div id="userbar">
+<!--
+					<a href="/admin/home.htm" id="administrator">主界面</a>
+						<span class="line">|</span>
+-->
+					<!-- <a style="cursor:pointer" onclick="langset()" id="lang" value="en"></a> -->
+					<select  name="language_three"  id="language_three"style="cursor:pointer" onChange="langset()">
+						<option value="en">English</option>
+						<option value="zh">简体中文</option>
+						<option value="zh_HK">繁體中文</option>
+				   </select>
+				</div>		   	
+			</div>
+		</div>
+	</div>
+	<div id="bd">
+		<div class="mod-rtstatus" id="netstatus">
+			<div class="inner">
+				<div class="terminal">
+					<img src="/icons/3.png" />
+				</div>
+				<table class="rcst">
+					<tr>
+						<td  style="width:360px">
+							<span class="EnterInstallationParameters"></span>
+						</td>
+						<td style="width:280px">
+							&nbsp;&emsp;<span class="StarPointing"></span>
+						</td>
+						<td style="width:350px">
+							&nbsp;&nbsp;&emsp;&emsp;<span class="Netting"></span>
+						</td>
+					</tr>
+				</table>			
+			</div>  
+		</div>
+	</div>
+	<div class="mod-rtcore-data">
+		<div class="setting">
+			<table style="width:800px;">
+				<tr >				
+					<td style="width:150px;text-align:center;">
+						<div class="form-item1">
+							<span class="NetStatus"></span>
+						</div>
+					</td>	
+					<td style="width:100px;">
+						<div class="form-item1" id="state2">
+							<img src="/icons/loading.gif" />	
+						</div>
+					</td>
+				</tr>
+			</table>
+			<table style="width:800px;display:none">
+				<tr>
+					<td style="width:180px;">
+						<div  class="form-item2" >
+							<span id="characters1"></span>	
+						</div>
+					</td>
+					<td style="width:180px;">
+						<div  class="form-item2" >
+							<span id="characters2"></span>		
+						</div>
+					</td>
+				</tr>
+			</table>
+			<table style="width:800px;display:none">
+				<tr>
+					<td style="width:180px;">
+						<div  class="form-item2" >
+							<span id="characters3"></span>	
+						</div>
+					</td>
+					<td style="width:180px;">
+						<div  class="form-item2" >
+							<span id="characters4"></span>		
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="mod-set">
+		</div>
+		<div class="status">
+			<table style="width:800px;line-height:250%">
+				<tr>
+					<td  style="width:200px;color:#996666"><span class="Longitude"></span>:</td>
+					<td style="width:100px"><span id="long_type">--</span>&nbsp;&nbsp;<span id="long_value">--</span>°</td>
+					<td style="width:150px"></td>
+					<td style="width:200px;color:#996666"><span class="Latitude"></span>:</td>
+					<td><span id="lat_type">--</span>&nbsp;&nbsp;<span id="lat_value">--</span>°</td>
+				</tr>
+				<tr>
+					<td  style="width:200px;color:#996666"><span class="LockFrequency"></span>:</td>
+					<td style="width:100px"><span id="lock_frequency">--</span>&nbsp;MHz</td>
+					<td style="width:150px"></td>
+					<td style="width:200px;color:#996666"><span class="SymbolRate"></span>:</td>
+					<td><span id="symbol_rate">--</span>&nbsp;KSps</td>
+				</tr>
+				<tr>
+					<td  style="width:200px;color:#996666"><span class="BeamID"></span>:</td>
+					<td style="width:100px"><span id="beam_id">--</span></td>
+					<td style="width:150px"></td>
+					<td style="width:200px;color:#996666"><span class="SFSID"></span>:</td>
+					<td><span id="sfs_id">--</span></td>
+				</tr>
+				<tr>
+					<td  style="width:200px;color:#996666"><span class="LinkDelay"></span>:</td>
+					<td style="width:100px"><span id="link_delay">--</span></td>
+					<td style="width:150px"></td>
+					<td style="width:200px;color:#996666"><span class="LogonMode"></span>:</td>
+					<td><span id="logon_mode">--</span></td>
+				</tr>															
+				<tr id="vsat_odu_divide" style="display:none">
+					<td  style="width:200px;color:#996666"><span class="ODUPower"></span>:</td>
+					<td style="width:100px"><span id="odu_power_switch_divide">--</span></td>
+					<td style="width:150px"></td>
+					<td style="width:200px;color:#996666"><span class="ODU10MHzReference"></span>:</td>
+					<td><span id="odu_reference_switch_divide">--</span></td>
+				</tr>							
+				<tr class="scpc_odu_divide" style="display:none">
+					<td  style="width:200px;color:#996666"><span class="BUC24V"></span>:</td>
+					<td style="width:100px"><span id="buc_24V_switch_divide">--</span></td>
+					<td style="width:150px"></td>
+					<td style="width:200px;color:#996666"><span class="BUC10MHzReference"></span>:</td>
+					<td><span id="buc_10M_switch_divide">--</span></td>
+				</tr>
+				<tr class="scpc_odu_divide" style="display:none">
+					<td  style="width:200px;color:#996666"><span class="LNB18V"></span>:</td>
+					<td style="width:100px"><span id="lnb_18V_switch_divide">--</span></td>
+					<td style="width:150px"></td>
+					<td style="width:200px;color:#996666"><span class="LNB10MHzReference"> </span>:</td>
+					<td><span id="lnb_10M_switch_divide">--</span></td>
+				</tr>
+				<tr id="mesh_odu_divide" style="display:none">
+					<td  style="width:200px;color:#996666"><span class="SpectrumInversion"> </span>:</td>
+					<td style="width:100px"><span id="spectral_switch_divide">--</span></td>
+					<td style="width:150px"></td>
+					<td style="width:200px;color:#996666"></td>
+					<td></td>
+				</tr>					
+			</table>
+		</div>		
+		<table style="width:500px;margin:0px 0px 80px 200px">
+			<tr style="heigh:100px"></tr>
+			<tr>
+				<td style="width:265px">
+					<div class="form-item">
+						<button type="submit" onclick="back()" class="btn_sub1" ><span class="Back"></span></button>
+					</div>
+				</td>
+				<td>
+					<div class="form-item">
+						<button type="submit" onclick="next()" class="btn_sub" ><span class="Next"></span></button>
+					</div>
+				</td>
+			</tr>
+		</table>
+	<span id="footer"></span>
+	<script src="/script/footer.js"></script>								
+	</div>		
+</div>	
+</body>
+<script>
+document.write("<script type='text/javascript' src='/admin/guide/install-net1.js?time="+Math.random()+" '></"+"script"+">");
+</script>
+</html>

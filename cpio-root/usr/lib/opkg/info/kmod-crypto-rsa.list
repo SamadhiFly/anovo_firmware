@@ -1,0 +1,4 @@
+/lib/modules/4.14.111/rsa_generic.ko
+/lib/modules/4.14.111/akcipher.ko
+/etc/modules.d/10-crypto-rsa
+/lib/modules/4.14.111/mpi.ko

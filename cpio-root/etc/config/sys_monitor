@@ -1,0 +1,99 @@
+#系统启动因素标识
+config sys_reboot 'sys_reboot'
+       option sys_web_reboot_flag               '0'
+       option sys_web_reboot_time               '0'
+	 option sys_upgrade_reboot_flag           '0'
+	 option sys_nms_reboot_flag               '0'
+	 option sys_fpga_watchdog_reboot_flag     '0'
+	 option sys_nms_upgrade_reboot_flag       '0'
+
+#系统启动判决结果
+config reboot_judge 'reboot_judge'
+	 option sys_reboot_judge_flag    '0'
+	  option sys_reboot_judge_flag_web    '0'
+	 option sys_reboot_judge_time    '0'
+
+
+#界面复位标识
+config web_reset 'web_reset'
+       option web_reset_flag '0'		
+	 option web_reset_time '0'
+
+#终端下线标识
+config logoff 'logoff'
+       option logoff_flag '0'
+	 option logoff_time '0'
+
+config rcst_status 'rcst_status'
+        option cur_rcst_status '0'
+        option b_reboot_rcst_status '0'
+ #终端状态标识       
+config system_status 'system_status'
+        option ubi_rw_flag '0'
+        option ubi_rw_time '0'
+        option ubi_rw_send '0'
+        option meminfo_flag '0'
+        option meminfo_time '0'
+        option meminfo_send '0'
+        option http_status_flag '0'
+        option http_status_time '0'
+        option http_status_send '0'
+        option dns_status_flag '0'
+        option dns_status_time '0'
+        option dns_status_send '0'
+        option klogs_status_flag '0'
+        option klogs_status_time '0'
+        option klogs_status_send '0'
+        
+ #终端acu告警
+config acu_status 'acu_status'
+	     option acu_connect_flag '0'
+        option acu_connect_time '0'
+        option acu_connect_send '0'
+        option acu_changebeaminfo_flag '0'
+        option acu_changebeaminfo_time '0'
+        option acu_changebeaminfo_send '0'
+        option acu_location_flag '0'
+        option acu_location_time '0'
+        option acu_location_send '0'
+        option acu_lockstatus_flag '0'
+        option acu_lockstatus_time '0'
+        option acu_lockstatus_send '0'
+        
+		  option acu_weblockstatus_fw_flag '0'
+		  option acu_weblockstatus_fw_time '0'
+		  	option acu_webnolock_flag '0'
+		  option acu_webnolock_time '0'
+        
+ #终端ip是否下发
+ config networkinfo 'networkinfo'
+ 	     option network_ipinfo_flag '0'
+        option network_ipinfo_time '0'
+        
+		  option network_laniperror_flag '0'
+		  option network_laniperror_time '0'
+		  option network_waniperror_flag '0'
+		  option network_waniperror_time '0'
+		  option network_gatewayiperror_flag '0'
+		  option network_gatewayiperror_time '0'
+        
+ #终端锁定后ra lb
+  config FL_RL_info 'FL_RL_info'
+  	     option FLRL_fpgastatus_flag '0'
+        option FLRL_fpgastatus_time '0'  
+        option FLRL_LB_nosend_flag '0'
+        option FLRL_LB_nosend_time '0' 
+        option FLRL_LBsendRA_noret_flag '0'
+        option FLRL_LBsendRA_noret_time '0' 
+        option FLRL_LBsendDA_noret_flag '0'
+        option FLRL_LBsendDA_noret_time '0'       
+
+config fw_loss 'fw_loss'
+        option fw_loss_flag '0'
+        option fw_loss_time '0'
+        option fw_loss_send '0'
+
+config alarm_ncc_logoff 'alarm_ncc_logoff'
+        option alarm_ncc_logoff_flag '0'
+        option alarm_ncc_logoff_time '0'
+        option alarm_ncc_logoff_send '0'

@@ -1,0 +1,11 @@
+Package: strongswan-mod-eap-md5
+Version: 5.7.2-1
+Depends: libc, strongswan
+Source: feeds/packages/net/strongswan
+SourceName: strongswan-mod-eap-md5
+License: GPL-2.0+
+Section: net
+Maintainer: Stijn Tintel <stijn@linux-ipv6.be>
+Architecture: arm_cortex-a9_neon
+Installed-Size: 2949
+Description:  StrongSwan EAP MD5 (CHAP) EAP auth plugin

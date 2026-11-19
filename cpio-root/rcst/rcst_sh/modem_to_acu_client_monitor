@@ -1,0 +1,24 @@
+#!/bin/sh /etc/rc.common
+
+START=90
+STOP=90
+USE_PROCD=1
+
+
+zd_version=$(cat /mnt/zd_version)
+if [ "$zd_version" = "2" ]; then
+	PROG=modem_to_acu_client
+elif [ "$zd_version" = "3" ]; then
+	PROG=modem_to_acu_client
+elif [ "$zd_version" = "4" ]; then
+	PROG=modem_to_acu_client_4
+fi
+start_service(){
+        procd_open_instance
+        procd_set_param respawn 600 10 10000
+        procd_set_param command /rcst/rcst_app/$PROG
+        procd_close_instance
+}
+stop(){
+	kill -9 $(ps | grep modem_to_acu_client  | grep -v grep | awk '{print $1}')
+}

@@ -1,0 +1,38 @@
+# Put your custom commands here that should be executed once
+# the system init finished. By default this file does nothing.
+
+
+
+
+
+
+mount /dev/mmcblk0p1 /mmc1/
+mount /dev/mmcblk0p2 /mmc2/
+mount /dev/mmcblk0p3 /mnt/
+
+
+sleep 1
+mount -a
+
+
+sleep 1
+
+/etc/init.d/dropbear restart
+
+fw_setenv kernel_boot_succ "yes"
+
+fw_setenv bootargs "console=ttyPS2,115200 mem=512M coherent_pool=20M root=/dev/ram0 ro rootfstype=ext4"
+fw_setenv boot_a "setenv boot_flag a;setenv kernel_boot_succ no;setenv bootdelay -2;saveenv;run boot_a_start"
+fw_setenv boot_b "setenv boot_flag b;setenv kernel_boot_succ no;setenv bootdelay -2;saveenv;run boot_b_start"
+
+
+eth0_mac=$(ifconfig eth0 | sed -n 1p | awk '{print $5}') 
+fw_setenv ethaddr "$eth0_mac"
+
+sleep 1
+
+sh /rcst/rcst_sh/rcst.sh
+
+
+exit 0
+

@@ -1,0 +1,2 @@
+config interface 'buzzer_switch'
+	option buzzer_switch '0'

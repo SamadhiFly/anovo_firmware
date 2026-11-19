@@ -1,0 +1,15 @@
+Package: zip
+Version: 3.0-4
+Depends: libc
+Source: feeds/packages/utils/zip
+SourceName: zip
+License: BSD-4-Clause
+LicenseFiles: LICENSE
+Section: utils
+Maintainer: Álvaro Fernández Rojas <noltari@gmail.com>
+Architecture: arm_cortex-a9_neon
+Installed-Size: 233315
+Description:  This is InfoZIP's zip program. It produces files that are fully
+ compatible with the popular PKZIP program; however, the command line
+ options are not identical. In other words, the end result is the same,
+ but the methods differ.

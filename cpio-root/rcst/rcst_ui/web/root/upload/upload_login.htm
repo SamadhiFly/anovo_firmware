@@ -1,0 +1,123 @@
+<html>
+<!- Copyright (c) Go Ahead Software Inc., 2000-2010. All Rights Reserved. ->
+<head>
+<title id="logintitle"></title>
+<meta http-equiv="X-UA-Compatible" content="edge" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta name="viewport" content="width=1024px">
+<link href="/css/bc.css" rel="stylesheet">
+<link href="/css/login.css" rel="stylesheet">
+</head>
+<script>
+document.write("<script type='text/javascript' src='/script/jquery-1.8.3.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/script/rcst-type.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/script/language-config.js?time="+Math.random()+" '></"+"script"+">");
+</script>
+<body>
+<div id="doc">
+    <div id="bd">
+        <div class="mod-login">
+            <div id="pic" class="pic"></div>
+			<h1 class="title">
+				<span id="welcomekey"></span>	
+			</h1>
+			<br />
+			<form method="post" action="#" name="uploaduser" id="uploaduser">
+				<div class="form-item">
+					<input class="ipt-text" type="text" name="username" autocomplete="off" placeholder="Please enter root name" value="root" />
+				</div>
+				<div class="form-item">
+					<input class="ipt-text" type="password" name="password" autocomplete="off" placeholder="Please enter password" />
+				</div>
+				<div class="form-item">
+					<button type="submit" class="btn btn-primary" style="width:333"><span id="login"></span></button>
+				</div>
+			</form>
+		</div>
+	</div>
+		<span id="footer" style="margin-top:60px;padding:0 0 30px 0;font-size:12px;line-height:2;color:#999;text-align:center"></span>
+		<script src="/script/footer.js"></script>				
+	</div>	
+</div>
+</body>
+<script>
+document.write("<script type='text/javascript' src='/script/jquery.dialog.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/i18n/loginkey-trans.js?time="+Math.random()+" '></"+"script"+">");
+</script>
+<script>
+
+	var pic = document.getElementById("pic");
+
+$.ajax({
+		url: '/action/RcstTypeGet',
+		type: "POST",
+		dataType: "json",
+		async: false,
+		success : function(rsp){
+			if(rsp.space0_or_weitong1 == '2'){
+				pic.className = '';
+				pic.classList.add('pic_jh')
+			}else{
+				pic.className = '';
+				pic.classList.add('pic')
+			}
+					
+		},
+		error:function(){
+				console.log("error");
+			}
+	});	
+	// dialog alert
+(function( $ ){
+    $.alert = function( content, ok ){
+        ok = ok || function(){};
+        return $.dialog({
+            width: 390,
+            padding:'25px 30px',
+            title: alert_title,
+            content: mess,
+            ok: ok,
+            cancel: false
+        });
+    }
+})(jQuery);
+</script>
+<script type="text/javascript">
+rcstTypeGet();
+langget();
+var input = document.getElementsByName('password')[0];
+if (input)
+	input.focus();
+			$('#uploaduser').on('submit', function (e) {
+				e.preventDefault();
+				var requestURL ='/action/uploadUuser', 
+					requestData = {},
+					 username = $('input[name=username]').val(),
+					 password = $('input[name=password]').val();
+				//	$('form input:first').trigger('blur');
+				//	$('form input:eq(1)').trigger('blur');
+
+			//	if ( oldPwd_status == 1 && newPwd_status == 1 && conPwd_status == 1 ) {
+				if(1){
+					 requestData = {
+						username: username,
+						password: password
+					};
+					$.getJSON( requestURL, requestData, function( rsp ){
+						if ( rsp.code == 0 ) {
+							window.location.href="/root/upload/upload.htm"+"?timestamp="+new Date().getTime() ;
+						}else {
+							$.alert(mess, function(){
+							window.location.href="/root/home.htm"+"?timestamp="+new Date().getTime() ;
+							}).lock();					 
+						} 
+					})
+				}
+			});	
+</script>
+</html>
+      

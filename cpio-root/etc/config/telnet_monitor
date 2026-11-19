@@ -1,0 +1,17 @@
+
+config reboot_judge 'reboot_judge'
+	option sys_reboot_judge_flag '15'
+	option sys_reboot_judge_time '1553249473'
+
+config web_reset 'web_reset'
+	option web_reset_flag '21'
+	option web_reset_time '1552446075'
+
+config logoff 'logoff'
+	option logoff_flag '39'
+	option logoff_time '1553502794'
+
+config monitor_server 'monitor_server'
+	option phone_num '15229310800'
+	option dtu_ip '10.10.10.10'
+

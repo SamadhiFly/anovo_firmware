@@ -1,0 +1,996 @@
+<html>
+<!- Copyright (c) Go Ahead Software Inc., 2000-2010. All Rights Reserved. ->
+
+	<head>
+		<title id="diagnosticstitle"></title>
+		<meta http-equiv="X-UA-Compatible" content="edge" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="expires" content="0">
+		<meta name="viewport" content="width=1024px">
+		<link href="/css/bc.css" rel="stylesheet">
+		<link href="/css/diagnostics.css" rel="stylesheet">
+	</head>
+	<script>
+		document.write("<script type='text/javascript' src='/script/jquery-1.8.3.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/script/jquery.dialog.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/script/jquery.dialog1.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/script/rcst-type.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/i18n/diagstatus-trans.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/script/language-config.js?time=" + Math.random() + " '></" + "script" + ">");
+	</script>
+
+	<body>
+		<div id="doc" style="min-width:1200px">
+			<div id="hd">
+				<div class="inner">
+					<div class="mod-head clearfix">
+						<span id="header"></span>
+						<script src="/script/header.js"></script>
+					</div>
+					<div class="mod-set-nav">
+						<ul class="clearfix">
+							<li id="status"><a href="/root/diagnostics/status.htm"
+									+"?timestamp="+new Date().getTime() id=" status_a"><i class="ico ico-1"></i><span
+										class="RCSTStatus"></span></a></li>
+							<li id="acu"><a href="/root/diagnostics/acu.htm" +"?timestamp="+new Date().getTime()  id="
+									acu_a"><i class="ico ico-1"></i><span class="ACUStatus"></span></a></li>
+							<li id="net"><a href="/root/diagnostics/net.htm" +"?timestamp="+new Date().getTime() id="
+									net_a"><i class="ico ico-2"></i><span class="Network"></span></a></li>
+							<li id="rf"><a href="/root/diagnostics/rf.htm" +"?timestamp="+new Date().getTime() id="
+									rf_a"><i class="ico ico-3"></i><span class="RF"></span></a></li>
+							<li id="log"><a href="/root/diagnostics/syslog.htm" +"?timestamp="+new Date().getTime() id="
+									log_a"><i class="ico ico-4"></i><span class="ViewLog"></span></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<script src="/root/diagnostics/diagnostics-active.js"></script>
+
+			<div class="mod-rtcore-data">
+				<ul class="list">
+					<li class="item clearfix">
+						<b class="num"><span class="TerminalType"></span></b>
+						<i class="con"><span class="rcst_type"></span></i><span class="con">(</span><span class="con"
+							id="rcst_current_time">--</span><span class="con">)</span>
+					</li>
+				</ul>
+			</div>
+			<div id="sys_23" style="display:none">
+				<div id="Vsat_Status" style="display:none">
+					<div id="bd">
+						<div class="bd1">
+							<div class="mod-set">
+								<div class="hd">
+									<h3 class="FLRunning"></h3>
+								</div>
+							</div>
+							<table style="width:300px;color:#000000;font-size:14px;line-height:200%">
+								<tr>
+									<td width="150px" class="LockedStatus"></td>
+									<td width="10px"></td>
+									<td class="rf_rx_is_locked"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="SymbolRate"></td>
+									<td width="10px"></td>
+									<td class="rf_rx_symbol"></td>
+								</tr>
+								<tr>
+									<td width="12px" class="SignalStrength"></td>
+									<td width="10px"></td>
+									<td class="rf_rx_ss"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="RXMode"></td>
+									<td width="10px"></td>
+									<td class="rf_rx_seachargo"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="ModulationType"></td>
+									<td width="10px"></td>
+									<td class="rf_rx_modulation"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="SNR"></td>
+									<td width="10px"></td>
+									<td class="rf_rx_Signalquality"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="LockedFrequency"></td>
+									<td width="10px"></td>
+									<td class="rf_rx_freq"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="BER"></td>
+									<td width="10px"></td>
+									<td class="rf_rx_Signalberl"></td>
+								</tr>
+								<tr class="mod-set-hd"></tr>
+								<tr>
+									<td width="150px" class="UnicastTIM"></td>
+									<td width="10px"></td>
+									<td class="timu"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="BroadcastTIM"></td>
+									<td width="10px"></td>
+									<td class="timb"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="TotalRXTBTP"></td>
+									<td width="10px"></td>
+									<td class="tbtp"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="LocalTBTP"></td>
+									<td width="10px"></td>
+									<td class="local_tbtp"></td>
+								</tr>
+								<!--
+					<tr><td width="150px" class="NoDistributionTBTP"></td><td width="10px"></td><td class="unassign_tbtp"></td></tr>
+-->
+								<tr class="mod-set-hd"></tr>
+								<tr>
+									<td width="150px" class="AcquiredLBSlot"></td>
+									<td width="10px"></td>
+									<td class="lb_slot"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="AcquiredCBSlot"></td>
+									<td width="10px"></td>
+									<td class="cb_slot"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="AcquiredTRFSlot"></td>
+									<td width="10px"></td>
+									<td class="trf_slot"></td>
+								</tr>
+								<tr class="mod-set-hd"></tr>
+								<tr>
+									<td width="150px" class="FLGSE"></td>
+									<td width="10px"></td>
+									<td class="down_gse"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="TotalFLTS"></td>
+									<td width="10px"></td>
+									<td class="down_ts"></td>
+								</tr>
+								<tr style="display:none">
+									<td width="150px" class="FLBBFrame"></td>
+									<td width="10px"></td>
+									<td class="down_bbframe"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="FLTSDiscontinuity"></td>
+									<td width="10px"></td>
+									<td class="down_ts_uncontinous"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="FLPDUCRCError"></td>
+									<td width="10px"></td>
+									<td class="pdu_crc_error"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="FLUnicastIP"></td>
+									<td width="10px"></td>
+									<td class="down_timu_ip"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="FLBroadcastIP"></td>
+									<td width="10px"></td>
+									<td class="down_timb_ip"></td>
+								</tr>
+								<tr class="mod-set-hd"></tr>
+								<tr>
+									<td width="150px" class="FLInterruptOfFL1ms"></td>
+									<td width="10px"></td>
+									<td class="down_irq1ms"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="FLTotalUnlocked"></td>
+									<td width="10px"></td>
+									<td class="down_losskey"></td>
+								</tr>
+							</table>
+						</div>
+						<div class="bd2">
+							<div class="mod-set">
+								<div class="hd">
+									<h3 class="RLRunning"></h3>
+								</div>
+							</div>
+							<table style="width:300px;color:#000000;font-size:14px;line-height:200%">
+								<tr>
+									<td width="160px" class="RunningStatus"></td>
+									<td width="10px"></td>
+									<td class="rcst_current_status"></td>
+								</tr>
+								<tr class="x509_auth_status_tr" style="display:none">
+									<td width="160px" class="AuthStatus"></td>
+									<td width="10px"></td>
+									<td class="x509_auth_status"></td>
+								</tr>
+								<tr>
+									<td width="160px" class="RLRate"></td>
+									<td width="10px"></td>
+									<td class="up_rate"></td>
+								</tr>
+								<tr>
+									<td width="160px" class="TXPower"></td>
+									<td width="10px"></td>
+									<td class="transmit_power"></td>
+								</tr>
+								<tr>
+									<td width="160px" class="ModulationType"></td>
+									<td width="10px"></td>
+									<td class="modulation_type"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="SNR"></td>
+									<td width="10px"></td>
+									<td class="tx_snr"></td>
+								</tr>
+								<tr class="mod-set-hd"></tr>
+								<tr>
+									<td width="160px" class="SentLB"></td>
+									<td width="10px"></td>
+									<td class="lb_send"></td>
+								</tr>
+								<tr>
+									<td width="160px" class="SentCB"></td>
+									<td width="10px"></td>
+									<td class="cb_send"></td>
+								</tr>
+								<tr>
+									<td width="160px" class="SentTRF"></td>
+									<td width="10px"></td>
+									<td class="trf_send"></td>
+								</tr>
+								<tr>
+									<td width="160px" class="RLIPPackage"></td>
+									<td width="10px"></td>
+									<td class="up_ip"></td>
+								</tr>
+								<tr>
+									<td width="160px" class="TotalTrafficRequest"></td>
+									<td width="10px"></td>
+									<td class="trf_apply_totallen"></td>
+								</tr>
+								<tr class="mod-set-hd"></tr>
+								<tr>
+									<td width="160px" class="RLIPPackageBacklog"></td>
+									<td width="10px"></td>
+									<td class="up_trf_uncontinous"></td>
+								</tr>
+								<tr>
+									<td width="160px" class="RL40msInterruptLost"></td>
+									<td width="10px"></td>
+									<td class="up_irq40ms"></td>
+								</tr>
+								<!--
+					<tr><td width="160px" class="RLpcrOverdued"></td><td width="10px"></td><td class="up_irq40ms_loss"></td></tr>
+-->
+								<tr>
+									<td width="160px" class="RLBurstCNT"></td>
+									<td width="10px"></td>
+									<td class="ts_pcr_timeout"></td>
+								</tr>
+								<tr>
+									<td width="160px" class="RLBursttoFPGACNT"></td>
+									<td width="10px"></td>
+									<td class="ts_crc_wrong"></td>
+								</tr>
+							</table>
+							<div class="mod-set" style="display:none">
+								<div class="hd">
+									<h3 class="FPGA"></h3>
+								</div>
+							</div>
+							<!--
+				<table style="width:400px;color:#000000;font-size:14px;line-height:200%" style="display:none">
+					<tr><td width="160px" class="FLMBBFrame"></td><td width="10px"></td><td class="fpga_gse_count"></td></tr>
+					<tr><td width="160px" class="FLBBFrame"></td><td width="10px"></td><td class="fpga_bbframe_count"></td></tr>
+-->
+							<!--
+					<tr><td width="160px" class="FLRXGSE"></td><td width="10px"></td><td class="fpga_gse_count"></td></tr>
+-->
+							<!--
+					<tr><td width="160px" class="FLTXGSE"></td><td width="10px"></td><td class="fpga_total_ts"></td></tr>
+					<tr><td width="160px" class="RLMFPGARX"></td><td width="10px"></td><td class="unassign_tbtp_count"></td></tr>				
+					<tr><td width="160px" class="RLMFPGATX"></td><td width="10px"></td><td class="up_irq40ms_losscount"></td></tr>					
+					<tr><td width="160px" class="RLFPGARX"></td><td width="10px"></td><td class="fpga_receive_packet"></td></tr>
+					<tr ><td width="160px" class="RLFPGATX"></td><td width="10px"></td><td class="fpga_send_packet"></td></tr>
+				</table>
+-->
+							<div class="mod-set">
+								<div class="hd">
+									<h3 class="TerminalReset"></h3>
+								</div>
+							</div>
+							<table style="width:400px;color:#000000;font-size:14px;line-height:200%">
+								<tr>
+									<td width="160px" class="HardwareReset"></td>
+									<td width="10px"></td>
+									<td class="hardware_reset"></td>
+								</tr>
+								<tr>
+									<td width="160px" class="SoftwareReset"></td>
+									<td width="10px"></td>
+									<td class="software_reset"></td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div id="Scpc_Status" style="display:none">
+					<div id="bd">
+						<div class="bd1">
+							<div class="mod-set">
+								<div class="hd">
+									<h3 class="FLRunning"></h3>
+								</div>
+							</div>
+							<table style="width:400px;color:#000000;font-size:14px;line-height:250%">
+								<tr>
+									<td width="150px" class="LockedStatus"></td>
+									<td width="10px"></td>
+									<td class="rf_rx_is_locked"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="SymbolRate"></td>
+									<td width="10px"></td>
+									<td class="rf_rx_symbol"></td>
+								</tr>
+								<tr>
+									<td width="12px" class="SignalStrength"></td>
+									<td width="10px"></td>
+									<td class="rf_rx_ss"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="RXMode"></td>
+									<td width="10px"></td>
+									<td class="rf_rx_seachargo"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="ModulationType"></td>
+									<td width="10px"></td>
+									<td class="rf_rx_modulation"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="SNR"></td>
+									<td width="10px"></td>
+									<td class="rf_rx_Signalquality"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="LockedFrequency"></td>
+									<td width="10px"></td>
+									<td class="rf_rx_freq"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="BER"></td>
+									<td width="10px"></td>
+									<td class="rf_rx_Signalberl"></td>
+								</tr>
+
+								<tr class="mod-set-hd"></tr>
+								<tr>
+									<td width="150px" class="UnicastTIM"></td>
+									<td width="10px"></td>
+									<td class="scpc_timu"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="BroadcastTIM"></td>
+									<td width="10px"></td>
+									<td class="scpc_timb"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="TotalRXTBTP1"></td>
+									<td width="10px"></td>
+									<td class="scpc_tbtp1"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="FreeTBTP1"></td>
+									<td width="10px"></td>
+									<td class="scpc_f_tbtp1"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="LocalTBTP1"></td>
+									<td width="10px"></td>
+									<td class="scpc_local_tbtp1"></td>
+								</tr>
+
+								<tr class="mod-set-hd"></tr>
+								<tr>
+									<td width="150px" class="FLTS"></td>
+									<td width="10px"></td>
+									<td class="scpc_down_ts"></td>
+								</tr>
+								<tr style="display:none">
+									<td width="150px" class="FLBBFrame"></td>
+									<td width="10px"></td>
+									<td class="scpc_down_bbframe"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="FLGSE"></td>
+									<td width="10px"></td>
+									<td class="scpc_down_gse"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="FLTSUncontinus"></td>
+									<td width="10px"></td>
+									<td class="scpc_down_ts_uncon"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="FLCRCError"></td>
+									<td width="10px"></td>
+									<td class="scpc_down_crc_error"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="FLUnicastIP"></td>
+									<td width="10px"></td>
+									<td class="scpc_down_unicast_ip"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="FLBroadcastIP"></td>
+									<td width="10px"></td>
+									<td class="scpc_down_mulcast_ip"></td>
+								</tr>
+
+								<tr class="mod-set-hd"></tr>
+								<tr>
+									<td width="150px" class="FLInterruptOfFL1ms"></td>
+									<td width="10px"></td>
+									<td class="scpc_down_irq1ms"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="FLTotalUnlocked"></td>
+									<td width="10px"></td>
+									<td class="scpc_down_losskey"></td>
+								</tr>
+							</table>
+						</div>
+
+						<div class="bd2">
+							<div class="mod-set">
+								<div class="hd">
+									<h3 class="RLRunning"></h3>
+								</div>
+							</div>
+							<table style="width:400px;color:#000000;font-size:14px;line-height:200%">
+								<tr>
+									<td width="160px" class="RunningStatus"></td>
+									<td width="10px"></td>
+									<td class="rcst_current_status"></td>
+								</tr>
+								<tr class="x509_auth_status_tr" style="display:none">
+									<td width="160px" class="AuthStatus"></td>
+									<td width="10px"></td>
+									<td class="x509_auth_status"></td>
+								</tr>
+								<tr>
+									<td width="160px" class="RLRate"></td>
+									<td width="10px"></td>
+									<td class="up_rate"></td>
+								</tr>
+								<tr>
+									<td width="160px" class="TXPower"></td>
+									<td width="10px"></td>
+									<td class="transmit_power"></td>
+								</tr>
+								<tr>
+									<td width="160px" class="ModulationType"></td>
+									<td width="10px"></td>
+									<td class="modulation_type"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="SNR"></td>
+									<td width="10px"></td>
+									<td class="tx_snr"></td>
+								</tr>
+								<tr class="mod-set-hd"></tr>
+								<tr>
+									<td width="160px" class="SentLB"></td>
+									<td width="10px"></td>
+									<td class="scpc_lb_send"></td>
+								</tr>
+								<tr>
+									<td width="160px" class="SentCB"></td>
+									<td width="10px"></td>
+									<td class="scpc_cb_send"></td>
+								</tr>
+								<tr>
+									<td width="160px" class="SentTRF"></td>
+									<td width="10px"></td>
+									<td class="scpc_trf_send"></td>
+								</tr>
+								<tr>
+									<td width="160px" class="RLIPPackage"></td>
+									<td width="10px"></td>
+									<td class="scpc_up_ip"></td>
+								</tr>
+								<tr>
+									<td width="160px" class="RLBBFrameLen"></td>
+									<td width="10px"></td>
+									<td class="scpc_up_bbframe_len"></td>
+								</tr>
+								<tr>
+									<td width="160px" class="RLTRFTotalLen"></td>
+									<td width="10px"></td>
+									<td class="scpc_up_trf_totallen"></td>
+								</tr>
+								<!--
+					<tr><td width="160px" class="RLTS"></td><td width="10px"></td><td id="scpc_up_ts"></td></tr>
+-->
+								<tr>
+									<td width="160px" class="RLBBFrame"></td>
+									<td width="10px"></td>
+									<td class="scpc_up_bbframe"></td>
+								</tr>
+								<tr>
+									<td width="160px" class="RLBBFrameEfficiency"></td>
+									<td width="10px"></td>
+									<td class="scpc_up_bb_efficiency"></td>
+								</tr>
+								<tr>
+									<td width="160px" class="RL40msCount"></td>
+									<td width="10px"></td>
+									<td class="scpc_up_irq40ms_cnt"></td>
+								</tr>
+								<tr>
+									<td width="160px" class="RLSKBListCount"></td>
+									<td width="10px"></td>
+									<td class="scpc_up_skb_list_cnt"></td>
+								</tr>
+							</table>
+							<div class="mod-set" style="display:none">
+								<div class="hd">
+									<h3 class="FPGA"></h3>
+								</div>
+							</div>
+							<!--
+				<table style="width:400px;color:#000000;font-size:14px;line-height:200%">
+
+					<tr><td width="160px" class="FLMBBFrame"></td><td width="10px"></td><td id="scpc_fpga_dl_ts_count"></td></tr>
+					<tr><td width="160px" class="FLBBFrame"></td><td width="10px"></td><td id="scpc_fpga_dl_bb_count"></td></tr>
+-->
+							<!--
+					<tr><td width="160px" class="FLGSE"></td><td width="10px"></td><td id="scpc_fpga_dl_ts_count"></td></tr>
+-->
+							<!--
+					<tr><td width="160px" class="RLFPGARX"></td><td width="10px"></td><td id="scpc_fpga_dl_gse_count"></td></tr>
+					<tr><td width="160px" class="RLFPGATX"></td><td width="10px"></td><td id="scpc_fpga_ul_ts_cnt"></td></tr>
+					<tr><td width="160px" class="RLMFPGARX"></td><td width="10px"></td><td id="scpc_fpga_ul_loss_ts_cnt"></td></tr>				
+					<tr><td width="160px" class="RLMFPGATX"></td><td width="10px"></td><td id="scpc_fpga_ul_bb_cnt"></td></tr>
+				</table>
+-->
+							<div class="mod-set">
+								<div class="hd">
+									<h3 class="TerminalReset"></h3>
+								</div>
+							</div>
+							<table style="width:400px;color:#000000;font-size:14px;line-height:200%">
+								<tr>
+									<td width="160px" class="HardwareReset"></td>
+									<td width="10px"></td>
+									<td class="scpc_hardware_reset"></td>
+								</tr>
+								<tr>
+									<td width="160px" class="SoftwareReset"></td>
+									<td width="10px"></td>
+									<td class="scpc_software_reset"></td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+				<span id="footer_23"></span>
+				<script src="/script/footer_23.js"></script>
+			</div>
+			<div id="sys_4" style="display:none">
+				<div id="Scpc_Status_new" style="display:none">
+					<div id="bd">
+						<div class="bd1">
+							<div class="mod-set">
+								<div class="hd">
+									<h3 class="FLRunning"></h3>
+								</div>
+							</div>
+							<table style="width:300px;color:#000000;font-size:14px;line-height:200%">
+								<tr>
+									<td width="150px" class="LockedStatus"></td>
+									<td width="10px"></td>
+									<td class="rf_rx_is_locked"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="SymbolRate"></td>
+									<td width="10px"></td>
+									<td class="rf_rx_symbol"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="LockedFrequency"></td>
+									<td width="10px"></td>
+									<td class="rf_rx_freq"></td>
+								</tr>
+								<tr>
+									<td width="12px" class="SignalStrength"></td>
+									<td width="10px"></td>
+									<td class="rf_rx_ss"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="RXMode"></td>
+									<td width="10px"></td>
+									<td class="rf_rx_seachargo"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="ModulationType"></td>
+									<td width="10px"></td>
+									<td class="rf_rx_modulation"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="SNR"></td>
+									<td width="10px"></td>
+									<td class="rf_rx_Signalquality"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="BER"></td>
+									<td width="10px"></td>
+									<td class="rf_rx_Signalberl"></td>
+								</tr>
+								<tr class="mod-set-hd"></tr>
+								<tr>
+									<td width="150px" class="UnicastTIM"></td>
+									<td width="10px"></td>
+									<td class="u32_timu_count"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="BroadcastTIM"></td>
+									<td width="10px"></td>
+									<td class="u32_timb_count"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="RXUnicastIP"></td>
+									<td width="10px"></td>
+									<td class="u32_down_unicast_ip_count"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="RXBroadcastIP"></td>
+									<td width="10px"></td>
+									<td class="u32_down_mulcast_ip_count"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="RXUnlockTotal"></td>
+									<td width="10px"></td>
+									<td class="u32_down_losskey_count"></td>
+								</tr>
+								<!--
+						<tr><td width="150px" class="RXUnSYNCTotal"></td><td width="10px"></td><td class="u32_down_fpga_sync_loss"></td></tr>
+	-->
+								<tr>
+									<td width="150px" class="FPGAGSE"></td>
+									<td width="10px"></td>
+									<td class="u32_fpga_gse_count"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="FPGABBFrame"></td>
+									<td width="10px"></td>
+									<td class="u32_fpga_bbframe_count"></td>
+								</tr>
+								<tr class="mod-set-hd"></tr>
+								<tr>
+									<td width="160px" class="CurrentSatellite"></td>
+									<td width="10px"></td>
+									<td class="satellite_name_now"></td>
+								</tr>
+								<tr>
+									<td width="160px" class="CurrentBeamID"></td>
+									<td width="10px"></td>
+									<td class="beamid_now"></td>
+								</tr>
+							</table>
+						</div>
+
+						<div class="bd2">
+							<div class="mod-set">
+								<div class="hd">
+									<h3 class="RLRunning"></h3>
+								</div>
+							</div>
+							<table style="width:300px;color:#000000;font-size:14px;line-height:200%">
+								<tr>
+									<td width="160px" class="RunningStatus"></td>
+									<td width="10px"></td>
+									<td class="rcst_current_status"></td>
+								</tr>
+								<!--
+						<tr><td width="160px" class="RudsafnningStatus">业务状态</td><td width="10px"></td><td class="rcst_cdsffurrent_status">业务允许</td></tr>
+	-->
+								<tr class="x509_auth_status_tr" style="display:none">
+									<td width="160px" class="AuthStatus"></td>
+									<td width="10px"></td>
+									<td class="x509_auth_status"></td>
+								</tr>
+								<tr>
+									<td width="160px" class="TXRate"></td>
+									<td width="10px"></td>
+									<td class="u32_up_sig_rate"></td>
+								</tr>
+								<!--
+						<tr><td width="160px" class="TrfRate"></td><td width="10px"></td><td class="u32_up_trf_rate"></td></tr>
+	-->
+								<tr>
+									<td width="160px" class="TXPower"></td>
+									<td width="10px"></td>
+									<td class="u32_up_sig_power"></td>
+								</tr>
+								<!--
+						<tr><td width="150px" class="TrfPower"></td><td width="10px"></td><td class="u32_up_trf_power"></td></tr>
+	-->
+								<tr>
+									<td width="160px" class="SigModcod"></td>
+									<td width="10px"></td>
+									<td class="u32_up_sig_modcod"></td>
+								</tr>
+								<tr>
+									<td width="160px" class="TrfModcod"></td>
+									<td width="10px"></td>
+									<td class="u32_up_trf_modcod"></td>
+								</tr>
+								<tr>
+									<td width="160px" class="TXSNR"></td>
+									<td width="10px"></td>
+									<td class="u8_up_sig_snr"></td>
+								</tr>
+								<!--
+						<tr><td width="160px" class="TrfSNR"></td><td width="10px"></td><td class="u8_up_trf_snr"></td></tr>
+	-->
+								<tr class="mod-set-hd"></tr>
+								<tr>
+									<td width="160px" class="LoginSig"></td>
+									<td width="10px"></td>
+									<td class="u32_lb_send_count"></td>
+								</tr>
+								<tr>
+									<td width="160px" class="SYNCSig"></td>
+									<td width="10px"></td>
+									<td class="u32_cb_send_count"></td>
+								</tr>
+								<tr>
+									<td width="160px" class="TrfTX"></td>
+									<td width="10px"></td>
+									<td class="u32_trf_send_count"></td>
+								</tr>
+								<tr>
+									<td width="160px" class="RLIPPackageBacklog"></td>
+									<td width="10px"></td>
+									<td class="u32_total_remained_packet_count"></td>
+								</tr>
+								<tr>
+									<td width="160px" class="FPGARXPackage"></td>
+									<td width="10px"></td>
+									<td class="u32_fpga_receive_packet"></td>
+								</tr>
+								<tr>
+									<td width="160px" class="FPGATXPackage"></td>
+									<td width="10px"></td>
+									<td class="u32_fpga_send_packet"></td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+
+				<div id="Vsat_Status_new" style="display:none">
+					<div id="bd">
+						<div class="bd1">
+							<div class="mod-set">
+								<div class="hd">
+									<h3 class="FLRunning"></h3>
+								</div>
+							</div>
+							<table style="width:300px;color:#000000;font-size:14px;line-height:200%">
+								<tr>
+									<td width="150px" class="LockedStatus"></td>
+									<td width="10px"></td>
+									<td class="rf_rx_is_locked"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="SymbolRate"></td>
+									<td width="10px"></td>
+									<td class="rf_rx_symbol"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="LockedFrequency"></td>
+									<td width="10px"></td>
+									<td class="rf_rx_freq"></td>
+								</tr>
+								<tr>
+									<td width="12px" class="SignalStrength"></td>
+									<td width="10px"></td>
+									<td class="rf_rx_ss"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="RXMode"></td>
+									<td width="10px"></td>
+									<td class="rf_rx_seachargo"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="ModulationType"></td>
+									<td width="10px"></td>
+									<td class="rf_rx_modulation"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="SNR"></td>
+									<td width="10px"></td>
+									<td class="rf_rx_Signalquality"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="BER"></td>
+									<td width="10px"></td>
+									<td class="rf_rx_Signalberl"></td>
+								</tr>
+								<tr class="mod-set-hd"></tr>
+								<tr>
+									<td width="150px" class="UnicastTIM"></td>
+									<td width="10px"></td>
+									<td class="u32_timu_count"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="BroadcastTIM"></td>
+									<td width="10px"></td>
+									<td class="u32_timb_count"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="RXUnicastIP"></td>
+									<td width="10px"></td>
+									<td class="u32_down_unicast_ip_count"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="RXBroadcastIP"></td>
+									<td width="10px"></td>
+									<td class="u32_down_mulcast_ip_count"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="RXUnlockTotal"></td>
+									<td width="10px"></td>
+									<td class="u32_down_losskey_count"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="RXUnSYNCTotal"></td>
+									<td width="10px"></td>
+									<td class="u32_down_fpga_sync_loss"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="FPGAGSE"></td>
+									<td width="10px"></td>
+									<td class="u32_fpga_gse_count"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="FPGABBFrame"></td>
+									<td width="10px"></td>
+									<td class="u32_fpga_bbframe_count"></td>
+								</tr>
+								<tr class="mod-set-hd"></tr>
+								<tr>
+									<td width="160px" class="CurrentSatellite"></td>
+									<td width="10px"></td>
+									<td class="satellite_name_now"></td>
+								</tr>
+								<tr>
+									<td width="160px" class="CurrentBeamID"></td>
+									<td width="10px"></td>
+									<td class="beamid_now"></td>
+								</tr>
+							</table>
+						</div>
+
+						<div class="bd2">
+							<div class="mod-set">
+								<div class="hd">
+									<h3 class="RLRunning"></h3>
+								</div>
+							</div>
+							<table style="width:300px;color:#000000;font-size:14px;line-height:200%">
+								<tr>
+									<td width="160px" class="RunningStatus"></td>
+									<td width="10px"></td>
+									<td class="rcst_current_status"></td>
+								</tr>
+								<!--
+						<tr><td width="160px" class="RudsafnningStatus">业务状态</td><td width="10px"></td><td class="rcst_cdsffurrent_status">业务允许</td></tr>
+	-->
+								<tr class="x509_auth_status_tr" style="display:none">
+									<td width="160px" class="AuthStatus"></td>
+									<td width="10px"></td>
+									<td class="x509_auth_status"></td>
+								</tr>
+								<tr>
+									<td width="160px" class="SigRate"></td>
+									<td width="10px"></td>
+									<td class="u32_up_sig_rate"></td>
+								</tr>
+								<tr>
+									<td width="160px" class="TrfRate"></td>
+									<td width="10px"></td>
+									<td class="u32_up_trf_rate"></td>
+								</tr>
+								<tr>
+									<td width="160px" class="SigPower"></td>
+									<td width="10px"></td>
+									<td class="u32_up_sig_power"></td>
+								</tr>
+								<tr>
+									<td width="150px" class="TrfPower"></td>
+									<td width="10px"></td>
+									<td class="u32_up_trf_power"></td>
+								</tr>
+								<tr>
+									<td width="160px" class="SigModcod"></td>
+									<td width="10px"></td>
+									<td class="u32_up_sig_modcod"></td>
+								</tr>
+								<tr>
+									<td width="160px" class="TrfModcod"></td>
+									<td width="10px"></td>
+									<td class="u32_up_trf_modcod"></td>
+								</tr>
+								<tr>
+									<td width="160px" class="SigSNR"></td>
+									<td width="10px"></td>
+									<td class="u8_up_sig_snr"></td>
+								</tr>
+								<tr>
+									<td width="160px" class="TrfSNR"></td>
+									<td width="10px"></td>
+									<td class="u8_up_trf_snr"></td>
+								</tr>
+								<tr class="mod-set-hd"></tr>
+								<tr>
+									<td width="160px" class="LoginSig"></td>
+									<td width="10px"></td>
+									<td class="u32_lb_send_count"></td>
+								</tr>
+								<tr>
+									<td width="160px" class="SYNCSig"></td>
+									<td width="10px"></td>
+									<td class="u32_cb_send_count"></td>
+								</tr>
+								<tr>
+									<td width="160px" class="TrfTX"></td>
+									<td width="10px"></td>
+									<td class="u32_trf_send_count"></td>
+								</tr>
+								<tr>
+									<td width="160px" class="RLIPPackageBacklog"></td>
+									<td width="10px"></td>
+									<td class="u32_total_remained_packet_count"></td>
+								</tr>
+								<tr>
+									<td width="160px" class="FPGARXPackage"></td>
+									<td width="10px"></td>
+									<td class="u32_fpga_receive_packet"></td>
+								</tr>
+								<tr>
+									<td width="160px" class="FPGATXPackage"></td>
+									<td width="10px"></td>
+									<td class="u32_fpga_send_packet"></td>
+								</tr>
+							</table>
+
+						</div>
+					</div>
+				</div>
+
+				<span id="footer"></span>
+				<script src="/script/footer.js"></script>
+			</div>
+		</div>
+	</body>
+	<script>
+		document.write("<script type='text/javascript' src='/root/diagnostics/status.js?time=" + Math.random() + " '></" + "script" + ">");
+	</script>
+
+</html>

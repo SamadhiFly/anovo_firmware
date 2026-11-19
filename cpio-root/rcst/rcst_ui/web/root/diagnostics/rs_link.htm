@@ -1,0 +1,123 @@
+<html>
+<!- Copyright (c) Go Ahead Software Inc., 2000-2010. All Rights Reserved. ->
+<head>
+<title id="rslinktitle"></title>
+<meta http-equiv="X-UA-Compatible" content="edge" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta name="viewport" content="width=1024px">
+<link href="/css/bc.css" rel="stylesheet">
+<link href="/css/mesh.css" rel="stylesheet">
+</head>
+<script>
+document.write("<script type='text/javascript' src='/script/jquery-1.8.3.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/script/jquery.dialog.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/script/rcst-type.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/i18n/diagmesh-trans.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/script/language-config.js?time="+Math.random()+" '></"+"script"+">");
+</script>
+<body>
+<div id="doc"  style="min-width:1200px">
+	<div id="hd">
+		<div class="inner">
+			<div class="mod-head clearfix">
+				<h1 id="logo"><a href="/root/home.htm"><img src="/icons/logo.png" /></a></h1>
+					<div id="nav">
+						<ul>
+							<li id = "terminal"><a href="/root/terminal/sysload.htm" id="terminal_a"><span  id="terminal_b"></span></a></li>
+							<li id = "odu"><a href="/root/odu/odu.htm" id="odu_a"><span  id="odu_b"></span></a></li>
+							<li id = "network"><a href="/root/network/lan.htm" id="network_a"><span  id="network_b"></span></a></li>
+							<li id = "diagnostics"><a href="/root/diagnostics/status.htm" id="diagnostics_a"><span   id="diagnostics_b"></span></a></li>
+							<li><a href="/root/guide/install-set1.htm" id = "installation_b"></a></li>
+						</ul>
+					</div>
+					<div id="userbar">
+						<a href="/action/logout" id="quit"></a>
+						<span class="line">|</span>
+						<a href="/root/upgrade/packages.htm" id="upgrade"></a>
+						<span class="line">|</span>
+						<!-- <a style="cursor:pointer" onclick="langset()" id="lang"></a> -->
+						<select  name="language_three"  id="language_three"style="cursor:pointer" onChange="langset()">
+							<option value="en">English</option>
+							<option value="zh">简体中文</option>
+							<option value="zh_HK">繁體中文</option>
+					   </select>
+<!--						
+						<span class="line">|</span>
+						<a style="cursor:pointer" onclick="langset()" id="lang" value="en"></a>
+-->
+					</div>
+			</div>
+			<div class="mod-set-nav">
+				<ul class="clearfix">
+					<li id="status"><a href="/root/diagnostics/status.htm" id="status_a"><i class="ico ico-1"></i><span class="RCSTStatus"></span></a></li>
+					<li id="net"><a href="/root/diagnostics/net.htm" id="net_a"><i class="ico ico-2"></i><span class="Network"></span></a></li>
+					<li id="rf"><a href="/root/diagnostics/rf.htm" id="rf_a"><i class="ico ico-3"></i><span class="RF"></span></a></li>
+					<li id="log"><a href="/root/diagnostics/syslog.htm" id="log_a"><i class="ico ico-4"></i><span class="ViewLog"></span></a></li>
+					<li id="process"><a href="/root/diagnostics/process.htm" id="process_a"><i class="ico ico-5"></i><span class="ProcessMonitoring"></span></a></li>
+					<li id="mesh_status" style="display:none"><a href="/root/diagnostics/rs_link.htm" id="mesh_status_a"><i class="ico ico-1"></i><span class="Mesh"></span></a></li>			
+				</ul>
+			</div>			
+		</div>
+	</div>
+	<div id="bd">    
+		<div class="nav-set">
+			<table>
+				<tr>
+					<td id="FLstatus"><a href="/root/diagnostics/rs_link.htm" id="FLstatus_a"><span class="FLStatus"></span></a></td>
+					<td id="RLstatus"><a href="/root/diagnostics/ts_link.htm" id="RLstatus_a"><span class="RLStatus"></span></a></td>
+				</tr>
+			</table>
+		</div>
+	</div>	
+	<script src="/root/diagnostics/diagnostics-active.js"></script>
+	<script src="/root/diagnostics/mesh-active.js"></script>
+	<div id="bd">   
+		<div class="mod-set">
+			<div class="bd">
+				<div type="tmpl/html" id="rslink_content">
+					<div class="dialog-listadd-form-wrap">
+						<form action="#" class="form" name="listAdd" id="listAdd">
+							<table class="table" >
+								<thead>
+									<center>
+										<tr>
+											<th class="center" style="width:50px; height:20px" class="Num"></th>
+											<th class="center" style="width:120px; height:20px" class="SrcIP"></th>
+											<th class="center" style="width:120px; height:20px" class="DestIP"></th>
+											<th class="center" style="width:120px; height:20px" class="SNR"></th>
+											<th class="center" style="width:120px; height:20px" class="Rate"></th>
+											<th class="center" style="width:120px; height:20px" class="ModulationType"></th>
+										</tr>
+									</center>
+								</thead>
+								<tbody id="rslink_dialoglist">
+								</tbody>
+							</table>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	<span id="footer"></span>
+	<script src="/script/footer.js"></script>
+	</div>	
+</div>				
+</body>
+<script type="tmpl/html" id="rslink_list">
+    <tr style="height:10px">
+		<td class="center">{$list}</td>
+        <td class="center">{$lan}</td>
+		<td class="center">{$wan}</td>
+        <td class="center" >{$power} dB</td>
+        <td class="center">{$rate}</td> </td>
+        <td class="center">{$adm}</td></td>
+    </tr>
+</script>
+<script>
+document.write("<script type='text/javascript' src='/root/diagnostics/rs_link.js?time="+Math.random()+" '></"+"script"+">");
+</script>
+</html>	

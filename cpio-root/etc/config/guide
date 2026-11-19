@@ -1,0 +1,11 @@
+
+config guide 'status'
+	option pppoe_type '0'
+	option locked '0'
+
+config guide 'install'
+	option installtype '1'
+
+config guide 'monitor'
+	option monitortype '1'
+

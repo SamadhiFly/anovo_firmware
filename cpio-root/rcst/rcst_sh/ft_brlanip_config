@@ -1,0 +1,7 @@
+config ft_brlanip_config ft_brlanip_config
+		option ft_brlan_ip "172.30.0.171"
+		option ft_ground_ip "172.30.0.159"
+		option ft_brlan_netmask "255.255.255.0"
+		option ft_ground_port "10002"
+
+

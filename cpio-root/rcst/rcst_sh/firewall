@@ -1,0 +1,256 @@
+#!/bin/sh /etc/rc.common
+
+START=19
+USE_PROCD=1
+QUIET=""
+
+validate_firewall_redirect()
+{
+	uci_validate_section firewall redirect "${1}" \
+		'proto:or(uinteger, string)' \
+		'src:string' \
+		'src_ip:cidr' \
+		'src_dport:or(port, portrange)' \
+		'dest:string' \
+		'dest_ip:cidr' \
+		'dest_port:or(port, portrange)' \
+		'target:or("SNAT", "DNAT")'
+}
+
+validate_firewall_rule()
+{
+	uci_validate_section firewall rule "${1}" \
+		'proto:or(uinteger, string)' \
+		'src:string' \
+		'dest:string' \
+		'src_port:or(port, portrange)' \
+		'dest_port:or(port, portrange)' \
+		'target:string'
+}
+
+service_triggers() {
+	procd_add_reload_trigger firewall	
+
+	procd_open_validate
+	validate_firewall_redirect
+	validate_firewall_rule
+	procd_close_validate
+}
+
+restart() {
+zd_version=$(cat /mnt/zd_version)
+if [ "$zd_version" == 4 ];then
+		uci set switch_redirect.redirect_set.switch=0
+		uci commit switch_redirect
+		uci set firewall.@zone[1].masq=0
+		uci commit firewall		
+		iptables -t nat -D zone_wan_postrouting -m comment --comment "!fw3" -j MASQUERADE
+		nat_vlanswitch_cnt=$(uci show /etc/config/switch_redirect | grep vlanid | wc -l)
+		i=0
+		while [[ "$i" -lt "$nat_vlanswitch_cnt" ]]
+		do
+			let "i+=1"
+			num=$(uci show /etc/config/switch_redirect | grep vlanid | sed -n "$i"p | awk -F[=] '{print $1}' | awk -F[.] '{print $2}')
+			NAT_switch=$(uci get switch_redirect.$num.switch)
+			if [ "$NAT_switch" == "0" ]; then
+				uci set	firewall.wan$num.masq=0
+				uci commit firewall	
+			else
+				uci set	firewall.wan$num.masq=1
+				uci commit firewall	
+			fi			
+		done	
+else
+	NAT_switch=$(uci get switch_redirect.redirect_set.switch)
+	if [ "$NAT_switch" = "0" ]; then
+		uci set firewall.@zone[1].masq=0
+		uci commit firewall
+	else
+		uci set firewall.@zone[1].masq=1
+		uci commit firewall						
+	fi		
+fi
+
+	fw3 restart
+if [ "$zd_version" == 4 ];then
+	#三层access模式
+
+	uci set switch_redirect.redirect_set.switch=0
+	uci commit switch_redirect
+	iptables -t nat -D zone_wan_postrouting -m comment --comment "!fw3" -j MASQUERADE
+	nat_vlanswitch_cnt=$(uci show /etc/config/switch_redirect | grep vlanid | wc -l)
+	i=0
+	while [[ "$i" -lt "$nat_vlanswitch_cnt" ]]
+	do
+		let "i+=1"
+		num=$(uci show /etc/config/switch_redirect | grep vlanid | sed -n "$i"p | awk -F[=] '{print $1}' | awk -F[.] '{print $2}')
+		NAT_switch=$(uci get switch_redirect.$num.switch)
+		if [ "$NAT_switch" == "0" ]; then
+			iptables -t nat -D zone_wan"$num"_postrouting -m comment --comment "!fw3" -j MASQUERADE
+		fi			
+		
+	done	
+	sh /rcst/rcst_sh/run_firewall.sh
+
+else
+	NAT_switch=$(uci get switch_redirect.redirect_set.switch)
+	if [ "$NAT_switch" = "0" ]; then
+		iptables -t nat -D zone_wan"$num"_postrouting -m comment --comment "!fw3" -j MASQUERADE
+	fi		
+fi
+
+if [ "$(uci get proset.tcp_set.switch)" = "1" ]; then
+	iptables -D zone_wan_dest_ACCEPT 1
+fi			
+}
+
+start_service() {
+
+zd_version=$(cat /mnt/zd_version)
+if [ "$zd_version" == 4 ];then
+		uci set switch_redirect.redirect_set.switch=0
+		uci commit switch_redirect
+		uci set firewall.@zone[1].masq=0
+		uci commit firewall		
+		iptables -t nat -D zone_wan_postrouting -m comment --comment "!fw3" -j MASQUERADE
+		nat_vlanswitch_cnt=$(uci show /etc/config/switch_redirect | grep vlanid | wc -l)
+		i=0
+		while [[ "$i" -lt "$nat_vlanswitch_cnt" ]]
+		do
+			let "i+=1"
+			num=$(uci show /etc/config/switch_redirect | grep vlanid | sed -n "$i"p | awk -F[=] '{print $1}' | awk -F[.] '{print $2}')
+			NAT_switch=$(uci get switch_redirect.$num.switch)
+			if [ "$NAT_switch" == "0" ]; then
+				uci set	firewall.wan$num.masq=0
+				uci commit firewall	
+			else
+				uci set	firewall.wan$num.masq=1
+				uci commit firewall	
+			fi			
+		done	
+else
+	NAT_switch=$(uci get switch_redirect.redirect_set.switch)
+	if [ "$NAT_switch" = "0" ]; then
+		uci set firewall.@zone[1].masq=0
+		uci commit firewall
+	else
+		uci set firewall.@zone[1].masq=1
+		uci commit firewall						
+	fi		
+fi
+	fw3 ${QUIET} start
+#20171201hf
+if [ "$zd_version" == 4 ];then
+	#三层access模式
+
+	uci set switch_redirect.redirect_set.switch=0
+	uci commit switch_redirect
+	iptables -t nat -D zone_wan_postrouting -m comment --comment "!fw3" -j MASQUERADE
+	nat_vlanswitch_cnt=$(uci show /etc/config/switch_redirect | grep vlanid | wc -l)
+	i=0
+	while [[ "$i" -lt "$nat_vlanswitch_cnt" ]]
+	do
+		let "i+=1"
+		num=$(uci show /etc/config/switch_redirect | grep vlanid | sed -n "$i"p | awk -F[=] '{print $1}' | awk -F[.] '{print $2}')
+		NAT_switch=$(uci get switch_redirect.$num.switch)
+		if [ "$NAT_switch" == "0" ]; then
+			iptables -t nat -D zone_wan"$num"_postrouting -m comment --comment "!fw3" -j MASQUERADE
+		fi			
+		
+	done	
+	sh /rcst/rcst_sh/run_firewall.sh
+
+else
+	NAT_switch=$(uci get switch_redirect.redirect_set.switch)
+	if [ "$NAT_switch" = "0" ]; then
+		iptables -t nat -D zone_wan"$num"_postrouting -m comment --comment "!fw3" -j MASQUERADE
+	fi		
+fi
+
+if [ "$(uci get proset.tcp_set.switch)" = "1" ]; then
+	iptables -D zone_wan_dest_ACCEPT 1
+fi	
+
+}
+
+stop_service() {
+	fw3 flush
+}
+
+reload_service() {
+
+zd_version=$(cat /mnt/zd_version)
+if [ "$zd_version" == 4 ];then
+		uci set switch_redirect.redirect_set.switch=0
+		uci commit switch_redirect
+		uci set firewall.@zone[1].masq=0
+		uci commit firewall		
+		iptables -t nat -D zone_wan_postrouting -m comment --comment "!fw3" -j MASQUERADE
+		nat_vlanswitch_cnt=$(uci show /etc/config/switch_redirect | grep vlanid | wc -l)
+		i=0
+		while [[ "$i" -lt "$nat_vlanswitch_cnt" ]]
+		do
+			let "i+=1"
+			num=$(uci show /etc/config/switch_redirect | grep vlanid | sed -n "$i"p | awk -F[=] '{print $1}' | awk -F[.] '{print $2}')
+			NAT_switch=$(uci get switch_redirect.$num.switch)
+			if [ "$NAT_switch" == "0" ]; then
+				uci set	firewall.wan$num.masq=0
+				uci commit firewall	
+			else
+				uci set	firewall.wan$num.masq=1
+				uci commit firewall	
+			fi			
+		done	
+else
+	NAT_switch=$(uci get switch_redirect.redirect_set.switch)
+	if [ "$NAT_switch" = "0" ]; then
+		uci set firewall.@zone[1].masq=0
+		uci commit firewall
+	else
+		uci set firewall.@zone[1].masq=1
+		uci commit firewall						
+	fi		
+fi
+
+	fw3 reload
+	
+#20171201hf
+if [ "$zd_version" == 4 ];then
+	#三层access模式
+
+	uci set switch_redirect.redirect_set.switch=0
+	uci commit switch_redirect
+	iptables -t nat -D zone_wan_postrouting -m comment --comment "!fw3" -j MASQUERADE
+	nat_vlanswitch_cnt=$(uci show /etc/config/switch_redirect | grep vlanid | wc -l)
+	i=0
+	while [[ "$i" -lt "$nat_vlanswitch_cnt" ]]
+	do
+		let "i+=1"
+		num=$(uci show /etc/config/switch_redirect | grep vlanid | sed -n "$i"p | awk -F[=] '{print $1}' | awk -F[.] '{print $2}')
+		NAT_switch=$(uci get switch_redirect.$num.switch)
+		if [ "$NAT_switch" == "0" ]; then
+			iptables -t nat -D zone_wan"$num"_postrouting -m comment --comment "!fw3" -j MASQUERADE
+		fi			
+		
+	done	
+	sh /rcst/rcst_sh/run_firewall.sh
+
+else
+	NAT_switch=$(uci get switch_redirect.redirect_set.switch)
+	if [ "$NAT_switch" = "0" ]; then
+		iptables -t nat -D zone_wan"$num"_postrouting -m comment --comment "!fw3" -j MASQUERADE
+	fi		
+fi
+
+if [ "$(uci get proset.tcp_set.switch)" = "1" ]; then
+	iptables -D zone_wan_dest_ACCEPT 1
+fi	
+
+}
+
+boot() {
+	# Be silent on boot, firewall might be started by hotplug already,
+	# so don't complain in syslog.
+	QUIET=-q
+	start
+}

@@ -1,0 +1,2 @@
+/etc/modules.d/09-crypto-md5
+/lib/modules/4.14.111/md5.ko

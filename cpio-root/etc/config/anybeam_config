@@ -1,0 +1,16 @@
+config anybeam_config 'anybeam_config'
+	option config_switch '1'
+	option beam_update_switch '0'
+	option acess_update_switch '0'
+	option config_reset_flag '0'
+	option sync_longitude '0'
+	option sync_latitude '0'
+	option auto_config_lockinfo '1'
+	option default_dist '1'
+	option auto_change_lockinfo '1'
+	option auto_change_fw_snr '40'
+	option web_config_lockinfo '0'
+	option auto_search_num '2'
+	option changebeam_closeswitch '0'
+
+

@@ -1,0 +1,283 @@
+<html>
+<!- Copyright (c) Go Ahead Software Inc., 2000-2010. All Rights Reserved. ->
+
+	<head>
+		<title class="Network"></title>
+		<meta http-equiv="X-UA-Compatible" content="edge" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="expires" content="0">
+		<meta name="viewport" content="width=1024px">
+		<link href="/css/bc.css" rel="stylesheet">
+		<link href="/css/lan.css" rel="stylesheet">
+	</head>
+	<script>
+		document.write("<script type='text/javascript' src='/script/qwrap.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/script/jquery-1.8.3.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/script/jquery.dialog.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/script/rcst-type.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/i18n/netlan-trans.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/script/language-config.js?time=" + Math.random() + " '></" + "script" + ">");
+	</script>
+
+	<body>
+		<div id="doc" style="min-width:1200px">
+			<div id="hd">
+				<div class="inner">
+					<div class="mod-head clearfix">
+						<span id="header"></span>
+						<script src="/script/header.js"></script>
+					</div>
+					<div class="mod-set-nav">
+						<ul class="clearfix">
+							<li id="network_lan_wan"><a href="/root/network/lan.htm"
+									+"?timestamp="+new Date().getTime() id=" lan_a"><i class="ico ico-2"></i><span
+										class="network_lan_wan"></span></a></li>
+							<li id="proset"><a onclick="go()" id="proset_a"><i class="ico ico-3"></i><span
+										class="Advanced"></span></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<script src="/root/network/network-active.js"></script>
+			<div id="bd">
+				<div class="mod-set" id="mppart" style="display:none">
+					<div class="hd">
+						<h3 class="ManagerPort"></h3>
+					</div>
+					<div class="bdd">
+						<table style="width:900px">
+							<!-- <tr>
+							<td style="width:250px;height:40px">
+								<div class="form-item">
+									<span class="ManagerIP"></span>
+								</div>
+							</td>
+							<td>
+								<div class="form-item">
+									<span id="managerIP"></span>	
+								</div> 
+							</td>
+						</tr>	
+						<tr>
+							<td style="width:250px;height:40px">
+								<div class="form-item">
+									<span class="ManagerNetmask"></span>
+								</div>
+							</td>
+							<td>
+								<div class="form-item">
+									<span id="managerNetmask"></span>	
+								</div> 
+							</td>
+						</tr>			 -->
+							<tr>
+								<td style="width:80px;height:40px">
+									<div class="form-item">
+										<span class="MAC">MAC</span>
+									</div>
+								</td>
+								<td>
+									<div class="form-item">
+										<span id="rcstMac"></span>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+
+					<div class="hd">
+						<h3 class="ServicePort"></h3>
+					</div>
+					<div class="bdd">
+						<table class="table" style="width:800px">
+							<thead>
+								<tr>
+									<th class="form-item" style="width:80px; height:20px"><span
+											class="Interface"></span></th>
+									<th class="form-item" style="width:80px; height:20px"><span
+											class="NetworkMode"></span></th>
+									<th class="form-item" style="width:80px; height:20px"><span
+											class="NetworkTag"></span></th>
+									<th class="form-item" style="width:80px; height:20px"><span>VLAN ID</span></th>
+									<!-- <th class="form-item" style="width:130px; height:20px"><span>WAN IP</span></th>
+									<th class="form-item" style="width:130px; height:20px"><span
+											class="WANNetmaks"></span></th> -->
+									<th class="form-item" style="width:130px; height:20px"><span>LAN IP</span></th>
+									<th class="form-item" style="width:130px; height:20px"><span
+											class="LANNetmaks"></span></th>
+									<th class="form-item" style="width:130px; height:20px"><span
+											class="DHCPStartIP"></span></th>
+									<th class="form-item" style="width:130px; height:20px"><span
+											class="DHCPEndIP"></span></th>
+								</tr>
+							</thead>
+							<tbody id="networkinfo_list">
+							</tbody>
+						</table>
+					</div>
+
+				</div>
+
+
+
+				<div class="mod-set" id="sppart" style="display:none">
+					<div class="hd">
+						<h3 class="LAN">LAN</h3>
+					</div>
+					<div class="bd">
+						<table style="width:900px;" class="form-lanip">
+							<tr>
+								<td style="width:150px">
+									<div class="form-item">
+										<span class="IP">IP</span>
+									</div>
+								</td>
+								<td>
+									<div class="form-item">
+										<input type="text" id="lan_ip_scpcp2p" name="lan_ip_scpcp2p"
+											style="width:188px; height:25px" maxlength="15">
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td style="width:150px">
+									<div class="form-item">
+										<span class="Netmask"></span>
+									</div>
+								</td>
+								<td>
+									<div class="form-item">
+										<input type="text" id="lan_mask_scpcp2p" name="lan_mask_scpcp2p"
+											style="width:188px; height:25px" maxlength="15">
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td style="width:150px">
+									<div class="form-item">
+										<span>MTU</span>
+									</div>
+								</td>
+								<td>
+									<div class="form-item">
+										<input type="text" id="lan_mtu_scpcp2p" name="lan_mtu_scpcp2p"
+											style="width:188px; height:25px;" maxlength="4">
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td style="width:135px;height:80px"></td>
+								<td>
+									<button type="submit" onclick="lanSCPCP2P2InfoSet()" class="btn_sub"
+										id="lan_btn_sub"><span class="Submit"></span></button>
+								</td>
+							</tr>
+						</table>
+					</div>
+
+					<div class="hd">
+						<h3 class="WAN">WAN</h3>
+					</div>
+					<div class="bd">
+						<table style="width:900px" class="form-lanip">
+							<tr>
+								<td style="width:150px">
+									<div class="form-item">
+										<span class="IP">IP</span>
+									</div>
+								</td>
+								<td>
+									<div class="form-item">
+										<input type="text" title="static_ip" name="static_ip" id="static_ip"
+											style="width:188px; height:25px;" />
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td style="width:150px">
+									<div class="form-item">
+										<span class="Netmask"></span>
+									</div>
+								</td>
+								<td>
+									<div class="form-item">
+										<input type="text" title="static_mask" name="static_mask" id="static_mask"
+											style="width:188px; height:25px;" />
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td style="width:150px">
+									<div class="form-item">
+										<span>MAC</span>
+									</div>
+								</td>
+								<td>
+									<div class="form-item">
+										<span class="rcst_mac"></span>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td style="width:100px;height:80px"></td>
+								<td class="form-contral">
+									<button type="submit" onclick="wanStaticSet()" class="btn_sub"
+										id="wan_btn_sub"><span class="Submit"></span></button>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+
+				<span id="footer"></span>
+				<script src="/script/footer.js"></script>
+			</div>
+		</div>
+	</body>
+
+	<script type="tmpl/html" id="show_tr">
+<tr style="height:30px">
+	<td class="form-item" style="height:20px;">&nbsp;{$network_interface}</td>
+	<td class="form-item" style="height:20px;">&nbsp;{$network_type}</td>
+	<td  class="form-item" style="height:20px">&nbsp;{$tag}</td>
+	<td  class="form-item" style="height:20px">&nbsp;{$vid}</td>
+	<!-- <td  class="form-item" style="height:20px">&nbsp;{$wanvrfip}</td>
+	<td  class="form-item" style="height:20px">&nbsp;{$wanvrfnetmask}</td> -->
+	<td  class="form-item" style="height:20px">&nbsp;{$lanvrfip}</td> 
+	<td  class="form-item" style="height:20px">&nbsp;{$lanvrfnetmask}</td>	
+	<td  class="form-item" style="height:20px">&nbsp;{$dhcp_start_ip}</td>
+	<td  class="form-item" style="height:20px">&nbsp;{$dhcp_end_ip}</td>
+   </tr>
+</script>
+
+	<script type="tmpl/html" id="tmplWait">
+    <div class="dialog-listadd-form-wrap">
+		<table style="width:400px;font-size:16px;">
+			<tr>
+				<span class="form-item1" id="state1">--</span>
+			</tr>
+		</table>
+		<br/>
+		<table style="width:400px;font-size:16px;"></table>
+    </div>
+</script>
+	<script>
+		document.write("<script type='text/javascript' src='/root/network/lan-get.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/validate/lan-validate.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/validate/wan-validate.js?time=" + Math.random() + " '></" + "script" + ">");
+	</script>
+	<script>
+		rcstTypeGet();
+		function go() {
+			if (zd_version == 4) {
+				window.location.href = "/root/network/prosetvrf.htm" + "?timestamp=" + new Date().getTime();
+			} else {
+				window.location.href = "/root/network/proset.htm" + "?timestamp=" + new Date().getTime();
+			}
+		}
+	</script>
+
+</html>

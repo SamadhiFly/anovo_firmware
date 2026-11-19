@@ -1,0 +1,117 @@
+#hd{
+	background:#2673bf
+}
+
+#hd .inner{
+	width:1200px;margin:auto
+}
+
+.mod-head{
+	padding-top:20px;height:30px;margin-bottom:3px
+}
+
+#logo{
+	float:left;margin-right:50px
+}
+
+#hd{
+	position:relative;z-index:2;background:0
+}
+
+#bd{
+	width:100%;padding-top:5px
+}
+
+.mod-rtstatus{
+	position:relative;z-index:1;left:0;top:-60px;width:100%;height:249px;background:url('../img/head_bg.png') repeat-x top #2673bf;-moz-transition:background .5s ease-in;-webkit-transition:background .5s ease-in;-o-transition:background .5s ease-in;transition:background .5s ease-in
+}
+
+.mod-rtstatus .inner{
+	width:1200px;margin:auto;position:relative;top:16px
+}
+
+.mod-rtstatus .inner .terminal{
+	position:absolute;left:140px;top:100px;cursor:pointer
+}
+
+.mod-rtstatus .inner .rcst{
+	width:1100px;text-align:center;position:absolute;left:40px;top:200px;cursor:pointer;font-size: 16px;color: #ffffff;
+}
+
+.mod-rtstatus .inner .suc{
+	margin:80px 0px 0px 530px
+}
+
+.mod-rtstatus .inner .suc .title{
+	width:400px;position:absolute;left:390px;top:-50px;cursor:pointer;font-size: 28px;color: #ffffff;text-align:center
+}
+
+.mod-rtstatus .inner .suc .rcst{
+	width:700px;position:absolute;left:240px;top:80px;cursor:pointer;font-size: 23px;color: #ffffff;text-align:center;
+}
+
+.mod-rtcore-data{
+	width:850px;margin:auto
+}
+
+.mod-rtcore-data .setting{
+	position:relative;left:65px;top:-100px;
+}
+
+.mod-rtcore-data .setting .line{
+	position:relative;left:-10px;top:30px;width:1px;height:100px;border-left:1px dashed #996666;
+}
+
+.mod-rtcore-data .mod-set{
+	position:relative;border-bottom:1px dashed #996666;left:-5px;top:-70px;text-align:center;overflow:hidden;zoom:1
+}
+
+.mod-rtcore-data .status{
+	position:relative;left:65px;top:-50px;color:#000000;font-size:18px;
+}
+
+.mod-rtcore-data .button{
+	position:relative;top:10px;right:100px
+}
+
+.mod-rtcore-data .form-item{
+	margin-top:30px;
+}
+
+.mod-rtcore-data .form-item1{
+	margin-top:55px;color:#996666;font-size:20px;
+}
+
+.mod-rtcore-data .form-item2{
+	margin-top:20px;color:#000000;font-size:15px;
+}
+
+#ft{
+		margin-top:60px;padding:0 0 30px 0;font-size:12px;line-height:2;color:#999;text-align:center
+}
+
+#ft a,#ft a:hover{
+	color:#2673bf
+}
+
+#ft a:hover{
+	text-decoration:underline
+}
+
+#ft p span{
+	margin:0 15px
+}
+
+#userbar{
+	padding-top:10px;float:right;color:#fff;text-shadow:1px 1px 1px rgba(0,0,0,0.3)
+}
+
+#userbar .line{
+	margin:0 10px
+}
+
+#userbar a,#userbar a:hover{
+	color:#fff;text-decoration:none}.mod-set-nav{padding-top:50px;height:100px
+}
+
+

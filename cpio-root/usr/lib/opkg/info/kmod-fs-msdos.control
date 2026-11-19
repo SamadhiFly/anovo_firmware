@@ -1,0 +1,10 @@
+Package: kmod-fs-msdos
+Version: 4.14.111-1
+Depends: kernel (=4.14.111-1-b3e629d5f8118f19f76939a9f8d0606f), kmod-fs-vfat, kmod-nls-base
+Source: package/kernel/linux
+SourceName: kmod-fs-msdos
+License: GPL-2.0
+Section: kernel
+Architecture: arm_cortex-a9_neon
+Installed-Size: 187
+Description:  Kernel module for MSDOS filesystem support

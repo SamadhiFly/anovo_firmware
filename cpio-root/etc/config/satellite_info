@@ -1,0 +1,70 @@
+config satellite_num 'satellite_num'
+	option satellite_num '1'
+
+config satellite_name 1
+	option name ChinaSat-5A
+	option longitude '142'
+
+config satellite_name 2
+	option name ChinaSat-5E
+	option longitude '163'
+
+config satellite_name 3
+	option name ChinaSat-6A
+	option longitude '125'
+
+config satellite_name 4
+	option name ChinaSat-6B
+	option longitude '115.5'
+
+config satellite_name 5
+	option name ChinaSat-8
+	option longitude '115.5'
+
+config satellite_name 6
+	option name ChinaSat-9
+	option longitude '92.2'
+
+config satellite_name 7
+	option name ChinaSat-10
+	option longitude '110.5'
+
+config satellite_name 8
+	option name ChinaSat-11
+	option longitude '98'
+
+config satellite_name 9
+	option name ChinaSat-12
+	option longitude '87.5'
+
+config satellite_name 10
+	option name ChinaSat-15A
+	option longitude '51.5'
+
+config satellite_name 11
+	option name Asia-4
+	option longitude '122.2'
+
+config satellite_name 12
+	option name Asia-5
+	option longitude '100.5'
+
+config satellite_name 13
+	option name Asia-6
+	option longitude '120'
+
+config satellite_name 14
+	option name Asia-7
+	option longitude '105.5'
+
+config satellite_name 15
+	option name ApStar-5
+	option longitude '138'
+
+config satellite_name 16
+	option name ApStar-6
+	option longitude '134'
+
+config satellite_name 17
+	option name ApStar-7
+	option longitude '76.5'

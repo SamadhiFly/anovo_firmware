@@ -1,0 +1,11 @@
+
+config rf 'rf_rx'
+	option rf_rx_protocol 'DVB-S2'
+	option rf_rx_modulation 'qpsk'
+	option rf_rx_seachargo '0'
+	option odu_flag '0'
+	option rf_rx_set_flag '1'
+	option rf_rx_symbol '8000'
+	option rf_rx_lock_freq '1351000'
+	option rf_rx_freq '22501000'
+

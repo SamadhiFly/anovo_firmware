@@ -1,0 +1,10 @@
+config interface networkmode
+	option networkmode '2'
+	option reset_flag '0'
+	option mtu '1500'
+	option three_layer_vlanflag '2'
+	option tcpswitch_flag '0'
+	option rf_lock_update_flag '0'
+	option sync2start_tcp_flag '0'
+	option dns_config_flag '0'
+

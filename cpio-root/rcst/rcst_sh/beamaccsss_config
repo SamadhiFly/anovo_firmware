@@ -1,0 +1,5 @@
+config beamaccsss_config 'beamaccsss_config'
+	option nmsftp_ip '172.16.1.1'
+	option mapaccess_version '0'
+	option beammapaccess_flag '0'
+

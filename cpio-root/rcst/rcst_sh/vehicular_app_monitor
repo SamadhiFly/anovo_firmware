@@ -1,0 +1,15 @@
+#!/bin/sh /etc/rc.common
+
+START=90
+STOP=90
+USE_PROCD=1
+
+PROG=vehicular_app
+
+start_service(){
+        procd_open_instance
+        procd_set_param respawn 600 10 10000
+        procd_set_param command /rcst/rcst_app/$PROG
+        procd_close_instance
+}
+

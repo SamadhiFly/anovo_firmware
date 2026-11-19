@@ -1,0 +1,32 @@
+config classify  classify
+
+	
+config qos_config 'qos_config'
+	option device 'eth0'
+	option mark_t '3'
+	option up_max_rate '90000'
+	option up_min_rate '60000'
+	option down_max_rate '20000'
+	option down_min_rate '30000'
+	option operation '1'
+	option mac '3417EBC52736'
+	option ipaddr '10.103.2.177'
+
+config qos_config '3417EBC52735'
+	option srchost '10.103.2.176'
+	option ifname 'eth0'
+	option up_minrate '80000'
+	option up_maxrate '100000'
+	option down_minrate '90000'
+	option down_maxrate '200000'
+	option mark '2'
+
+config qos_config '3417EBC52736'
+	option srchost '10.103.2.177'
+	option ifname 'eth0'
+	option up_minrate '60000'
+	option up_maxrate '90000'
+	option down_minrate '30000'
+	option down_maxrate '20000'
+	option mark '3'
+

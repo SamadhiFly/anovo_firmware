@@ -1,0 +1,2 @@
+/etc/modules.d/39-gre6
+/lib/modules/4.14.111/ip6_gre.ko

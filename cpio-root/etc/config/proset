@@ -1,0 +1,17 @@
+config 'proset' 'nat_set'
+	option 'switch' '1'
+
+config 'proset' 'vlan_set'
+	option 'switch' '1'
+
+config 'proset' 'sdn_set'
+	option 'switch' '1'
+
+config 'proset' 'tcp_set'
+	option 'switch' '0'
+
+config 'proset' 'http_set'
+	option 'switch' '0'
+
+config 'proset' '6to4'
+	option 'switch' '0'

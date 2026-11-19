@@ -1,0 +1,144 @@
+<html>
+<!- Copyright (c) Go Ahead Software Inc., 2000-2010. All Rights Reserved. ->
+
+	<head>
+		<title id="rftitle"></title>
+		<meta http-equiv="X-UA-Compatible" content="edge" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="expires" content="0">
+		<meta name="viewport" content="width=1024px">
+		<link href="/css/bc.css" rel="stylesheet">
+		<link href="/css/diag_rf.css" rel="stylesheet">
+	</head>
+	<script>
+		document.write("<script type='text/javascript' src='/script/jquery-1.8.3.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/script/jquery.dialog.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/script/rcst-type.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/i18n/diagrf-trans.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/script/language-config.js?time=" + Math.random() + " '></" + "script" + ">");
+	</script>
+
+	<body onunload="siRfInit()">
+		<div id="doc" style="min-width:1200px">
+			<div id="hd">
+				<div class="inner">
+					<div class="mod-head clearfix">
+						<span id="header"></span>
+						<script src="/script/header.js"></script>
+					</div>
+					<div class="mod-set-nav">
+						<ul class="clearfix">
+							<li id="status"><a href="/root/diagnostics/status.htm"
+									+"?timestamp="+new Date().getTime() id=" status_a"><i class="ico ico-1"></i><span
+										class="RCSTStatus"></span></a></li>
+							<li id="acu"><a href="/root/diagnostics/acu.htm" +"?timestamp="+new Date().getTime()  id="
+									acu_a"><i class="ico ico-1"></i><span class="ACUStatus"></span></a></li>
+							<li id="net"><a href="/root/diagnostics/net.htm" +"?timestamp="+new Date().getTime() id="
+									net_a"><i class="ico ico-2"></i><span class="Network"></span></a></li>
+							<li id="rf"><a href="/root/diagnostics/rf.htm" +"?timestamp="+new Date().getTime() id="
+									rf_a"><i class="ico ico-3"></i><span class="RF"></span></a></li>
+							<li id="log"><a href="/root/diagnostics/syslog.htm" +"?timestamp="+new Date().getTime() id="
+									log_a"><i class="ico ico-4"></i><span class="ViewLog"></span></a></li>
+					</div>
+				</div>
+			</div>
+			<script src="/root/diagnostics/diagnostics-active.js"></script>
+			<div id="bd">
+				<div class="mod-set" id="sig-set">
+					<div class="hd">
+						<h3 class="SingleCarrier"></h3>
+					</div>
+					<div class="bd">
+						<table style="width:900px" class="form-single">
+							<tr>
+								<td style="width:300px">
+									<div class="form-item">
+										<span class="TXFrequency"></span><span class="TXFrequency_unit"></span>
+									</div>
+								</td>
+								<td>
+									<div class="form-item">
+										<input type="text" title="sig_freq" name="sig_freq" id="sig_freq"
+											style="width:185px; height:23px;" />&nbsp;GHz</span>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td style="width:300px">
+									<div class="form-item">
+										<span class="TXPower"></span><span class="TXPower_unit"></span>
+									</div>
+								</td>
+								<td>
+									<div class="form-item">
+										<input type="text" title="sig_power" name="sig_power" id="sig_power"
+											style="width:185px; height:23px;" />&nbsp;dBm
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td style="width:300px">
+									<div class="form-item">
+										<span class="TXTime"></span>(1～300s)
+									</div>
+								</td>
+								<td>
+									<div class="form-item">
+										<input type="text" title="sig_time" name="sig_time" id="sig_time"
+											style="width:185px; height:23px;" />&nbsp;s
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td style="width:300px">
+									<div class="form-item" id="TX_AUC">
+										<span class="TXLocalOscillator"></span><span id="txlocaloscillator_unit"></span>
+									</div>
+								</td>
+								<td>
+									<div class="form-item">
+										<input type="text" title="tx_freq" name="tx_freq"
+											style="width:185px; height:23px;"
+											disabled="disabled" />&nbsp;GHz&nbsp;&nbsp;&nbsp;
+									</div>
+								</td>
+							</tr>
+						</table>
+						<table style="width:600px">
+							<tr>
+								<div class="sigNote" style="font-size:13px; color:#cb4848;" style="width:500px">
+								</div>
+							</tr>
+							<tr>
+								<div id="sig_text" style="font-size:13px;display:none" style="width:500px">
+								</div>
+							</tr>
+							<tr>
+								<td style="width:300px;height:80px"></td>
+								<td id="submit_rf_open" style="display:none">
+									<button class="btn_sub" type="submit" onclick="sigTransmitSet()"><span
+											class="Transmit"></span></button>
+								</td>
+								<td id="submit_rf_close" style="display:none">
+									<button class="btn_sub" type="submit" onclick="sigCloseSet()"><span
+											class="Close"></span></button>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<span id="footer"></span>
+				<script src="/script/footer.js"></script>
+			</div>
+		</div>
+	</body>
+	<script>
+		document.write("<script type='text/javascript' src='/root/diagnostics/rf-get.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/validate/rf-validate.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/root/diagnostics/rf-set.js?time=" + Math.random() + " '></" + "script" + ">");
+	</script>
+
+</html>

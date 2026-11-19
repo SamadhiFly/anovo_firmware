@@ -1,0 +1,652 @@
+<html>
+<!- Copyright (c) Go Ahead Software Inc., 2000-2010. All Rights Reserved. ->
+<head>
+<title id="installsettitle"></title>
+<meta http-equiv="X-UA-Compatible" content="edge" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta name="viewport" content="width=1024px">
+<link href="/css/bc.css" rel="stylesheet">
+<link href="/css/install-set.css" rel="stylesheet">
+</head>
+<script>
+document.write("<script type='text/javascript' src='/script/jquery-1.8.3.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/script/qwrap.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/script/jquery.dialog.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/script/highcharts.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/script/rcst-type.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/i18n/install-trans.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/script/language-config.js?time="+Math.random()+" '></"+"script"+">");
+</script>
+<body>
+<div id="doc" style="min-width:1200px">
+	<div id="hd">
+		<div class="inner">
+			<div class="mod-head">
+			   	<h1 id="logo"><span id="logoo"></span></h1>
+				<div id="userbar">
+<!--
+					<a href="/admin/home.htm" id="administrator">主界面</a>
+						<span class="line">|</span>
+-->
+					<!-- <a style="cursor:pointer" onclick="langset()" id="lang" value="en"></a> -->
+					<select  name="language_three"  id="language_three"style="cursor:pointer" onChange="langset()">
+						<option value="en">English</option>
+						<option value="zh">简体中文</option>
+						<option value="zh_HK">繁體中文</option>
+				   </select>
+				</div>		   	
+			</div>
+		</div>
+	</div>
+	<div id="bd">
+		<div class="mod-rtstatus" id="netstatus">
+			<div class="inner">
+				<div class="terminal">
+					<img src="/icons/1.png" />
+				</div>
+				<table class="rcst">
+					<tr>
+						<td  style="width:360px">
+							<span class="EnterInstallationParameters"></span>
+						</td>
+						<td style="width:280px">
+							&nbsp;&emsp;<span class="StarPointing"></span>
+						</td>
+						<td style="width:350px">
+							&nbsp;&nbsp;&emsp;&emsp;<span class="Netting"></span>
+						</td>
+					</tr>
+				</table>			
+			</div>  
+		</div>
+	</div>
+	<div class="mod-rtcore-data">
+
+		<div class="mod-set">
+			<div class="hd">
+				<h3 class="antenna_rf"></h3>
+			</div>
+			<div class="bdd">
+				<table style="width:900px;color:#996666;font-size:18px">
+						<div class="dialog-listadd-form-wrap" type="tmpl/html" id="tmplTsetSet_redirect">
+							<form action="#" class="form-bandlist form-table" name="redirect_listAdd" id="redirect_listAdd" >
+								<table class="table" >
+									<thead>
+									<center>
+										<tr>
+											<th class="form-item" style="width:80px; height:20px" ><span id="Num"></span></th>
+											<th class="form-item" style="width:200px; height:20px" ><span id="Discribe"></span></th>
+											<th class="form-item" style="width:120px; height:20px" ><span id="ANT_type"></span></th>
+											<th class="form-item" style="width:120px; height:20px" ><span id="LNB_type"></span></th>
+											<th class="form-item" style="width:120px; height:20px" ><span id="BUC_type"></span></th>
+											<th class="form-item" style="width:200px; height:20px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span id="Option" ></span></th>
+										</tr>
+										</center> 
+									</thead>
+									<tbody id="redirect_dialogtestlist" style="height:20px">
+									</tbody>
+								</table>
+								<tr>
+									<div class="addbtn"  style="display:block;">	
+										<p align="right"><br/><button id="redirect_addoneitem" class="ipt-text" type="submit">
+											<span class="Add"></button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+									</div>
+									<br/>
+								</tr> 
+							</form>
+						</div>
+					</table>
+			</div>
+			<table style="width:900px">
+				<tr><td style="height:50px"></td></tr>
+				<tr>
+					<td style="width:200px">
+					</td>
+					<td style="width:265px">
+						<div class="form-item">
+							<button  onclick="back()" class="btn_sub1" ><span class="Back"></span></button>
+						</div>
+					</td>
+					<td>
+						<div class="form-item">
+							<button  onclick="next()" class="btn_sub" ><span class="Next"></span></button>
+						</div>
+					</td>
+				</tr>
+			</table>		
+			<span id="footer"></span>
+			<script src="/script/footer.js"></script>	
+		</div>
+</div>
+</body>
+<script type="tmpl/html" id="redirect_tmplAddedTest"> 
+<tr style="height:30px" id={$discribe}>
+   <td class="form-item" style="width:80px;height:20px">&nbsp;&nbsp;{$num}</td>
+   <td class="form-item" name="discribe"  style="word-break:break-all;word-wrap:break-word;"  antdiscribe="{$discribe}"  style="width:200px;height:20px">&nbsp;{$discribe}</td>
+   <td  class="form-item" style="width:120px;height:20px">&nbsp;{$ANT_type}</td>
+   <td  class="form-item" style="width:120px;height:20px">&nbsp;{$LNB_type}</td>
+   <td  class="form-item" style="width:120px;height:20px">&nbsp;{$BUC_type}</td>
+   <td class="form-item">&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" name="redirect_submit_dellist" id="redirect_submit_dellist" redirect_target_del="{$discribe}" style="width:60px; height:20px;border:1px #d9d9d9 solid;"><span class="Delete"></span></span></button>
+   &nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" name="editItem" id="editItem" editItem_discribe="{$discribe}"    style="width:60px; height:20px;border:1px #d9d9d9 solid;"><span class="Edit"></span></button></td>	
+   </tr>
+</script>
+				
+<script type="tmpl/html" id="ANT_content">
+	<div class="bd">
+		<form action="#" name="ANT_listAdd" id="ANT_listAdd" method="post">
+			<table style="width:900px" class="form form-ant" >
+				<tr style="height:30px"></tr>
+				<tr style="height:45px">
+					<td style="width:50px "></td>
+					<td style="width:100px ">
+						<div class="form-item">
+							<span class="discribe" style="word-break:break-all;word-wrap:break-word;"></span>
+						</div>
+					</td>
+					<td style="width:180px">
+						<div class="form-item">
+							<input type="ANT_discribe" title="ANT_discribe" name="ANT_discribe" id="ANT_discribe" style="width:140px; height:23px;" />
+						</div>
+					</td>
+				</tr>
+				<tr style="height:45px">
+					<td style="width:50px "></td>
+					<td style="width:100px ">
+						<div class="form-item">
+							<span class="AntennaType"></span>
+						</div>
+					</td>
+					<td style="width:180px">
+							<div class="form-item">
+								<select name="antenna_type" id="antenna_type" style="width:140px; height:29px; font-size:14px;color:#000000" onChange="change_antenna_type()">
+									<option value="move" class="MOVE"></option>
+									<option value="fix" class="FIX"></option>
+									<option value="static" class="STATIC"></option>	
+									<option value="manual_portable" class="manual_portable"></option>	
+									<option value="auto_portable" class="auto_portable"></option>	
+								</select>	
+							</div> 
+						</td>
+					</tr>	
+					
+					<tr  id="tx_status" name="starpointtr"  style="display:none; height:45px">
+						<td style="width:50px "></td>
+						<td style="width:100px ">
+							<div class="form-item">
+								<span class="StarPointStatus"></span>
+							</div>
+						</td>
+						<td id="acu_tx_status"></td>
+					</tr>	
+					
+					<tr style="height:45px">
+						<td style="width:50px "></td>
+						<td style="width:100px ">
+							<div class="form-item">
+								<span class="AntennaManufacturer"></span>
+							</div>
+						</td>		
+						<td style="width:180px">
+							<div class="form-item">
+								<input type="text" title="antenna_manufacture" name="antenna_manufacture" id="antenna_manufacture" style="width:140px; height:23px;" />
+							</div>
+						</td>
+					</tr>	
+
+					<tr  id="seekstartr" name="seekstartr" style="height:45px">
+						<td style="width:50px "></td>
+						<td style="width:100px ">
+							<div class="form-item">
+								<span class="SeekSatelliteType"></span>
+							</div>
+						</td>
+						<td style="width:180px ">
+							<div class="form-item">
+							<select name="seekstar" id="seekstar" style="width:140px; height:29px; font-size:14px; color:#000000">
+								<option value="1" class="Carrier"></option>
+								<option value="2" class="Beacon"></option>	
+							</select>	
+							</div>
+						</td>
+					</tr>	
+					
+					<tr  id="nofixip1" name="nofixip1" style="height:45px" >
+						<td style="width:50px "></td>
+						<td style="width:100px ">
+							<div class="form-item">
+								<span class="ModemIP"></span>
+							</div>
+						</td>
+						<td style="width:95px">
+							<div class="form-item">
+								<input type="text" title="src_ip" name="src_ip" id="src_ip" style="width:140px; height:23px;" />				
+								<span class="ModemIPHelp">&nbsp;&nbsp;<img src="/icons/ico_help.png" /><span>	
+							</div>
+						</td>			
+					</tr>
+
+					
+					<tr  id="nofixip2" name="nofixip2" style="height:45px">
+						<td style="width:50px "></td>
+						<td style="width:100px ">
+							<div class="form-item">
+								<span class="ACUIP"></span>
+							</div>
+						</td>
+						<td style="width:100px">
+							<div class="form-item">
+								<input type="text" title="dst_ip" name="dst_ip" id="dst_ip" style="width:140px; height:23px;" />
+								<span class="acuIpHelp">&nbsp;&nbsp;<img src="/icons/ico_help.png" /><span>
+							</div>
+						</td>
+					</tr>
+					
+					<tr style="height:45px">
+						<td style="width:50px "></td>
+						<td style="width:100px ">
+							<div class="form-item">
+								<span class="ACUPort"></span>
+							</div>
+						</td>
+						<td style="width:100px">
+							<div class="form-item">
+								<input type="text" title="port" name="port" id="port" style="width:140px; height:23px;" />
+							</div>
+						</td>
+					</tr>
+
+					<tr style="height:45px">
+						<td style="width:50px "></td>
+						<td style="width:100px ">
+							<div class="form-item">
+								<span class="Rolloff"></span>
+							</div>
+						</td>
+						<td style="width:180px ">
+							<div class="form-item">
+							<select name="rolloff" id="rolloff" style="width:140px; height:29px; font-size:14px; color:#000000">
+								<option value="105" >0.05</option>
+								<option value="110" >0.1</option>	
+								<option value="115" >0.15</option>
+								<option value="120" >0.2</option>	
+								<option value="125" >0.25</option>
+								<option value="135" >0.35</option>	
+								<option value="100" class="None"></option>		
+							</select>	
+							</div>
+						</td>
+					</tr>
+
+					<tr style="height:45px">
+						<td style="width:50px "></td>
+						<td style="width:100px ">
+							<div class="form-item">
+								<span class="LNBFreqType"></span>
+							</div>
+						</td>
+						<td style="width:180px">
+							<div class="form-item">
+							<select name="lnbtype" id="lnbtype" style="width:140px; height:29px; font-size:14px; color:#000000" onChange="change_lnb_type()">
+								<option value="1" class="Single"></option>
+								<option value="2" class="Double"></option>	
+								<option value="4" class="Four"></option>		
+							</select>	
+							</div>
+						</td>
+					</tr>
+
+					<tr  id="hlswitch_tr" style="display:none;height:45px">
+						<td style="width:50px "></td>
+						<td style="width:100px ">
+								<span class="hlElectricalLevel"></span>
+						</td>	
+						<div class="form-item" >
+							<td style="width:50px" for="hlswitch1">
+								<input id="hlswitch1" type="radio" value="0" class="hlswitch" onClick="change_hlswitch(0)">&nbsp;<span class="22k">22K</span>
+							</td>
+						</div>
+						<div class="form-item" >
+							<td style="width:50px" for="hlswitch2">
+								<input id="hlswitch2" type="radio" value="1" class="hlswitch"  onClick="change_hlswitch(1)">&nbsp;<span class="1318v">13V/18V</span>
+							</td>
+						</div>
+						<div class="form-item" >
+							<td style="width:50px" for="hlswitch2">
+								<input id="hlswitch3" type="radio" value="2" class="hlswitch"  onClick="change_hlswitch(2)">&nbsp;<span class="1318v">22K/13V/18V-off</span>
+							</td>
+						</div>
+					</tr>
+
+					<tr  id="lnb_tr1" name="lnb_tr1"  style="height:45px">
+						<td style="width:50px "></td>
+						<td style="width:100px ">
+							<div class="form-item" id="LNBFreq">
+									<span class="LNBFreq"></span>1
+							</div>
+						</td>	
+						<td style="width:180px ">
+							<div class="form-item" >
+								<input type="text" name="LNB_freq1" id="LNB_freq1" style="width:140px; height:23px;" />&nbsp;GHz
+							</div>
+						</td>
+						<td style="width:130px ">
+							<div class="form-item" >
+								<input type="text" name="LNB_start1" id="LNB_start1" style="width:120px; height:23px;" />&nbsp;~
+							</div>
+						</td>
+						<td style="width:150px">
+							<div class="form-item">
+								<input type="text"  name="LNB_end1" id="LNB_end1" style="width:120px; height:23px;" />&nbsp;GHz
+							</div>
+						</td>	
+						<td style="width:150px ">
+							<div class="form-item">
+							<select name="LNB_13V18V_flag1" id="LNB_13V18V_flag1" class="LNB_1318_flag" style="display:none; width:130px; height:29px; font-size:14px; color:#000000">
+								<option value="1" >13V-on/22K-off</option>
+								<option value="2" >13V-on/22K-on</option>	
+								<option value="3" >18V-on/22K-off</option>	
+								<option value="4" >18V-on/22K-on</option>	
+								<option value="5" >22K/13V/18V-off</option>	
+							</select>	
+							</div>
+						</td>
+					</tr>
+					
+					<tr  id="lnb_tr2" name="lnb_tr2"  style="display:none; height:45px">
+						<td style="width:50px "></td>
+						<td style="width:100px ">
+							<div class="form-item" id="LNBFreq">
+									<span class="LNBFreq"></span>2
+							</div>
+						</td>	
+						<td style="width:180px ">
+							<div class="form-item" >
+								<input type="text" name="LNB_freq2" id="LNB_freq2" style="width:140px; height:23px;" />&nbsp;GHz
+							</div>
+						</td>
+						<td style="width:130px ">
+							<div class="form-item" >
+								<input type="text" name="LNB_start2" id="LNB_start2" style="width:120px; height:23px;" />&nbsp;~
+							</div>
+						</td>
+						<td style="width:150px">
+							<div class="form-item">
+								<input type="text"  name="LNB_end2" id="LNB_end2" style="width:120px; height:23px;" />&nbsp;GHz
+							</div>
+						</td>	
+						<td style="width:150px ">
+							<div class="form-item">
+								<select name="LNB_13V18V_flag2" id="LNB_13V18V_flag2"  class="LNB_1318_flag" style="display:none; width:130px; height:29px; font-size:14px; color:#000000">
+									<option value="1" >13V-on/22K-off</option>
+									<option value="2" >13V-on/22K-on</option>	
+									<option value="3" >18V-on/22K-off</option>	
+									<option value="4" >18V-on/22K-on</option>	
+									<option value="5" >22K/13V/18V-off</option>	
+								</select>	
+							</div>
+						</td>						
+					</tr>
+					
+					<tr  id="lnb_tr3" name="lnb_tr3"  style="display:none; height:45px">
+						<td style="width:50px "></td>
+						<td style="width:100px ">
+							<div class="form-item" id="LNBFreq">
+									<span class="LNBFreq"></span>3
+							</div>
+						</td>	
+						<td style="width:180px ">
+							<div class="form-item" >
+								<input type="text" name="LNB_freq3" id="LNB_freq3" style="width:140px; height:23px;" />&nbsp;GHz
+							</div>
+						</td>
+						<td style="width:130px ">
+							<div class="form-item" >
+								<input type="text" name="LNB_start3" id="LNB_start3" style="width:120px; height:23px;" />&nbsp;~
+							</div>
+						</td>
+						<td style="width:150px">
+							<div class="form-item">
+								<input type="text"  name="LNB_end3" id="LNB_end3" style="width:120px; height:23px;" />&nbsp;GHz
+							</div>
+						</td>		
+						<td style="width:150px ">
+							<div class="form-item">
+							<select name="LNB_13V18V_flag3" id="LNB_13V18V_flag3" class="LNB_1318_flag" style="display:none; width:130px; height:29px; font-size:14px; color:#000000">
+								<option value="1" >13V-on/22K-off</option>
+								<option value="2" >13V-on/22K-on</option>	
+								<option value="3" >18V-on/22K-off</option>	
+								<option value="4" >18V-on/22K-on</option>	
+								<option value="5" >22K/13V/18V-off</option>	
+							</select>	
+							</div>
+						</td>						
+					</tr>
+
+					<tr  id="lnb_tr4" name="lnb_tr4"  style="display:none; height:45px">
+						<td style="width:50px "></td>
+						<td style="width:100px ">
+							<div class="form-item" id="LNBFreq">
+									<span class="LNBFreq"></span>4
+						</td>	
+						<td style="width:180px ">
+							<div class="form-item" >
+								<input type="text" name="LNB_freq4" id="LNB_freq4" style="width:140px; height:23px;" />&nbsp;GHz
+							</div>
+						</td>
+						<td style="width:130px ">
+							<div class="form-item" >
+								<input type="text" name="LNB_start4" id="LNB_start4" style="width:120px; height:23px;" />&nbsp;~
+							</div>
+						</td>
+						<td style="width:150px">
+							<div class="form-item">
+								<input type="text"  name="LNB_end4" id="LNB_end4" style="width:120px; height:23px;" />&nbsp;GHz
+							</div>
+						</td>	
+						<td style="width:150px ">
+							<div class="form-item">
+							<select name="LNB_13V18V_flag4" id="LNB_13V18V_flag4" class="LNB_1318_flag" style="display:none; width:130px; height:29px; font-size:14px; color:#000000">
+								<option value="1" >13V-on/22K-off</option>
+								<option value="2" >13V-on/22K-on</option>	
+								<option value="3" >18V-on/22K-off</option>	
+								<option value="4" >18V-on/22K-on</option>	
+								<option value="5" >22K/13V/18V-off</option>	
+							</select>	
+							</div>
+						</td>						
+					</tr>
+
+					<tr style="height:45px">
+						<td style="width:50px "></td>
+						<td style="width:100px ">
+							<div class="form-item">
+								<span class="BUCFreqType"></span>
+							</div>
+						</td>
+						<td style="width:180px">
+							<div class="form-item">
+							<select name="buctype" id="buctype" style="width:140px; height:29px; font-size:14px; color:#000000" onChange="change_buc_type()">
+								<option value="1" class="Single"></option>
+<!--
+								<option value="2" class="Double"></option>	
+								<option value="4" class="Four"></option>	
+-->
+							</select>	
+							</div>
+						</td>
+					</tr>
+					
+					<tr>
+						<td style="width:150px ">
+							<div class="form-item">
+							<select name="BUC_13V18V_flag1" id="BUC_13V18V_flag1" class="BUC_1318_flag" style="display:none; width:130px; height:29px; font-size:14px; color:#000000">
+								<option value="1" >13V-on/22K-off</option>
+								<option value="2" >13V-on/22K-on</option>	
+								<option value="3" >18V-on/22K-off</option>	
+								<option value="4" >18V-on/22K-on</option>	
+							</select>	
+							</div>
+						</td>
+					</tr>
+															
+					<tr  id="buc_tr1" name="buc_tr1"  style="height:45px">
+						<td style="width:50px "></td>
+						<td style="width:100px ">
+							<div class="form-item" id="BUCFreq">
+									<span class="BUCFreq"></span>1
+							</div>
+						</td>	
+						<td style="width:180px ">
+							<div class="form-item" >
+								<input type="text" name="BUC_freq1" id="BUC_freq1" style="width:140px; height:23px;" />&nbsp;GHz
+							</div>
+						</td>
+						<td style="width:130px ">
+							<div class="form-item" >
+								<input type="text" name="BUC_start1" id="BUC_start1" style="width:120px; height:23px;" />&nbsp;~
+							</div>
+						</td>
+						<td style="width:150px">
+							<div class="form-item">
+								<input type="text"  name="BUC_end1" id="BUC_end1" style="width:120px; height:23px;" />&nbsp;GHz
+							</div>
+						</td>	
+						<td style="width:150px ">
+							<div class="form-item">
+							<select name="BUC_13V18V_flag1" id="BUC_13V18V_flag1" class="BUC_1318_flag" style="display:none; width:130px; height:29px; font-size:14px; color:#000000">
+								<option value="1" >13V-on/22K-off</option>
+								<option value="2" >13V-on/22K-on</option>	
+								<option value="3" >18V-on/22K-off</option>	
+								<option value="4" >18V-on/22K-on</option>	
+							</select>	
+							</div>
+						</td>
+					</tr>
+					
+					<tr  id="buc_tr2" name="buc_tr2"  style="display:none; height:45px">
+						<td style="width:50px "></td>
+						<td style="width:100px ">
+							<div class="form-item" id="BUCFreq">
+									<span class="BUCFreq"></span>2
+							</div>
+						</td>	
+						<td style="width:180px ">
+							<div class="form-item" >
+								<input type="text" name="BUC_freq2" id="BUC_freq2" style="width:140px; height:23px;" />&nbsp;GHz
+							</div>
+						</td>
+						<td style="width:130px ">
+							<div class="form-item" >
+								<input type="text" name="BUC_start2" id="BUC_start2" style="width:120px; height:23px;" />&nbsp;~
+							</div>
+						</td>
+						<td style="width:150px">
+							<div class="form-item">
+								<input type="text"  name="BUC_end2" id="BUC_end2" style="width:120px; height:23px;" />&nbsp;GHz
+							</div>
+						</td>	
+						<td style="width:150px ">
+							<div class="form-item">
+								<select name="BUC_13V18V_flag2" id="BUC_13V18V_flag2"  class="BUC_1318_flag" style="display:none; width:130px; height:29px; font-size:14px; color:#000000">
+									<option value="1" >13V-on/22K-off</option>
+									<option value="2" >13V-on/22K-on</option>	
+									<option value="3" >18V-on/22K-off</option>	
+									<option value="4" >18V-on/22K-on</option>	
+								</select>	
+							</div>
+						</td>						
+					</tr>
+					
+					<tr  id="buc_tr3" name="buc_tr3"  style="display:none; height:45px">
+						<td style="width:50px "></td>
+						<td style="width:100px ">
+							<div class="form-item" id="BUCFreq">
+									<span class="BUCFreq"></span>3
+							</div>
+						</td>	
+						<td style="width:180px ">
+							<div class="form-item" >
+								<input type="text" name="BUC_freq3" id="BUC_freq3" style="width:140px; height:23px;" />&nbsp;GHz
+							</div>
+						</td>
+						<td style="width:130px ">
+							<div class="form-item" >
+								<input type="text" name="BUC_start3" id="BUC_start3" style="width:120px; height:23px;" />&nbsp;~
+							</div>
+						</td>
+						<td style="width:150px">
+							<div class="form-item">
+								<input type="text"  name="BUC_end3" id="BUC_end3" style="width:120px; height:23px;" />&nbsp;GHz
+							</div>
+						</td>		
+						<td style="width:150px ">
+							<div class="form-item">
+							<select name="BUC_13V18V_flag3" id="BUC_13V18V_flag3" class="BUC_1318_flag" style="display:none; width:130px; height:29px; font-size:14px; color:#000000">
+								<option value="1" >13V-on/22K-off</option>
+								<option value="2" >13V-on/22K-on</option>	
+								<option value="3" >18V-on/22K-off</option>	
+								<option value="4" >18V-on/22K-on</option>	
+							</select>	
+							</div>
+						</td>						
+					</tr>
+
+					<tr  id="buc_tr4" name="buc_tr4"  style="display:none; height:45px">
+						<td style="width:50px "></td>
+						<td style="width:100px ">
+							<div class="form-item" id="BUCFreq">
+									<span class="BUCFreq"></span>4
+						</td>	
+						<td style="width:180px ">
+							<div class="form-item" >
+								<input type="text" name="BUC_freq4" id="BUC_freq4" style="width:140px; height:23px;" />&nbsp;GHz
+							</div>
+						</td>
+						<td style="width:130px ">
+							<div class="form-item" >
+								<input type="text" name="BUC_start4" id="BUC_start4" style="width:120px; height:23px;" />&nbsp;~
+							</div>
+						</td>
+						<td style="width:150px">
+							<div class="form-item">
+								<input type="text"  name="BUC_end4" id="BUC_end4" style="width:120px; height:23px;" />&nbsp;GHz
+							</div>
+						</td>	
+						<td style="width:150px ">
+							<div class="form-item">
+							<select name="BUC_13V18V_flag4" id="BUC_13V18V_flag4" class="BUC_1318_flag" style="display:none; width:130px; height:29px; font-size:14px; color:#000000">
+								<option value="1" >13V-on/22K-off</option>
+								<option value="2" >13V-on/22K-on</option>	
+								<option value="3" >18V-on/22K-off</option>	
+								<option value="4" >18V-on/22K-on</option>	
+							</select>	
+							</div>
+						</td>						
+					</tr>
+				</table>					
+
+				<table style="width:900px" class="form form-ant" >		
+					</br>						
+					<tr>
+						<td style="width:250px"></td>
+						<td  >
+							<button  class="btn_sub" id ="submit_antenna"><span class="Submit"></span></button>		
+						</td>
+					</tr>
+				<tr style="height:40px"></tr>
+				</table>	
+
+			</form>	
+	   </div>
+</script>
+<script>
+document.write("<script type='text/javascript' src='/root/odu/antenna-get.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/root/odu/antenna-set.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/admin/guide/install-set2.js?time="+Math.random()+" '></"+"script"+">");
+	var spectral_enable = 0;
+</script>
+</html>

@@ -1,0 +1,20 @@
+# stock fstab - you probably want to override this with a machine specific one
+
+/dev/root            /                    auto       defaults              1  1
+proc                 /proc                proc       defaults              0  0
+devpts               /dev/pts             devpts     mode=0620,gid=5       0  0
+
+
+# uncomment this if your device has a SD/MMC/Transflash slot
+/dev/mmcblk0p3       /mnt          auto       defaults,sync,noauto  0  0
+/dev/mmcblk0p2       /mmc2          auto       defaults,sync,noauto  0  0
+/dev/mmcblk0p1       /mmc1         auto       defaults,sync,noauto  0  0
+
+
+
+#ubi0_8                /mnt                 ubifs      defaults              0  0
+
+#overlay                /bin                overlay    lowerdir=/bin,upperdir=/mnt/bin,workdir=/mnt/work  0  0
+overlay                /etc                overlay    lowerdir=/etc,upperdir=/mnt/etc,workdir=/mnt/work  0  0
+#overlay                /usr                overlay    lowerdir=/usr,upperdir=/mnt/usr,workdir=/mnt/work  0  0
+#overlay                /rcst                overlay    lowerdir=/rcst,upperdir=/mnt/rcst,workdir=/mnt/work  0  0

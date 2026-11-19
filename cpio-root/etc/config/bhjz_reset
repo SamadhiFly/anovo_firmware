@@ -1,0 +1,2 @@
+config bhjz_reset 'switch'
+	option 'switch' '1'

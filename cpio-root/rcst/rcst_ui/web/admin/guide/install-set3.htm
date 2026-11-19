@@ -1,0 +1,321 @@
+<html>
+<!- Copyright (c) Go Ahead Software Inc., 2000-2010. All Rights Reserved. ->
+<head>
+<title id="installsettitle"></title>
+<meta http-equiv="X-UA-Compatible" content="edge" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta name="viewport" content="width=1024px">
+<link href="/css/bc.css" rel="stylesheet">
+<link href="/css/install-set.css" rel="stylesheet">
+</head>
+<script >
+document.write("<script type='text/javascript' src='/script/jquery-1.8.3.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/script/jquery.dialog.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/script/rcst-type.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/i18n/install-trans.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/script/language-config.js?time="+Math.random()+" '></"+"script"+">");
+</script>
+<body>
+<div id="doc" style="min-width:1200px">
+	<div id="hd">
+		<div class="inner">
+			<div class="mod-head">
+			   	<h1 id="logo"><span id="logoo"></span></h1>
+				<div id="userbar">
+<!--
+					<a href="/admin/home.htm" id="administrator">主界面</a>
+						<span class="line">|</span>
+-->
+
+					<!-- <a style="cursor:pointer" onclick="langset()" id="lang" value="en"></a> -->
+					<select  name="language_three"  id="language_three"style="cursor:pointer" onChange="langset()">
+						<option value="en">English</option>
+						<option value="zh">简体中文</option>
+						<option value="zh_HK">繁體中文</option>
+				   </select>
+				</div>		   	
+			</div>
+		</div>
+	</div>
+	<div id="bd">
+		<div class="mod-rtstatus" id="netstatus">
+			<div class="inner">
+				<div class="terminal">
+					<img src="/icons/1.png" />
+				</div>
+				<table class="rcst">
+					<tr>
+						<td  style="width:360px">
+							<span class="EnterInstallationParameters"></span>
+						</td>
+						<td style="width:280px">
+							&nbsp;&emsp;<span class="StarPointing"></span>
+						</td>
+						<td style="width:350px">
+							&nbsp;&nbsp;&emsp;&emsp;<span class="Netting"></span>
+						</td>
+					</tr>
+				</table>			
+			</div>  
+		</div>
+	</div>
+	<div class="mod-rtcore-data">
+		<div class="mod-set">
+			<div class="hd">
+				<h3 class="ODU" ></h3>
+			</div>
+			<div class="bd">
+				<div id="divide_type" >
+				<table style="width:500px;height:60px">
+						<tr>	
+							<td  style="width:250px">
+								<span class="ODURxSwitch"></span>		
+							</td>
+							<td class="switch" >
+								<span style="cursor:pointer" id="lnb_en" class="btn-switch btn-switch-off" ></span>			
+							</td>
+						</tr>	
+					</table>		
+	
+					<table style="width:500px;height:60px">							
+						<tr>	
+							<td  style="width:250px">
+								<span class="ODUTxSwitch"></span>		
+							</td>
+							<td class="switch" >
+								<span style="cursor:pointer" id="buc_en" class="btn-switch btn-switch-off" ></span>			
+							</td>
+						</tr>	
+					</table>		
+	
+					<table style="width:500px;height:60px">
+						<tr>	
+							<td  style="width:250px">
+								<span class="10MHzReference"></span>		
+							</td>
+							<td class="switch" >
+								<span style="cursor:pointer" id="odu_10m_en" class="btn-switch btn-switch-off" ></span>			
+							</td>
+						</tr>	
+					</table>		
+	
+					<table style="width:500px;height:60px">
+						<tr >	
+							<td style="width:250px">
+								<span class="22kSwitch"></span>	
+							</td>
+							<td style="font-family:din,tahoma;"id="odu_22k_status">--</td>			
+						</tr>		
+					</table>	
+
+					<table style="width:500px;height:60px">
+						<tr >	
+							<td style="width:250px">
+								<span class="13vSwitch"></span>	
+							</td>
+							<td style="font-family:din,tahoma;"id="lnb_13v_status">--</td>			
+						</tr>		
+					</table>	
+					
+					<table style="width:500px;height:60px">
+						<tr >	
+							<td style="width:250px">
+								<span class="18vSwitch"></span>	
+							</td>
+							<td style="font-family:din,tahoma;"id="lnb_18v_status">--</td>			
+						</tr>		
+					</table>	
+																	
+					<table style="width:450px">
+						<tr class="mod-set-hd"></tr><!------------虚线-------------->		
+<!--
+						<tr  style="height:50px">
+							<td style="width:250px">
+								<div class="form-item"> <span class="RF"></span></div>
+							</td>
+							<td style="width:100px" for="mainback_flag1">
+								<div class="form-item"><input id="mainback_flag1" type="radio" name="mainback_flag" value="1" class="mainback_flag"> <span class="Main"></span></div>
+							</td>
+							<td style="width:100px" for="mainback_flag2">
+								<div class="form-item"><input id="mainback_flag2" type="radio" name="mainback_flag" value="2" class="mainback_flag"  > <span class="Backup"></span></div>
+							</td>					
+						</tr>
+-->
+					</table>		
+													
+					<table style="width:900px">
+						<tr>
+							<td style="width:250px;height:60px">
+								<div class="form-item">
+									<span class="SatelliteResource"></span>
+								</div>
+							</td>
+							<td>
+								<div class="form-item">
+									<select name="satellite_name" id="satellite_name" style="width:190px; height:29px; font-size:14px; color:#000000" >
+									</select>	
+								</div> 
+							</td>
+						</tr>	
+					</table>		
+					<table style="width:900px">
+						<tr>
+							<td style="width:250px;height:50px">
+								<div class="form-item">
+									<span class="ANTResource"></span>
+								</div>
+							</td>
+							<td>
+								<div class="form-item">
+									<select name="ANT_name" id="ANT_name" style="width:190px; height:29px; font-size:14px; color:#000000" >
+									</select>	
+								</div> 
+							</td>
+						</tr>	
+					</table>	
+<!--
+					<table style="width:900px">
+						<tr>
+							<td style="width:250px;height:60px">
+								<div class="form-item"  id="RX_HL_LO_name" ></div>
+							</td>
+							<td>
+								<div class="form-item">
+									<select name="RX_HL_LO" id="RX_HL_LO" style="width:190px; height:29px; font-size:14px; color:#000000" onChange="change_RX_HL_LO()">
+										<option value="1" class="Low"></option>
+										<option value="2" class="High"></option>
+									</select>	
+								</div> 
+							</td>
+						</tr>	
+					</table>
+-->
+									
+					<!-------------------------输入框--------------------------------------------------------------------->
+					<table style="width:900px" class="form-rf">
+
+						<tr>
+							<td style="width:250px;height:60px">
+								<div class="form-item" id="RX_AUC">
+									<span class="RXLocalOscillator"></span><span id="rxlocaloscillator_unit"></span>
+								</div>
+							</td>
+							<td>
+								<div class="form-item">
+									<input type="text" disabled = "disabled"  title="rx_freq" name="rx_freq" style="width:185px; height:23px;" />&nbsp;GHz&nbsp;&nbsp;&nbsp;
+								</div>
+							</td>
+						</tr>
+					</table>
+					<table style="width:500px">    
+						<tr>
+							<td style="width:250px;height:60px"></td>
+							<td>
+								<button  id="rfSubmit" class="btn_sub" type="submit" onclick="oduDivideSet()"><span class="Submit"></span></button>	
+							</td>
+						</tr>
+					</table>
+				</div>	
+			</div>
+				<div class="hd">
+					<h3 class="Location"></h3>
+				</div>
+				<div class="bd">
+					<table style="width:900px" class="form-rf">
+						<tr>
+							<td style="width:250px">
+								<div class="form-item">
+									<span class="Longitude"></span>
+								</div>
+							</td>
+							<td style="width:120px">
+								<div class="form-item">
+									<select id="ANT_longitude_EW" style="width:70px; height:26px; font-size:14px; color:#000000">
+										<option value="E" class="East"></option>
+										<option value="W" class="West"></option>
+									</select>	
+								</div>
+							</td>
+							<td >
+								<div class="form-item">
+								   <input type="text" title="ANT_longitude" name="ANT_longitude" style="width:70px; height:23px;" maxlength="7"/>&nbsp;°&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
+								</div>
+							</td>			
+						</tr>
+					</table>
+					<table style="width:900px" class="form-rf">
+						<tr>
+							<td style="width:250px">
+								<div class="form-item">
+									<span class="Latitude"></span>
+								</div>
+							</td>
+							<td style="width:120px">
+								<div class="form-item">
+									<select id="ANT_latitude_NS" style="width:70px; height:26px; font-size:14px; color:#000000">
+										<option value="S" class="South"></option>
+										<option value="N" class="North"></option>
+									</select>	
+								</div>
+							</td>
+							<td>
+								<div class="form-item">	
+								   <input type="text" title="ANT_latitude" name="ANT_latitude" style="width:70px; height:23px;"maxlength="7" />&nbsp;°&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
+								</div>
+							</td>	
+						</tr>
+					</table>
+					<table style="width:900px;">
+						<tr>
+							<td style="width:250px;height:80px"></td>
+							<td class="form-contral">
+								<button type="submit" onclick="oduLocationSet()" class="btn_sub" ><span class="Submit"></span></button>
+							</td>
+						</tr>
+					</table>			
+					
+					<table style="width:900px">
+						<tr style="heigh:100px"></tr>
+						<tr>
+							<td style="width:250px">
+								<div class="form-item">
+									<button  onclick="back()" class="btn_sub1" ><span class="Back"></span></button>
+								</div>
+							</td>
+							<td>
+								<div class="form-item">
+									<button  onclick="next()" class="btn_sub" ><span class="Next"></span></button>
+								</div>
+							</td>
+						</tr>
+					</table>						
+			</div>
+		</div>											
+		<span id="footer"></span>
+		<script src="/script/footer.js"></script>	
+	</div>
+</div>		
+</div>			
+</body>
+<script type="tmpl/html" id="tmplWait">
+    <div class="dialog-listadd-form-wrap">
+		<table style="width:400px;font-size:16px;">
+			<tr>
+				<span class="form-item1" id="state1">--</span>
+			</tr>
+		</table>
+		<br/>
+		<table style="width:400px;font-size:16px;"></table>
+    </div>
+</script>
+<script>
+document.write("<script type='text/javascript' src='/root/odu/odu-get.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/validate/odu-validate.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/root/odu/odu-set.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/admin/guide/install-set3.js?time="+Math.random()+" '></"+"script"+">");
+</script>
+</html>

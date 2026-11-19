@@ -1,0 +1,5 @@
+config '631bgp' '631bgp'
+    option 'switch_addr' '10.3.2.254'
+    option 'remote_530_addr' '10.6.33.1'
+    option 'bgp_as_number' '65008'
+    option 'remote_530_netmask' '24'

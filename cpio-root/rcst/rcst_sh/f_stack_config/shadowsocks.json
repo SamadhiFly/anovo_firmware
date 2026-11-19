@@ -1,0 +1,10 @@
+{
+    "server":"0.0.0.0",
+    "server_port":7001,
+    "locate_address":"0.0.0.0",
+    "local_port":7000,
+    "password":"1",
+    "timeout":86400,
+    "method":"table",
+    "fast_open":true
+}

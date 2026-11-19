@@ -1,0 +1,4 @@
+config userinfo 'user_info'
+	option 'user_name' 'chinasatcom'
+	option 'password' '12345678'
+	option adminpasswd 'admin'

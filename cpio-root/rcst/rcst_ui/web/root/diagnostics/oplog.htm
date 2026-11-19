@@ -1,0 +1,141 @@
+<html>
+<!- Copyright (c) Go Ahead Software Inc., 2000-2010. All Rights Reserved. ->
+
+	<head>
+		<title id="oplogtitle"></title>
+		<meta http-equiv="X-UA-Compatible" content="edge" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="expires" content="0">
+		<meta name="viewport" content="width=1024px">
+		<link href="/css/bc.css" rel="stylesheet">
+		<link href="/css/syslog.css" rel="stylesheet">
+	</head>
+	<script>
+		document.write("<script type='text/javascript' src='/script/jquery-1.8.3.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/script/jquery.dialog.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/script/rcst-type.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/i18n/diaglog-trans.js?time=" + Math.random() + " '></" + "script" + ">");
+		document.write("<script type='text/javascript' src='/script/language-config.js?time=" + Math.random() + " '></" + "script" + ">");
+	</script>
+
+	<body>
+		<div id="doc" style="min-width:1200px">
+			<div id="hd">
+				<div class="inner">
+					<div class="mod-head clearfix">
+						<span id="header"></span>
+						<script src="/script/header.js"></script>
+					</div>
+					<div class="mod-set-nav">
+						<ul class="clearfix">
+							<li id="status"><a href="/root/diagnostics/status.htm"
+									+"?timestamp="+new Date().getTime() id=" status_a"><i class="ico ico-1"></i><span
+										class="RCSTStatus"></span></a></li>
+							<li id="acu"><a href="/root/diagnostics/acu.htm" +"?timestamp="+new Date().getTime()  id="
+									acu_a"><i class="ico ico-1"></i><span class="ACUStatus"></span></a></li>
+							<li id="net"><a href="/root/diagnostics/net.htm" +"?timestamp="+new Date().getTime()  id="
+									net_a"><i class="ico ico-2"></i><span class="Network"></span></a></li>
+							<li id="rf"><a href="/root/diagnostics/rf.htm" +"?timestamp="+new Date().getTime()  id="
+									rf_a"><i class="ico ico-3"></i><span class="RF"></span></a></li>
+							<li id="log"><a href="/root/diagnostics/syslog.htm"
+									+"?timestamp="+new Date().getTime()  id=" log_a"><i class="ico ico-4"></i><span
+										class="ViewLog"></span></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div id="bd">
+				<div class="nav-set">
+					<table>
+						<tr>
+							<td id="syslog"><a href="/root/diagnostics/syslog.htm"
+									+"?timestamp="+new Date().getTime() id=" syslog_a"><span
+										class="SystemLog"></span></a></td>
+							<td id="alarmlog"><a href="/root/diagnostics/alarmlog.htm"
+									+"?timestamp="+new Date().getTime() id=" alarmlog_a"><span
+										class="AlarmLog"></span></a></td>
+							<td id="oplog"><a href="/root/diagnostics/oplog.htm"
+									+"?timestamp="+new Date().getTime() id=" oplog_a"><span
+										class="OperationLog"></span></a></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<script src="/root/diagnostics/diagnostics-active.js"></script>
+			<div id="bd">
+				<div class="mod-set">
+					<div class="bd">
+						<span id="xhr_poll_status" style="display:block">
+							<button name="auto_Refresh_sys" id="auto_Refresh_sys" class="btn_sub">
+								<span class="xhr_to_stop" id="xhr_poll" style="display:block"></span>
+								<!--
+						<span class="label" id="xhr_poll" style="display:none">Auto Refresh : on</span>
+-->
+							</button>
+						</span>
+					</div>
+				</div>
+				<br />
+				<textarea style="width:1200px;height:400px;overflow-y:scroll;" id="sys_log"></textarea>
+				<span id="footer"></span>
+				<script src="/script/footer.js"></script>
+			</div>
+		</div>
+		<script type="text/javascript">
+			langget();
+			rcstTypeGet();
+			function status_show() {
+				$.ajax({
+					url: '/action/oplogTest',
+					type: "POST",
+					dataType: "text",
+					async: false,
+					success: function (rsp) {
+						var e;
+						if (e = document.getElementById('sys_log'))
+
+							e.value = rsp;
+						e.scrollTop = e.scrollHeight;
+					}
+				});
+			}
+			var count = 100;
+			status_show();
+			timer_show = setInterval(function () {
+				status_show();
+			}, 3000);
+
+			$('#auto_Refresh_sys').on('click', function (e) {
+				var st = $('#xhr_poll').attr("class");
+				if (st == 'xhr_to_stop') {
+					$('#xhr_poll').removeClass("xhr_to_stop")
+					$('#xhr_poll').addClass("xhr_to_roll");
+					if (type == "zh") {
+						$('.xhr_to_roll').html("自动刷新 : 打开");
+					} else {
+						$('.xhr_to_roll').html("Auto Refresh : on");
+					}
+					console.log('  xhr_to_stop  ');
+					clearInterval(timer_show);
+				} else {
+					$('#xhr_poll').removeClass("xhr_to_roll")
+					$('#xhr_poll').addClass("xhr_to_stop");
+					if (type == "zh") {
+						$('.xhr_to_stop').html("自动刷新 : 关闭");
+					} else {
+						$('.xhr_to_stop').html("Auto Refresh : off");
+					}
+					console.log('  xhr_to_poll  ');
+					status_show();
+					timer_show = setInterval(function () {
+						status_show();
+					}, 3000);
+				}
+			});
+		</script>
+	</body>
+
+</html>

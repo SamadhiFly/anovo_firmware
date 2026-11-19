@@ -1,0 +1,4 @@
+config rf 'ACM_or_CCM'
+	option ACM_or_CCM '0'
+
+

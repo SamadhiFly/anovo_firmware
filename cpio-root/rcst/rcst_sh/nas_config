@@ -1,0 +1,5 @@
+config 'nas' 'nas'
+    option 'agf_addr' '10.10.0.111'
+    option 'reg_status' '0'
+    option 'nas_normal' '0'
+    option 'pdu_session_cnt' '0'

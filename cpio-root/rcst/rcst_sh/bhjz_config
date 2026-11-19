@@ -1,0 +1,3 @@
+config bhjz_config 'bhjz_config'
+	option 'reset_switch' '1'
+	option 'reset_flag' '0'

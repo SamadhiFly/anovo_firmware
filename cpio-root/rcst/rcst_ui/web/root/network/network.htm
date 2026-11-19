@@ -1,0 +1,332 @@
+<html>
+<!- Copyright (c) Go Ahead Software Inc., 2000-2010. All Rights Reserved. ->
+<head>
+<title id="lantitle"></title>
+<meta http-equiv="X-UA-Compatible" content="edge" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta name="viewport" content="width=1024px">
+<link href="/css/bc.css" rel="stylesheet">
+<link href="/css/lan.css" rel="stylesheet">
+</head>
+<script>
+document.write("<script type='text/javascript' src='/script/qwrap.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/script/jquery-1.8.3.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/script/jquery.dialog.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/script/rcst-type.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/i18n/netlan-trans.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/script/language-config.js?time="+Math.random()+" '></"+"script"+">");
+</script>
+<body>
+<div id="doc"  style="min-width:1200px">
+	<div id="hd">
+		<div class="inner">
+			<div class="mod-head clearfix">
+				<h1 id="logo"><a href="/root/home.htm"><span id="logoo"></span></a></h1>
+					<div id="nav">
+						<ul>
+							<li id = "terminal"><a href="/root/terminal/sysload.htm"+"?timestamp="+new Date().getTime() id="terminal_a"><span  id="terminal_b"></span></a></li>
+							<li id = "odu"><a href="/root/odu/odu.htm"+"?timestamp="+new Date().getTime() id="odu_a"><span  id="odu_b"></span></a></li>
+							<li id = "network"><a href="/root/network/lan.htm"+"?timestamp="+new Date().getTime() id="network_a"><span  id="network_b"></span></a></li>
+							<li id = "diagnostics"><a href="/root/diagnostics/status.htm"+"?timestamp="+new Date().getTime() id="diagnostics_a"><span   id="diagnostics_b"></span></a></li>
+							<li><a href="/root/guide/install-set1.htm" id = "installation_b"></a></li>
+						</ul>
+					</div>
+					<div id="userbar">
+						<a href="/action/logout" id="quit"></a>
+						<span class="line">|</span>
+						<a href="/root/upgrade/packages.htm" id="upgrade"></a>
+
+						<span class="line">|</span>
+						<a href="/root/upload/upload_login.htm" id="upload"></a>
+			
+						<span class="line">|</span>
+						<!-- <a style="cursor:pointer" onclick="langset()" id="lang" value="en"></a> -->
+						<select  name="language_three"  id="language_three"style="cursor:pointer" onChange="langset()">
+							<option value="en">English</option>
+							<option value="zh">简体中文</option>
+							<option value="zh_HK">繁體中文</option>
+					   </select>
+					</div>
+			</div>
+			<div class="mod-set-nav">
+				<ul class="clearfix">
+							<li id="network"><a href="/root/network/lan.htm" +"?timestamp="+new Date().getTime() id="
+									lan_a"><i class="ico ico-2"></i><span id="network_b"></span></a></li>
+							<li id="proset"><a onclick="go()" id="proset_a"><i class="ico ico-3"></i><span
+										class="Advanced"></span></a></li>
+						</ul>
+			</div>			
+		</div>
+	</div>
+	<script src="/root/network/network-active.js"></script>
+	<div id="bd">
+		<div class="mod-set">
+			<div id="threelayer_mode" style="display:none">
+				<div class="hd">
+					<h3 class="LAN"></h3>
+				</div>
+				<div class="bd">
+					<div  id="novrf_mode" style="display:none"   >
+					<table style="width:900px;" class="form-lanip">
+						<tr>
+							<td style="width:150px">
+								<div class="form-item">
+									<span class="IP"></span>
+								</div>
+							</td>
+							<td>
+								<div class="form-item">
+									<input type="text" title="lan_ip" name="lan_ip" id ="lan_ip" style="width:188px; height:25px" maxlength="15">
+								</div>		
+							</td>
+						</tr>	
+						<tr>
+							<td style="width:150px">
+								<div class="form-item">
+									<span class="Netmask"></span>
+								</div>
+							</td>
+							<td>
+								<div class="form-item">
+									<input type="text" title="lan_mask" name="lan_mask" id ="lan_mask" style="width:188px; height:25px" maxlength="15">
+								</div>		
+							</td>
+						</tr>
+						<tr>
+							<td style="width:150px">
+								<div class="form-item">
+									<span>MTU</span>
+								</div>
+							</td>
+							<td>
+								<div class="form-item">
+									<input type="text" title="lan_mtu" name="lan_mtu"  disabled="disabled"style="width:188px; height:25px;" maxlength="4">
+								</div>		
+							</td>
+						</tr>
+						<tr id="lanset"  style="display:none">
+							<td style="width:135px;height:80px" ></td>
+							<td>
+								<button  type="submit" onclick="lanInfoSet()" class="btn_sub"><span class="Submit"></span></button>
+							</td>
+						</tr>
+					</table>						
+					</div>	
+					<div  id="Access_mode" style="display:none"   >
+						<table style="width:900px;" class="form-lanip">
+							<tr>
+								<td style="width:150px">
+									<div class="form-item">
+											<label class="NetwrokMode"></label>
+									</div>
+								</td>
+								<td>
+									<div class="form-item" >Access</div>
+								</td>
+							</tr>
+							<tr>
+								<td style="width:150px">
+									<div class="form-item">IP</div>
+								</td>
+								<td>
+									<div class="form-item" id="lanvrfip"></div>		
+								</td>
+							</tr>	
+							<tr>
+								<td style="width:150px">
+									<div class="form-item">
+										<label id="Netmask_title"></label>
+									</div>
+								</td>
+								<td>
+									<div class="form-item" id="lanvrfnetmask"></div>		
+								</td>
+							</tr>
+							<tr>
+								<td style="width:150px">
+									<div class="form-item">
+										<span class="MTU"></span>MTU<span id="mtu"></span>
+									</div>
+								</td>
+								<td>
+									<div class="form-item">
+										<input type="text" title="lan_mtu" name="lan_mtu" style="width:185px; height:23px;" />&nbsp;&nbsp;&nbsp;
+									</div>
+								</td>								
+<!--
+								<td style="width:150px">
+									<div class="form-item">MTU</div>
+								</td>
+								<td>
+									<div class="form-item" id="lan_mtu"></div>		
+								</td>
+-->
+							</tr>
+						</table>
+						<table  style="width:900px;">	
+							<tr>										
+								<td style="width:150px;height:80px"></td>
+								<td class="form-contral">
+									<button type="submit" onclick="MtuSubmit()" class="btn_sub" ><span class="Submit" ></span></button>
+								</td>
+							</tr>
+						</table>						
+					</div>	
+					<div id="Trunk_mode" style="display:none" >
+						<table style="width:900px;" >
+							<tr>
+								<td style="width:150px">
+									<div class="form-item">
+										<label class="NetwrokMode"></label>
+									</div>
+								</td>
+								<td>
+									<div class="form-item">Trunk</div>
+								</td>
+							</tr>
+						</table>	
+<br/>	
+						<table class="table" style="width:600px" >
+							<thead>
+								<center>
+									<tr>
+										<th class="center" style="width:25px; height:20px" id="Num_title"></th>
+										<th class="center" style="width:50px; height:20px">VID</th>
+										<th class="center" style="width:50px; height:20px">IP</th>
+										<th class="center" style="width:50px; height:20px" id="Netmask_title1"></th>
+									</tr>
+								</center>
+							</thead>
+							<tbody id="trunkList" style="width:1000px;height:20px">						
+							</tbody>
+						</table>		
+					</div>		
+				</div>										
+			</div>
+			<div id="trunk_mtu" style="display:none">
+				<div class="hd">
+					<h3 class="MTU">MTU</h3>
+				</div>
+				<div class="bd">
+					<table style="width:900px;" class="form-lanip">
+						<tr>
+							<td style="width:150px">
+								<div class="form-item">
+									<span class="MTU"></span>MTU<span id="mtu"></span>
+								</div>
+							</td>
+							<td>
+								<div class="form-item">
+									<input type="text" title="trunk_mtu" name="trunk_mtu" style="width:185px; height:23px;" />&nbsp;&nbsp;&nbsp;
+								</div>
+							</td>
+						</tr>
+					</table>
+					<table  style="width:900px;">	
+						<tr>										
+							<td style="width:150px;height:80px"></td>
+							<td class="form-contral">
+								<button type="submit" onclick="TrunkMtuSubmit()" class="btn_sub" ><span class="Submit" ></span></button>
+							</td>
+						</tr>
+					</table>						
+				</div>
+			</div>				
+        </div>
+		<!--------------------------------------三层模式结束------------------------------------------------------------------->
+		<!--------------------------------------二层模式开始------------------------------------------------------------------->
+		<div class="mod-set">
+			<div id="twolayer_mode" style="display:none">
+				<div class="hd">
+					<h3 class="LAN"></h3>
+				</div>				
+				<div id="bd">   
+					<div class="mod-set mod-macfilter">
+						<div class="bd">	   
+						<div class="Static"  >	
+							<form action="#" class="form form-net" name="net_lan" id="net_lan">
+							<table style="width:400px;" >
+								<tr>
+									<td style="width:150px">
+										<div class="form-item" >
+											<label class="NetwrokMode"></label>
+										</div>
+									</td>
+									<td>
+										<div class="form-item" id="networkmode"></div>
+									</td>
+								</tr>
+							</table>	
+	<br/>	
+							<table class="table" style="width:400px" id="trunk_2">
+									<thead>
+										<center>
+											<tr>
+												<th class="center" style="width:25px; height:20px" id="Num_title1"></th>
+												<th class="center" style="width:50px; height:20px">VID</th>
+											</tr>
+										</center>
+									</thead>
+									<tbody id="2_vlan" style="width:1000px;height:20px">						
+									</tbody>
+								</table>		
+							</form>
+						</div>
+					</div>
+				</div>		
+			</div>
+		</div>		
+	<span id="footer"></span>
+	<script src="/script/footer.js"></script>
+    </div>					
+</div>
+</body>
+
+<script type="tmpl/html" id="turnk_list">
+    <tr style="height:30px">  
+		<td class="center">{$list}</td>
+        <td class="center">{$vid}</td>
+        <td class="center">{$lanvrfip}</td>
+        <td class="center">{$lanvrfnetmask}</td>
+    </tr>
+</script>
+
+<script type="tmpl/html" id="2_vlanList">
+    <tr style="height:30px">
+       <td class="center">{$list}</td>
+        <td class="center" style="width:90px;height:20px">{$vlan_vid}</td>      
+    </tr>
+</script>
+
+<script type="tmpl/html" id="tmplWait">
+    <div class="dialog-listadd-form-wrap">
+		<table style="width:400px;font-size:16px;">
+			<tr>
+				<span class="form-item1" id="state1">--</span>
+			</tr>
+		</table>
+		<br/>
+		<table style="width:400px;font-size:16px;"></table>
+    </div>
+</script>
+<script>
+document.write("<script type='text/javascript' src='/root/network/lan-get.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/validate/lan-validate.js?time="+Math.random()+" '></"+"script"+">");
+document.write("<script type='text/javascript' src='/root/network/lan-set.js?time="+Math.random()+" '></"+"script"+">");
+</script>
+<script>
+rcstTypeGet();
+function go(){
+	if(zd_version==4){
+		window.location.href="/root/network/prosetvrf.htm"+"?timestamp="+new Date().getTime() ;
+	}else{
+		window.location.href="/root/network/proset.htm"+"?timestamp="+new Date().getTime() ;
+	}
+}
+</script>
+	
+</html>

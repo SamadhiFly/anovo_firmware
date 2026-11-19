@@ -1,0 +1,6 @@
+rcst_mac        F6 E4 85 00 00 04
+pimd_mac1       01 00 5E 00 00 01
+pimd_mac2       01 00 5E 00 00 02
+pimd_mac3       01 00 5E 00 00 04
+pimd_mac4       01 00 5E 00 00 08
+pimd_mac5       01 00 5E 00 00 0D

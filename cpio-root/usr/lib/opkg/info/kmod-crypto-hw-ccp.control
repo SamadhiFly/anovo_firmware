@@ -1,0 +1,10 @@
+Package: kmod-crypto-hw-ccp
+Version: 4.14.111-1
+Depends: kernel (=4.14.111-1-b3e629d5f8118f19f76939a9f8d0606f), kmod-crypto-authenc, kmod-crypto-hash, kmod-crypto-manager, kmod-random-core, kmod-crypto-sha1, kmod-crypto-sha256, kmod-crypto-rsa
+Source: package/kernel/linux
+SourceName: kmod-crypto-hw-ccp
+License: GPL-2.0
+Section: kernel
+Architecture: arm_cortex-a9_neon
+Installed-Size: 105
+Description:  AMD Cryptographic Coprocessor

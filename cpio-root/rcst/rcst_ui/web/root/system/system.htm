@@ -1,0 +1,107 @@
+<html>
+<!- Copyright (c) Go Ahead Software Inc., 2000-2010. All Rights Reserved. ->
+<head>
+<title id="systemtitle"></title>
+<meta http-equiv="X-UA-Compatible" content="edge" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta name="viewport" content="width=1024px">
+<link href="/css/bc.css" rel="stylesheet">
+<link href="/css/safe.css" rel="stylesheet">
+</head>
+<script src="/script/jquery-1.8.3.js"></script>
+<script src="/script/qwrap.js"></script>
+<script src="/script/jquery.dialog.js"></script>
+<script src="/script/rcst-type.js"></script>
+<script src="/i18n/system-trans.js"></script>
+<script src="/script/language-config.js"></script>
+<body>
+<div id="doc"  style="min-width:1200px">
+	<div id="hd">
+		<div class="inner">
+			<div class="mod-head clearfix">
+				<h1 id="logo"><a href="/root/home.htm"><img src="/icons/logo.png" /></a></h1>
+				<div id="nav">
+					<ul>
+						<li id = "terminal"><a href="/root/terminal/sysload.htm" id="terminal_a"><span  id="terminal_b"></span></a></li>
+						<li id = "odu"><a href="/root/odu/odu.htm" id="odu_a"><span  id="odu_b"></span></a></li>
+						<li id = "network"><a href="/root/network/lan.htm" id="network_a"><span  id="network_b"></span></a></li>
+						<li id = "diagnostics"><a href="/root/diagnostics/status.htm" id="diagnostics_a"><span   id="diagnostics_b"></span></a></li>
+						<li><a href="/root/guide/install-set1.htm" id = "installation_b"></a></li>
+					</ul>
+				</div>
+				<div id="userbar">
+					<a href="/action/logout" id="quit"></a>
+					<span class="line">|</span>
+					<a href="/root/upgrade/packages.htm" id="upgrade"></a>
+					<span class="line">|</span>
+					<!-- <a style="cursor:pointer" onclick="langset()" id="lang" value="en"></a> -->
+					<select  name="language_three"  id="language_three"style="cursor:pointer" onChange="langset()">
+						<option value="en">English</option>
+						<option value="zh">简体中文</option>
+						<option value="zh_HK">繁體中文</option>
+				   </select>
+				</div>
+			</div>			
+		</div>
+	</div>
+	<div id="bd">    
+		<div class="mod-set">
+			<div class="hd">
+				<h3 class="Language"></h3>
+			</div>
+			<div class="bd">
+				<table style="width:500px;">
+					<tr>
+						<td style="width:200px;">
+							<div class="form-item">
+								<span class="LanguageType"></span>
+							</div>
+						</td>
+						<td style="width:300">
+							<div class="form-item">
+								<select name="lang_selected" id="lang_selected" style="width:190px; height:25px;">
+									<option value="en">English</option>
+									<option value="zh_cn">中文</option>
+								</select>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td style="width:135px;height:120px"></td>
+						<td class="form-contral">
+							<button type="submit"  onclick="langchange()" class="btn_sub" ><span class="Submit"></span></button>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="hd">
+				<h3 class="System"></h3>
+			</div>
+            <div class="bd">
+				<table style="width:500px">
+				<tr>
+					 <td style="width:200px;height:70px"></td> 
+					 <td class="form-contral">
+						<button  class="btn_sub" type="submit" onclick="sysReboot()"><span class="Restart"></span></button>
+					</td>
+				</tr>
+				<tr>
+					 <td style="width:200px;height:70px"></td> 
+					 <td class="form-contral">
+						<button  class="btn_sub" type="submit" onclick="sysReset()"><span class="Reset"></span></button>
+					</td>
+				</tr>
+				</table>
+			</div>						
+		</div>
+		<span id="footer"></span>
+		<script src="/script/footer.js"></script>		
+	</div>			
+</div>	
+</body>
+<script src="/root/system/system.js"></script>
+</html>

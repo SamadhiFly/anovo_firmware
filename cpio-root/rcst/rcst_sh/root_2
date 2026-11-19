@@ -1,0 +1,10 @@
+*/1 * * * * sh /rcst/rcst_sh/cop_speed_monitor.sh & > /dev/null
+*/1 * * * * sh /rcst/rcst_sh/remote_update_monitor_2.sh & > /dev/null
+*/1 * * * * sh /rcst/rcst_sh/sync_monitor.sh & > /dev/null
+*/2 * * * * sh /rcst/http_sh/tcpa_update_config.sh & > /dev/null
+*/1 * * * * sh /rcst/rcst_sh/network_monitor.sh & > /dev/null
+*/1 * * * * sh /rcst/rcst_sh/snmp_monitor.sh & > /dev/null
+*/2 * * * * sh /rcst/rcst_sh/SDDP_monitor.sh & > /dev/null
+*/30 * * * * sync
+*/60 * * * * sh /rcst/rcst_sh/copy_message0.sh & > /dev/null
+59 23 * * * sh /rcst/rcst_sh/mem_reclaim.sh & > /dev/null

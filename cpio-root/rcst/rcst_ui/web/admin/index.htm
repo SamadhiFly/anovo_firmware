@@ -1,0 +1,15 @@
+<html>
+<script src="/script/jquery-1.8.3.js"></script>
+<script src="/script/rcst-type.js"></script>
+<body style="background-color: black">
+	<a style="color: white; text-decoration: none" href="/admin/home.html">GOAHEAD - RCST Configuration Interface</a>
+</body>
+</html>
+<script>
+	rcstTypeGet();
+	if (locked == 1){
+		window.location.href="/admin/guide/install-type.htm";
+	}else{
+		window.location.href="/admin/home.htm";
+	}
+</script>

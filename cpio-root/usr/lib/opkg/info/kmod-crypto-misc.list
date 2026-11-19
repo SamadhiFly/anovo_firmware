@@ -1,0 +1,15 @@
+/lib/modules/4.14.111/blowfish_common.ko
+/lib/modules/4.14.111/twofish_generic.ko
+/lib/modules/4.14.111/anubis.ko
+/lib/modules/4.14.111/cast5_generic.ko
+/lib/modules/4.14.111/twofish_common.ko
+/lib/modules/4.14.111/camellia_generic.ko
+/lib/modules/4.14.111/cast6_generic.ko
+/lib/modules/4.14.111/blowfish_generic.ko
+/etc/modules.d/10-crypto-misc
+/lib/modules/4.14.111/wp512.ko
+/lib/modules/4.14.111/tea.ko
+/lib/modules/4.14.111/cast_common.ko
+/lib/modules/4.14.111/tgr192.ko
+/lib/modules/4.14.111/khazad.ko
+/lib/modules/4.14.111/serpent_generic.ko
